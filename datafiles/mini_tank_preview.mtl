@@ -1,0 +1,26 @@
+# Blender MTL File: 'mini_tank_preview.blend'
+# Material Count: 2
+
+newmtl Material.001
+Ns 343.933892
+Ka 0.700000 0.700000 0.700000
+Kd 0.016030 0.016030 0.016030
+Ks 0.618182 0.618182 0.618182
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump textures/rail_source.png
+map_A textures/rail_ambient.png
+
+newmtl Tank_Material
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.600000 0.600000 0.600000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump textures/normal_map.png
+map_Kd textures/diffuse_map.png

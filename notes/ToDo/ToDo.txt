@@ -1,0 +1,4 @@
+- condense player and camera object into one
+- import gmLive
+- try to import some lighting objects (?)
+- import collision system (?)

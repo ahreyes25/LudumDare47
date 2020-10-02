@@ -1,0 +1,152 @@
+FINAL DESTINATION THE GAME
+
+///////////////////////////////////////
+OVERVIEW
+///////////////////////////////////////
+- grid based game
+- player interacts with world by placing
+different items or entities into the world
+- game plays itself out once you press play
+- "make it look like a freak accident"
+- game starts in the middle of an intersection
+	- mid-action state
+- street is 5 lanes in total, 2 each direction and 1 turning
+
+///////////////////////////////////////
+GAMEPLAY LOOP
+///////////////////////////////////////
+- x rounds
+- give y number of objectives
+- at the end of all rounds, also display damage and deaths done
+- rate the player based off of efficiency and damage/deaths
+	- gracious, vengful, etc.
+
+- active objective:
+	- save x persons life
+	- save everyones life
+	- etc.
+
+- passive objectives:	
+	- prevent as much damage
+	- deal as much damage
+
+///////////////////////////////////////
+OTHER IDEAS
+///////////////////////////////////////
+- car always tries to come to a stop if possible
+- zero spaces away = crushed
+- one space away = full impact
+- two spaces away = minor impact
+	- different car weights impact speed
+
+- items:
+	- falling piano
+		- takes a few turns to fall
+		- can crush objects
+	- traffic cone / traffice barricade
+		- placed instantly
+		- redirect traffic?
+	- car 
+		- drive in from offscreen (place instantly?)
+		- designate direction
+	- person
+		- placed instantly (come in from building?)
+		- designate direction
+
+///////////////////////////////////////
+ASTHETICS & JUICE
+///////////////////////////////////////
+- humans are pixel art
+- everything else will 3D models
+- output narrative at the end of each round
+	- x person was hurt
+	- car crashed while reading text messages
+	- drive was drunk
+	- etc
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- infinite runner hallway staircase
+
+Deck That You’re Trying To Clear
+    ⁃    Has Obstacle Cards That Take Resources To Solve
+    ⁃    One Sickness Requires 3 Food + 1 Fresh Water
+    ⁃    One Tree Requires 1 Axe + 5 Strength
+    ⁃    Can Ignore Bad Cards, But Their Effects Will Start To Hurt You Slowly Killing You
+    ⁃    Discard Cards To Pass Turn
+    ⁃    Discarded Cards Go Into “Raw Resources” Stash?
+    ⁃    Drawing From Deck Ticks Down Turn Counters For All Active Cards
+
+Your Cards
+    ⁃    Food
+    ⁃    Message In A Bottle
+    ⁃    Tsunami
+    ⁃    Fresh Water
+    ⁃    Pocket Knife
+    ⁃    Etc…
+
+Their Cards
+    ⁃    Palm Tree
+    ⁃    Infinite Turns
+    ⁃    Resolve: 1 Axe + 5 Strength
+    ⁃    Reward: 10 Wood
+    ⁃    Negative: None
+
+    ⁃    Tsunami
+    ⁃    5 Turns
+    ⁃    Resolve: 3 Shelter
+    ⁃    Reward: Fresh Water
+    ⁃    Negative: -100 Health
