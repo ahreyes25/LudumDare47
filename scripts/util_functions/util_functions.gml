@@ -95,7 +95,7 @@ function grid_check_for(_entity, _u, _v, _dir, _dist) {
 			}
 			break;
 		case DIR.LEFT:
-			for (var i = _u - 1; i >= _u - _dist; i++) {
+			for (var i = _u - 1; i >= _u - _dist; i--) {
 				if (grid_in_bounds(_grid, i, _v)) {
 					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
 						_i =  i;
@@ -108,7 +108,7 @@ function grid_check_for(_entity, _u, _v, _dir, _dist) {
 		case DIR.UP:
 			for (var j = _v - 1; j >= _v - _dist; j--) {
 				if (grid_in_bounds(_grid, _u, j)) {
-					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
+					if ((_enum == undefined && _grid[# _u, j] != _empty_value) || _grid[# _u, j] == _enum) {
 						_i = _u;
 						_j =  j;
 						break;
@@ -119,7 +119,7 @@ function grid_check_for(_entity, _u, _v, _dir, _dist) {
 		case DIR.DOWN:
 			for (var j = _v + 1; j <= _v + _dist; j++) {
 				if (grid_in_bounds(_grid, _u, j)) {
-					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
+					if ((_enum == undefined && _grid[# _u, j] != _empty_value) || _grid[# _u, j] == _enum) {
 						_i = _u;
 						_j =  j;
 						break;

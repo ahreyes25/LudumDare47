@@ -30,7 +30,13 @@
     {"isDnD":false,"eventNum":0,"eventType":12,"collisionObjectId":null,"parent":{"name":"obj_car","path":"objects/obj_car/obj_car.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
-    {"varType":0,"value":"DIR.NONE","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"facing","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":6,"value":"DIR.RIGHT","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "DIR.LEFT",
+        "DIR.RIGHT",
+        "DIR.UP",
+        "DIR.DOWN",
+        "DIR.NONE",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"facing","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

@@ -12,22 +12,6 @@ list			= ds_list_create();
 update_uvs();
 store_in_grid();
 
-get_stoplight	= function(_dir, _dist) {
-	switch (_dir) {
-		case DIR.RIGHT:	return collision_line(x, y, x + UNIT_SIZE * _dist, y, obj_stoplight, false, false);	break;
-		case DIR.LEFT:	return collision_line(x, y, x - UNIT_SIZE * _dist, y, obj_stoplight, false, false);	break;
-		case DIR.UP:	return collision_line(x, y, x, y - UNIT_SIZE * _dist, obj_stoplight, false, false);	break;
-		case DIR.DOWN:	return collision_line(x, y, x, y + UNIT_SIZE * _dist, obj_stoplight, false, false);	break;
-	}
-}
-get_car			= function(_dir, _dist) {
-	switch (_dir) {
-		case DIR.RIGHT:	return collision_line(x, y, x + UNIT_SIZE * _dist, y, obj_car, false, true);	break;
-		case DIR.LEFT:	return collision_line(x, y, x - UNIT_SIZE * _dist, y, obj_car, false, true);	break;
-		case DIR.UP:	return collision_line(x, y, x, y - UNIT_SIZE * _dist, obj_car, false, true);	break;
-		case DIR.DOWN:	return collision_line(x, y, x, y + UNIT_SIZE * _dist, obj_car, false, true);	break;
-	}
-}
 check_for_brake	= function() {
 	// Check For Cars To Start Braking
 	ds_list_clear(list);
@@ -54,13 +38,21 @@ check_for_brake	= function() {
 				var _stoplight_coords	= world_to_grid(_stoplight.x, _stoplight.y);
 				var _stoplight_u		= _stoplight_coords[0];
 				var _stoplight_v		= _stoplight_coords[1];
-				var _dist				= abs(u - _stoplight_u);
 	
-				if (u != _stoplight_u && _stoplight.light == "red")  {
+				if (facing == DIR.LEFT || facing == DIR.RIGHT) {
+					var _dist	= abs(u - _stoplight_u);
+					var _not_in = (u != _stoplight_u);
+				}
+				else {
+					var _dist	= abs(v - _stoplight_v);
+					var _not_in = (v != _stoplight_v);
+				}
+				
+				if (_not_in && _stoplight.light == "red")  {
 					action = brake;
 					state  = "brake";
 				}
-				else if (u != _stoplight_u && _stoplight.light == "yellow") {
+				else if (_not_in && _stoplight.light == "yellow") {
 					switch (facing) {
 						case DIR.RIGHT:
 							if (u < _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum) {
