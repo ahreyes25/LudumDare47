@@ -74,6 +74,16 @@ function grid_adjacent(_grid, _u, _v, _dir) {
 	}
 }
 
+/// @function grid_uv_adjacent(u, v, dir)
+function grid_uv_adjacent(_u, _v, _dir) {
+	switch (_dir) {
+		case DIR.RIGHT: return [_u + 1, _v]; break;
+		case DIR.LEFT:	return [_u - 1, _v]; break;
+		case DIR.UP:	return [_u, _v - 1]; break;
+		case DIR.DOWN:	return [_u, _v + 1]; break;
+	}
+}
+
 /// @function grid_check_for(entity, u, v, dir, dist, specific_entity_enum*)
 function grid_check_for(_entity, _u, _v, _dir, _dist) {
 	var _i				= undefined;

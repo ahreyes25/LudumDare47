@@ -69,7 +69,7 @@ check_for_brake	= function() {
 							break;
 							
 						case DIR.DOWN:
-							if (v < _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
+							if (v < _stoplight_v && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
 								action = brake;
 								state  = "brake";
 							}
@@ -85,6 +85,32 @@ check_for_brake	= function() {
 				}
 			}	
 		}
+	}
+}
+check_for_drive = function() {
+	var _car_pass = false;
+	var _car = grid_adjacent(GRID_CARS, u, v, facing);
+	if (_car == CAR.NONE)
+		_car_pass = true;
+		
+	var _light_pass = false;
+	var _light = grid_adjacent(GRID_LIGHTS, u, v, facing);
+	if (_light == LIGHT.NONE)
+		_light_pass = true;
+	else {
+		ds_list_clear(list);
+		var _light_uv = grid_uv_adjacent(u, v, facing);
+		grid_get_instances_at(ENTITY.STOPLIGHT, _light_uv[0], _light_uv[1], list, false);
+		var _light_inst = list[| 0];
+		if (_light_inst.light == "green")
+			_light_pass = true;
+		else if (_light_inst.light == "yellow" && _light_inst.light_count > 1)
+			_light_pass = true;
+	}
+	
+	if (_car_pass && _light_pass) {
+		action =  drive;
+		state  = "drive";
 	}
 }
 
@@ -108,5 +134,6 @@ brake	= function() {
 }
 idle	= function() {
 	momentum = 0;
+	check_for_drive();
 }
 action	= drive;
