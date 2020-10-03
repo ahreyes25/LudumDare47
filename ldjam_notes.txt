@@ -38,20 +38,25 @@ OTHER IDEAS
 - one space away = full impact
 - two spaces away = minor impact
 	- different car weights impact speed
+- humans try to flee larger accidents
 
 - items:
-	- falling piano
+	- falling piano:
 		- takes a few turns to fall
 		- can crush objects
-	- traffic cone / traffice barricade
+		- people flee if almost hit
+	- traffic cone / traffice barricade:
 		- placed instantly
 		- redirect traffic?
-	- car 
+	- car:
 		- drive in from offscreen (place instantly?)
 		- designate direction
-	- person
+	- person:
 		- placed instantly (come in from building?)
 		- designate direction
+	- manhole:
+		- people could fall in, would try to avoid
+		- car would try to swerve to avoid
 
 ///////////////////////////////////////
 ASTHETICS & JUICE

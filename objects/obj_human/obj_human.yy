@@ -1,9 +1,9 @@
 {
   "spriteId": null,
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
-  "persistent": true,
+  "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
@@ -17,17 +17,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objects/Parents.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_game",
+  "name": "obj_human",
   "tags": [],
   "resourceType": "GMObject",
 }

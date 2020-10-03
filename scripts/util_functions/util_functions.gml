@@ -19,3 +19,16 @@ function draw_sprite_billboard_sphere(_sprite, _subimage, _x, _y, _z) {
     draw_sprite(_sprite, _subimage, 0, 0);
     matrix_set(matrix_world, matrix_build_identity());
 }
+
+/// @function draw_rectangle_alt(x, y, width, height, rot, col, alpha)
+function draw_rectangle_alt(_x, _y, _width, _height, _rot, _col, _alpha) {
+	draw_sprite_ext(spr_white, 0, _x, _y, _width, _height, _rot, _col, _alpha);	
+}
+
+/// @function grid_in_bounds(grid, i, j)
+function grid_in_bounds(_grid, _i, _j) {
+	return (
+		_i >= 0 && _i <= ds_grid_width(_grid)  - 1 &&
+		_j >= 0 && _j <= ds_grid_height(_grid) - 1
+	);	
+}
