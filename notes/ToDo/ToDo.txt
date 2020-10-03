@@ -1,4 +1,11 @@
-- condense player and camera object into one
-- import gmLive
-- try to import some lighting objects (?)
-- import collision system (?)
+- car logic
+	- drive straight, unless something is blocking
+	- different car weights
+	- reactions times
+	- different driver statuses
+	- stop light interactions
+	
+- human logic
+
+- extra ideas
+	- shopping cart in parking lot

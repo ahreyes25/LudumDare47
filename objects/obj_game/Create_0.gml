@@ -1,5 +1,3 @@
-enum PERSPECTIVE { FIRST, THIRD, NONE }
-
 global_game_data();
 //dotobj_init();
 

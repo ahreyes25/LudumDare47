@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"9cf0f4ce-cc65-42eb-812f-18fe6547dd12","path":"sprites/spr_grass/spr_grass.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"9cf0f4ce-cc65-42eb-812f-18fe6547dd12","path":"sprites/spr_grass/spr_grass.yy",},"LayerId":{"name":"e017aa7f-e43e-4fea-8a7a-c7c639820660","path":"sprites/spr_grass/spr_grass.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_grass","path":"sprites/spr_grass/spr_grass.yy",},"resourceVersion":"1.0","name":"9cf0f4ce-cc65-42eb-812f-18fe6547dd12","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"f129c13a-8cca-4535-b288-7648bff198d7","path":"sprites/spr_stoplight/spr_stoplight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"f129c13a-8cca-4535-b288-7648bff198d7","path":"sprites/spr_stoplight/spr_stoplight.yy",},"LayerId":{"name":"22a969e5-65cf-4747-934c-24e1f96b0f83","path":"sprites/spr_stoplight/spr_stoplight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_stoplight","path":"sprites/spr_stoplight/spr_stoplight.yy",},"resourceVersion":"1.0","name":"f129c13a-8cca-4535-b288-7648bff198d7","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_grass","path":"sprites/spr_grass/spr_grass.yy",},
+    "spriteId": {"name":"spr_stoplight","path":"sprites/spr_stoplight/spr_stoplight.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5cd20654-a8b1-4eab-81dd-645c85364220","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9cf0f4ce-cc65-42eb-812f-18fe6547dd12","path":"sprites/spr_grass/spr_grass.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3a4380f7-bd3d-454d-a147-fc581f3b4b44","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f129c13a-8cca-4535-b288-7648bff198d7","path":"sprites/spr_stoplight/spr_stoplight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_grass","path":"sprites/spr_grass/spr_grass.yy",},
+    "parent": {"name":"spr_stoplight","path":"sprites/spr_stoplight/spr_stoplight.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_grass",
+    "name": "spr_stoplight",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e017aa7f-e43e-4fea-8a7a-c7c639820660","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"22a969e5-65cf-4747-934c-24e1f96b0f83","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Environment",
-    "path": "folders/Sprites/Environment.yy",
+    "name": "Entities",
+    "path": "folders/Sprites/Entities.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_grass",
+  "name": "spr_stoplight",
   "tags": [],
   "resourceType": "GMSprite",
 }
