@@ -8,16 +8,11 @@ move_speed		= 1;
 stoplight		= noone;
 action			= undefined;
 state			= "drive";
-ds_list_add(LIST_ENTITIES, id);
+list			= ds_list_create();
 
-move			= function(_move_speed, _dir) {
-	switch (_dir) {
-		case DIR.RIGHT:	x += UNIT_SIZE * move_speed;	break;
-		case DIR.LEFT:	x -= UNIT_SIZE * move_speed;	break;
-		case DIR.UP:	y -= UNIT_SIZE * move_speed;	break;
-		case DIR.DOWN:	y += UNIT_SIZE * move_speed;	break;
-	}
-}
+update_uvs();
+store_in_grid();
+
 get_stoplight	= function(_dir, _dist) {
 	switch (_dir) {
 		case DIR.RIGHT:	return collision_line(x, y, x + UNIT_SIZE * _dist, y, obj_stoplight, false, false);	break;
@@ -35,6 +30,9 @@ get_car			= function(_dir, _dist) {
 	}
 }
 check_for_brake	= function() {
+	var _car_coords = grid_check_for(ENTITY.CAR, u, v, facing, momentum + 1);
+	var _car = grid_get_inst_at(ENTITY.CAR, _car_coords[0], _car_coords[1]);
+	
 	var _car = get_car(facing, momentum + 1);
 	if (_car != noone && (_car.state == "brake" || _car.state == "idle"))  {
 		action = brake;
@@ -54,25 +52,25 @@ check_for_brake	= function() {
 		else if (stoplight.light == "yellow") {
 			switch (facing) {
 				case DIR.RIGHT:
-					if (u_curr < _stoplight_u && abs(u_curr - _stoplight_u) - 1 >= momentum) {
+					if (u < _stoplight_u && abs(u - _stoplight_u) - 1 >= momentum) {
 						action = brake;
 						state  = "brake";
 					}
 					break;
 				case DIR.LEFT:
-					if (u_curr > _stoplight_u && abs(u_curr - _stoplight_u) - 1 >= momentum) {
+					if (u > _stoplight_u && abs(u - _stoplight_u) - 1 >= momentum) {
 						action = brake;
 						state  = "brake";
 					}
 					break;
 				case DIR.DOWN:
-					if (v_curr < _stoplight_u && abs(v_curr - _stoplight_v) - 1 >= momentum) {
+					if (v < _stoplight_u && abs(v - _stoplight_v) - 1 >= momentum) {
 						action = brake;
 						state  = "brake";
 					}
 					break;
 				case DIR.UP:
-					if (v_curr > _stoplight_v && abs(v_curr - _stoplight_v) - 1 >= momentum) {
+					if (v > _stoplight_v && abs(v - _stoplight_v) - 1 >= momentum) {
 						action = brake;
 						state  = "brake";
 					}
@@ -109,15 +107,8 @@ brake	= function() {
 	
 	// Momentum Exhausted
 	if (momentum <= 0) {
-		if (adjacent_free(facing)) {
-			action = drive;
-			state  = "drive";
-			//move(1, facing);
-		}
-		else {
-			action = idle;
-			state  = "idle";
-		}
+		action = idle;
+		state  = "idle";
 	}
 }
 idle	= function() {

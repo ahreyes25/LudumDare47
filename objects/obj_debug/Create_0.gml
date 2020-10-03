@@ -4,7 +4,7 @@ structures = [
 	[LIST_ENTITIES,		"list", "entities"],
 	[GRID_ENVIRONMENT,	"grid", "environment"],
 	[GRID_CARS,			"grid", "cars"],
-	[GRID_HUMANS,		"grid", "humans"],
+	[GRID_CHARS,		"grid", "chars"],
 	[GRID_LIGHTS,		"grid", "lights"],
 ];
 structure_index = 0;

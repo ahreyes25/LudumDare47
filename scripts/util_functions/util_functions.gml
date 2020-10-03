@@ -51,9 +51,9 @@ function grid_to_world(_u, _v) {
 function clear_structures()  {
 	ds_list_clear(LIST_ENTITIES);
 	ds_grid_clear(GRID_ENVIRONMENT, ENVIRONMENT.ROAD);
-	ds_grid_clear(GRID_LIGHTS, 0);
-	ds_grid_clear(GRID_CARS, 0);		
-	ds_grid_clear(GRID_HUMANS, 0);		
+	ds_grid_clear(GRID_LIGHTS,		LIGHT.NONE);
+	ds_grid_clear(GRID_CARS,		CAR.NONE);		
+	ds_grid_clear(GRID_CHARS,		CHAR.NONE);		
 }
 
 /// @function resize_grids(width, height)
@@ -61,7 +61,7 @@ function resize_grids(_width, _height) {
 	ds_grid_resize(GRID_ENVIRONMENT, _width, _height);
 	ds_grid_resize(GRID_LIGHTS,		 _width, _height);
 	ds_grid_resize(GRID_CARS,		 _width, _height);
-	ds_grid_resize(GRID_HUMANS,		 _width, _height);
+	ds_grid_resize(GRID_CHARS,		 _width, _height);
 }
 	
 /// @function grid_adjacent(grid, u, v, dir)
@@ -74,48 +74,99 @@ function grid_adjacent(_grid, _u, _v, _dir) {
 	}
 }
 
-/// @function grid_check_for(grid, u, v, dir, dist, enum)
-function grid_check_for(_grid, _u, _v, _dir, _dist, _enum) {
-	var _i = undefined;
-	var _j = undefined;
+/// @function grid_check_for(entity, u, v, dir, dist, specific_entity_enum*)
+function grid_check_for(_entity, _u, _v, _dir, _dist) {
+	var _i				= undefined;
+	var _j				= undefined;
+	var _enum			= argument_count == 6 ? argument[5] : undefined;
+	var _grid			= grid_get_grid(_entity);
+	var _empty_value	= grid_get_empty_value(_entity);
 	
 	switch (_dir) {
 		case DIR.RIGHT:
 			for (var i = _u; i < _u + _dist; i++) {
-				if (_grid[# i, _v] == _enum) {
-					_i =  i;
-					_j = _v;
-					break;
-				}
+				if (grid_in_bounds(_grid, i, _v)) {
+					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
+						_i =  i;
+						_j = _v;
+						break;
+					}
+				} else break;
 			}
 			break;
 		case DIR.LEFT:
 			for (var i = _u; i > _u - _dist; i++) {
-				if (_grid[# i, _v] == _enum) {
-					_i =  i;
-					_j = _v;
-					break;
-				}
+				if (grid_in_bounds(_grid, i, _v)) {
+					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
+						_i =  i;
+						_j = _v;
+						break;
+					}
+				} else break;
 			}
 			break;
 		case DIR.UP:
 			for (var j = _v; j > _v - _dist; j--) {
-				if (_grid[# _u, j] == _enum) {
-					_i = _u;
-					_j =  j;
-					break;
-				}
+				if (grid_in_bounds(_grid, _u, j)) {
+					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
+						_i = _u;
+						_j =  j;
+						break;
+					}
+				} else break;
 			}
 			break;
 		case DIR.DOWN:
 			for (var j = _v; j < _v + _dist; j++) {
-				if (_grid[# _u, j] == _enum) {
-					_i = _u;
-					_j =  j;
-					break;
-				}
+				if (grid_in_bounds(_grid, _u, j)) {
+					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
+						_i = _u;
+						_j =  j;
+						break;
+					}
+				} else break;
 			}
 			break;
 	}
 	return [_i, _j];
+}
+	
+/// @function grid_get_inst_at(entity, u, v, list, notme)
+function grid_get_inst_at(_entity, _u, _v, _list, _notme) {
+	var _coords = grid_to_world(_u, _v);
+	var _count	= collision_rectangle_list(_coords[0] + 1, _coords[1] + 1, _coords[0] + UNIT_SIZE - 1, _coords[1] + UNIT_SIZE - 1, obj_entity, false, _notme, _list, false);
+	
+	for (var i = _count - 1; i >= 0; i--) {
+		var _inst = _list[| i];
+		if (_inst.entity != _entity)
+			ds_list_delete(_list, i);
+	}
+}
+
+/// @function grid_get_entities_at(entity, u, v)
+function grid_get_entities_at(_entity, _u, _v) {
+	switch (_entity) {
+		case ENTITY.CAR:		return GRID_CARS[# _u, _v];		break;
+		case ENTITY.CHAR:		return GRID_CHARS[# _u, _v];	break;
+		case ENTITY.STOPLIGHT:	return GRID_LIGHTS[# _u, _v];	break;
+	}
+}
+
+/// @function grid_get_empty_value(entity)
+function grid_get_empty_value(_entity) {
+	switch (_entity) {
+		case ENTITY.CAR:		return CAR.NONE;
+		case ENTITY.CHAR:		return CHAR.NONE;
+		case ENTITY.STOPLIGHT:	return LIGHT.NONE;
+		default:				return 0;
+	}
+}
+	
+/// @function grid_get_grid(entity)
+function grid_get_grid(_entity) {
+	switch (_entity) {
+		case ENTITY.CAR:		return GRID_CARS;	break;
+		case ENTITY.CHAR:		return GRID_CHARS;	break;
+		case ENTITY.STOPLIGHT:	return GRID_LIGHTS;	break;
+	}
 }

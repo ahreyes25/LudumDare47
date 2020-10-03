@@ -1,7 +1,10 @@
 enum PERSPECTIVE { FIRST, THIRD, NONE }
 enum DIR { LEFT = -1, RIGHT = 1, UP, DOWN, NONE }
 enum ENVIRONMENT { SIDEWALK, ROAD, BUILDING, GRASS, PARKING_LOT, TURNING_LANE, CROSS_WALK }
-enum ENTITY { CAR, HUMAN, NONE }
+enum ENTITY { CAR, CHAR, STOPLIGHT, NONE }
+enum CAR { BASIC, NONE }
+enum CHAR { GUY_BASIC, GIRL_BASIC, GUY_SPORTS, GIRL_SPORTS, MAILMAN, DOG, NONE }
+enum LIGHT { BASIC, NONE }
 
 display_reset(8, true);
 
@@ -23,9 +26,9 @@ global.list_entities		= ds_list_create();
 global.grid_environment		= ds_grid_create(1, 1);
 global.grid_lights			= ds_grid_create(1, 1);
 global.grid_cars			= ds_grid_create(1, 1);
-global.grid_humans			= ds_grid_create(1, 1);
+global.grid_chars			= ds_grid_create(1, 1);
 #macro LIST_ENTITIES		global.list_entities
 #macro GRID_ENVIRONMENT		global.grid_environment
 #macro GRID_LIGHTS			global.grid_lights
 #macro GRID_CARS			global.grid_cars
-#macro GRID_HUMANS			global.grid_humans
+#macro GRID_CHARS			global.grid_chars
