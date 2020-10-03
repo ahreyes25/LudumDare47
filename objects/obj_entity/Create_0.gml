@@ -1,6 +1,8 @@
-entity	= undefined;
-u		= undefined;
-v		= undefined;
+entity		= undefined;
+u			= undefined;
+v			= undefined;
+target_x	= x;
+target_y	= y;
 ds_list_add(LIST_ENTITIES, id);
 
 move			= function(_amount, _dir) {
@@ -10,28 +12,28 @@ move			= function(_amount, _dir) {
 	switch (_dir) {
 		case DIR.RIGHT:
 			_grid[# u, v] = _empty_value;
-			x += UNIT_SIZE * _amount;	
+			target_x += UNIT_SIZE * _amount;	
 			u += _amount;
 			_grid[# u, v] = entity;
 			break;
 			
 		case DIR.LEFT:	
 			_grid[# u, v] = _empty_value;
-			x -= UNIT_SIZE * _amount;	
+			target_x -= UNIT_SIZE * _amount;	
 			u -= _amount;
 			_grid[# u, v] = entity;
 			break;
 			
 		case DIR.UP:	
 			_grid[# u, v] = _empty_value;
-			y -= UNIT_SIZE * _amount;	
+			target_y -= UNIT_SIZE * _amount;	
 			v -= _amount;
 			_grid[# u, v] = entity;
 			break;
 			
 		case DIR.DOWN:	
 			_grid[# u, v] = _empty_value;
-			y += UNIT_SIZE * _amount;	
+			target_y += UNIT_SIZE * _amount;	
 			v += _amount;
 			_grid[# u, v] = entity;
 			break;

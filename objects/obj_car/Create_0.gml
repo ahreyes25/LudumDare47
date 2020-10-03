@@ -55,28 +55,28 @@ check_for_brake	= function() {
 				else if (_not_in && _stoplight.light == "yellow") {
 					switch (facing) {
 						case DIR.RIGHT:
-							if (u < _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum) {
+							if (u < _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
 								action = brake;
 								state  = "brake";
 							}
 							break;
 							
 						case DIR.LEFT:
-							if (u > _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum) {
+							if (u > _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
 								action = brake;
 								state  = "brake";
 							}
 							break;
 							
 						case DIR.DOWN:
-							if (v < _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum) {
+							if (v < _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
 								action = brake;
 								state  = "brake";
 							}
 							break;
 							
 						case DIR.UP:
-							if (v > _stoplight_v && _dist - 1 >= momentum && _stoplight.light_count <= momentum) {
+							if (v > _stoplight_v && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
 								action = brake;
 								state  = "brake";
 							}

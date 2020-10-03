@@ -1,13 +1,20 @@
 - car logic
-	- drive straight, unless something is blocking
-	- different car weights
-	- reactions times
-	- different driver statuses
-	- stop light interactions
+	- start again once space is clear
+	- right hand turn
+	- left hand turn
+	- crashing
+	
+	- emergency stopping??
 	
 - human logic
+	- walking on sidewalks
+	- crossing streets
+	- going in/out of buildings
+
 - LERP EVERYTHING
 
 - extra ideas
 	- shopping cart in parking lot
+	- car reactions times
+	- different driver statuses
 	
