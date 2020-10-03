@@ -22,9 +22,9 @@ state.change(car_state_idle);
 
 check_for_stoplight = function() {
 	switch (facing) {
-		case DIR.RIGHT:	return [DIR.RIGHT,	collision_line(x + UNIT_SIZE / 2, y, x + (UNIT_SIZE / 2) + sight_dist_calm, y, obj_stoplight, false, false)];	break;
-		case DIR.LEFT:	return [DIR.LEFT,	collision_line(x - UNIT_SIZE / 2, y, x - (UNIT_SIZE / 2) - sight_dist_calm, y, obj_stoplight, false, false)];	break;
-		case DIR.UP:	return [DIR.UP,		collision_line(x, y - UNIT_SIZE / 2, x, y - (UNIT_SIZE / 2) - sight_dist_calm, obj_stoplight, false, false)];	break;
-		case DIR.DOWN:	return [DIR.DOWN,	collision_line(x, y + UNIT_SIZE / 2, x, y + (UNIT_SIZE / 2) + sight_dist_calm, obj_stoplight, false, false)];	break;
+		case DIR.RIGHT:	return collision_line(x + UNIT_SIZE / 2, y, x + (UNIT_SIZE / 2) + sight_dist_calm, y, obj_stoplight, false, false);	break;
+		case DIR.LEFT:	return collision_line(x - UNIT_SIZE / 2, y, x - (UNIT_SIZE / 2) - sight_dist_calm, y, obj_stoplight, false, false);	break;
+		case DIR.UP:	return collision_line(x, y - UNIT_SIZE / 2, x, y - (UNIT_SIZE / 2) - sight_dist_calm, obj_stoplight, false, false);	break;
+		case DIR.DOWN:	return collision_line(x, y + UNIT_SIZE / 2, x, y + (UNIT_SIZE / 2) + sight_dist_calm, obj_stoplight, false, false);	break;
 	}	
 }

@@ -9,8 +9,8 @@ function car_states_init() {
 	#region Idle
 	car_state_idle._enter		= function() {
 		// Snap To Grid Space
-		x		= (x div UNIT_SIZE) * UNIT_SIZE + UNIT_SIZE / 2;
-		y		= (y div UNIT_SIZE) * UNIT_SIZE + UNIT_SIZE / 2;
+		//x		= (x div UNIT_SIZE) * UNIT_SIZE + UNIT_SIZE / 2;
+		//y		= (y div UNIT_SIZE) * UNIT_SIZE + UNIT_SIZE / 2;
 		hspd	= 0;
 		vspd	= 0;
 		stop_target_x = undefined;
@@ -30,13 +30,11 @@ function car_states_init() {
 			case DIR.DOWN:	vspd = lerp(vspd,  move_speed, accel);	break;	
 		}
 		
-		var _stoplight_data = check_for_stoplight();
-		var _stoplight		= _stoplight_data[1];
-		var _stoplight_dir	= _stoplight_data[0];
+		var _stoplight = check_for_stoplight();
 		if (_stoplight != noone && (_stoplight.light == "red" || _stoplight.light == "yellow")) {
 			#region Start Coasting Towards Red Light
 			if (_stoplight.light == "red") {
-				switch (_stoplight_dir) {
+				switch (facing) {
 					case DIR.RIGHT:	stop_target_x = _stoplight.x - UNIT_SIZE / 2;	break;
 					case DIR.LEFT:	stop_target_x = _stoplight.x + UNIT_SIZE / 2;	break;
 					case DIR.UP:	stop_target_y = _stoplight.y + UNIT_SIZE / 2;	break;
@@ -46,7 +44,16 @@ function car_states_init() {
 			#endregion
 			#region Check To See If We Can Run Yellow Light Safely
 			else if (_stoplight.light == "yellow") {
-				
+				switch (facing) {
+					case DIR.RIGHT:	
+						var _stop_target_x = _stoplight.x;
+						var _time_to_stop  = abs(_stop_target_x - x) / hspd;
+						if (_time_to_stop > _stoplight.alarm[0]) {
+							stop_target_x = _stoplight.x - UNIT_SIZE / 2;
+							state.change(car_state_coast);
+						}
+						break;
+				}
 			}
 			#endregion
 		}
@@ -61,12 +68,14 @@ function car_states_init() {
 		hspd = lerp(hspd, 0, fric);
 		vspd = lerp(vspd, 0, fric);
 		
-		if (stop_target_x != undefined) {
-			var _time_to_stop = hspd / brake_speed_soft;
-			var _dist = _time_to_stop * hspd;
-			
-			if (abs(stop_target_x - x) < _dist + UNIT_SIZE / 4)
-				state.change(car_state_brake_soft);
+		switch (facing) {
+			case DIR.RIGHT:
+				var _time_to_stop  = abs(stop_target_x - x) / hspd;
+				if (_time_to_stop > _stoplight.alarm[0]) {
+					stop_target_x = _stoplight.x - UNIT_SIZE / 2;
+					state.change(car_state_coast);
+				}
+				break;
 		}
 	}
 	car_state_coast._exit		= function() {}
