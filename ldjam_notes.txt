@@ -63,90 +63,15 @@ ASTHETICS & JUICE
 	- car crashed while reading text messages
 	- drive was drunk
 	- etc
-		
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- infinite runner hallway staircase
-
-Deck That You’re Trying To Clear
-    ⁃    Has Obstacle Cards That Take Resources To Solve
-    ⁃    One Sickness Requires 3 Food + 1 Fresh Water
-    ⁃    One Tree Requires 1 Axe + 5 Strength
-    ⁃    Can Ignore Bad Cards, But Their Effects Will Start To Hurt You Slowly Killing You
-    ⁃    Discard Cards To Pass Turn
-    ⁃    Discarded Cards Go Into “Raw Resources” Stash?
-    ⁃    Drawing From Deck Ticks Down Turn Counters For All Active Cards
-
-Your Cards
-    ⁃    Food
-    ⁃    Message In A Bottle
-    ⁃    Tsunami
-    ⁃    Fresh Water
-    ⁃    Pocket Knife
-    ⁃    Etc…
-
-Their Cards
-    ⁃    Palm Tree
-    ⁃    Infinite Turns
-    ⁃    Resolve: 1 Axe + 5 Strength
-    ⁃    Reward: 10 Wood
-    ⁃    Negative: None
-
-    ⁃    Tsunami
-    ⁃    5 Turns
-    ⁃    Resolve: 3 Shelter
-    ⁃    Reward: Fresh Water
-    ⁃    Negative: -100 Health
+///////////////////////////////////////
+3D Models
+///////////////////////////////////////
+- Base model With Buildings
+- Cars: Bus, Steam Roller, garbage Truck, Cement Truck
+- Light poles
+- Traffic Lights
+- Tree
+- Bush
+- Traffic Cone
+- Grand Piano

@@ -1,5 +1,6 @@
 show_debug_overlay(true);
 
+/*
 axis_x	= vertex_create_buffer();
 axis_y	= vertex_create_buffer();
 axis_z	= vertex_create_buffer();
