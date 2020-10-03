@@ -114,10 +114,13 @@ capture_environment	= function() {
 	ds_list_destroy(_list);
 }
 act_on_entities		= function() {
-	for (var i = 0; i < ds_list_size(LIST_ENTITIES); i++) {
+	for (var i = ds_list_size(LIST_ENTITIES) - 1; i >= 0; i--) {
 		var _entity = LIST_ENTITIES[| i];
-		if (instance_exists(_entity) && _entity.action != undefined)
+		var _exists = instance_exists(_entity);
+		if (_exists && _entity.action != undefined)
 			_entity.action();
+		else if (!_exists)
+			ds_list_delete(LIST_ENTITIES, i);
 	}	
 }
 

@@ -20,7 +20,7 @@ check_for_brake	= function() {
 		grid_get_instances_at(ENTITY.CAR, _car_coords[0], _car_coords[1], list, true);
 		var _car = list[| 0];
 		
-		if (_car != noone && _car != undefined && (_car.state == "brake" || _car.state == "idle"))  {
+		if (_car != noone && _car != undefined && (_car.momentum < _car.max_momentum))  {
 			action = brake;
 			state  = "brake";
 		}
@@ -86,19 +86,6 @@ check_for_brake	= function() {
 			}	
 		}
 	}
-}
-adjacent_free	= function(_dir) {
-	switch (_dir) {
-		case DIR.RIGHT:		
-			var _car		= collision_line(x, y, x + UNIT_SIZE, y, obj_car, false, true);
-			var _stoplight	= collision_line(x, y, x + UNIT_SIZE, y, obj_stoplight, false, false);
-			break;
-	}
-	var _open = (
-		_car == noone && 
-		(_stoplight == noone || _stoplight.light != "red")
-	);
-	return _open;
 }
 
 drive	= function() {

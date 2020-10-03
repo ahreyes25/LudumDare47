@@ -6,6 +6,8 @@
 	- stop light interactions
 	
 - human logic
+- LERP EVERYTHING
 
 - extra ideas
 	- shopping cart in parking lot
+	
