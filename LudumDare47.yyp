@@ -9,7 +9,6 @@
     {"id":{"name":"obj_car","path":"objects/obj_car/obj_car.yy",},"order":2,},
     {"id":{"name":"shdr_billboard_cylinder","path":"shaders/shdr_billboard_cylinder/shdr_billboard_cylinder.yy",},"order":1,},
     {"id":{"name":"util_functions","path":"scripts/util_functions/util_functions.yy",},"order":1,},
-    {"id":{"name":"car_states","path":"scripts/car_states/car_states.yy",},"order":4,},
     {"id":{"name":"shdr_billboard_sphere","path":"shaders/shdr_billboard_sphere/shdr_billboard_sphere.yy",},"order":2,},
     {"id":{"name":"gm_live","path":"notes/gm_live/gm_live.yy",},"order":1,},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},"order":1,},

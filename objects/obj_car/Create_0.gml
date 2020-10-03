@@ -8,35 +8,7 @@ move_speed		= 1;
 stoplight		= noone;
 action			= undefined;
 state			= "drive";
-
-drive	= function() {
-	if (momentum < max_momentum)
-		momentum++;
-	
-	check_for_brake();
-	move(move_speed, facing);	
-}
-brake	= function() {
-	if (momentum > 1)
-		move(1, facing);	
-	momentum--;		
-	
-	// Momentum Exhausted
-	if (momentum <= 0) {
-		if (adjacent_free(facing)) {
-			action = drive;
-			state  = "drive";
-			//move(1, facing);
-		}
-		else {
-			action = idle;
-			state  = "idle";
-		}
-	}
-}
-idle	= function() {
-	momentum = 0;
-}
+ds_list_add(LIST_ENTITIES, id);
 
 move			= function(_move_speed, _dir) {
 	switch (_dir) {
@@ -123,20 +95,32 @@ adjacent_free	= function(_dir) {
 	return _open;
 }
 
-action = drive;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+drive	= function() {
+	if (momentum < max_momentum)
+		momentum++;
+	
+	check_for_brake();
+	move(move_speed, facing);	
+}
+brake	= function() {
+	if (momentum > 1)
+		move(1, facing);	
+	momentum--;		
+	
+	// Momentum Exhausted
+	if (momentum <= 0) {
+		if (adjacent_free(facing)) {
+			action = drive;
+			state  = "drive";
+			//move(1, facing);
+		}
+		else {
+			action = idle;
+			state  = "idle";
+		}
+	}
+}
+idle	= function() {
+	momentum = 0;
+}
+action	= drive;

@@ -1,5 +1,7 @@
 enum PERSPECTIVE { FIRST, THIRD, NONE }
 enum DIR { LEFT = -1, RIGHT = 1, UP, DOWN, NONE }
+enum ENVIRONMENT { SIDEWALK, ROAD, BUILDING, GRASS, PARKING_LOT, TURNING_LANE, CROSS_WALK }
+enum ENTITY { CAR, HUMAN, NONE }
 
 display_reset(8, true);
 
@@ -12,8 +14,18 @@ gpu_set_tex_repeat(true);
 //gpu_set_tex_mip_filter(tf_anisotropic);
 //gpu_set_tex_max_aniso(16);
 
-global.camera_perspective = PERSPECTIVE.FIRST;
-#macro CAMERA_PERSPECTIVE global.camera_perspective
+global.camera_perspective	= PERSPECTIVE.FIRST;
+global.unit_size			= 24;
+#macro CAMERA_PERSPECTIVE	global.camera_perspective
+#macro UNIT_SIZE			global.unit_size
 
-global.unit_size = 24;
-#macro UNIT_SIZE global.unit_size
+global.list_entities		= ds_list_create();
+global.grid_environment		= ds_grid_create(1, 1);
+global.grid_lights			= ds_grid_create(1, 1);
+global.grid_cars			= ds_grid_create(1, 1);
+global.grid_humans			= ds_grid_create(1, 1);
+#macro LIST_ENTITIES		global.list_entities
+#macro GRID_ENVIRONMENT		global.grid_environment
+#macro GRID_LIGHTS			global.grid_lights
+#macro GRID_CARS			global.grid_cars
+#macro GRID_HUMANS			global.grid_humans

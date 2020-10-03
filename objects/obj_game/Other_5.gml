@@ -1,1 +1,1 @@
-ds_list_clear(entities);
+clear_structures();

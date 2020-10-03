@@ -8,7 +8,7 @@ light_time_yellow	= 3;
 light_count			= 6;
 
 action				= undefined;
-ds_list_add(obj_game.entities, id);
+ds_list_add(LIST_ENTITIES, id);
 
 // functions
 change_light	= function() {

@@ -1,5 +1,15 @@
 show_debug_overlay(true);
 
+structures = [
+	[LIST_ENTITIES,		"list", "entities"],
+	[GRID_ENVIRONMENT,	"grid", "environment"],
+	[GRID_CARS,			"grid", "cars"],
+	[GRID_HUMANS,		"grid", "humans"],
+	[GRID_LIGHTS,		"grid", "lights"],
+];
+structure_index = 0;
+structures_show	= true;
+
 /*
 axis_x	= vertex_create_buffer();
 axis_y	= vertex_create_buffer();

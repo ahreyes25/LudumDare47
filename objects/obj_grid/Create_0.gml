@@ -1,34 +1,23 @@
-enum UNIT { 
-	SIDEWALK, ROAD, BUILDING, GRASS, PARKING_LOT, 
-	TURNING_LANE, CROSS_WALK,
-}
-enum ENTITY {
-	NONE, CAR, HUMAN	
-}
-
-grid_width			= sprite_width  div UNIT_SIZE;
-grid_height			= sprite_height div UNIT_SIZE;
-environment_grid	= ds_grid_create(grid_width, grid_height);
-entities_grid		= ds_grid_create(grid_width, grid_height);
-quad_size			= 7;
-sidewalk_width		= 1;
-depth				= 100;
-ds_grid_clear(environment_grid, UNIT.ROAD);
-ds_grid_clear(entities_grid, ENTITY.NONE);
+grid_width		= sprite_width  div UNIT_SIZE;
+grid_height		= sprite_height div UNIT_SIZE;
+quad_size		= 7;
+sidewalk_width	= 1;
+depth			= 100;
+action_interval	= 30;
 
 // Functions
-draw_grid		= function() {		
+draw_grid			= function() {		
 	for (var i = 0; i < grid_width; i++) {
 		for (var j = 0; j < grid_height; j++) {
 			var _coords = grid_to_world(i, j);
-			switch (environment_grid[# i, j]) {
-				case UNIT.SIDEWALK:		var _color = c_ltgray;	break;
-				case UNIT.ROAD:			var _color = c_dkgray;	break;
-				case UNIT.BUILDING:		var _color = c_gray;	break;
-				case UNIT.GRASS:		var _color = c_green;	break;
-				case UNIT.PARKING_LOT:	var _color = c_black;	break;
-				case UNIT.TURNING_LANE:	var _color = c_yellow;	break;
-				case UNIT.CROSS_WALK:	var _color = c_orange;	break;
+			switch (GRID_ENVIRONMENT[# i, j]) {
+				case ENVIRONMENT.SIDEWALK:		var _color = c_ltgray;	break;
+				case ENVIRONMENT.ROAD:			var _color = c_dkgray;	break;
+				case ENVIRONMENT.BUILDING:		var _color = c_gray;	break;
+				case ENVIRONMENT.GRASS:			var _color = c_green;	break;
+				case ENVIRONMENT.PARKING_LOT:	var _color = c_black;	break;
+				case ENVIRONMENT.TURNING_LANE:	var _color = c_yellow;	break;
+				case ENVIRONMENT.CROSS_WALK:	var _color = c_orange;	break;
 			}
 			draw_rectangle_alt(_coords[0], _coords[1], UNIT_SIZE, UNIT_SIZE, 0, _color, 1);
 		}
@@ -39,101 +28,102 @@ draw_grid		= function() {
 	for (var j = 0; j <= grid_height; j++)
 		draw_line_color(x, y + j * UNIT_SIZE, x + grid_width * UNIT_SIZE, y + j * UNIT_SIZE, c_black, c_black);	
 }
-
-fill_grid		= function() {
+fill_grid			= function() {
 	for (var i = quad_size + sidewalk_width; i < grid_width - quad_size - sidewalk_width; i++) {	// road
 		for (var j = 0; j < grid_height; j++)
-			environment_grid[# i, j] = UNIT.ROAD;	
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.ROAD;	
 	}
 	for (var j = quad_size + sidewalk_width; j < grid_height - quad_size - sidewalk_width; j++) {	// road
 		for (var i = 0; i < grid_width; i++)
-			environment_grid[# i, j] = UNIT.ROAD;	
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.ROAD;	
 	}
 	for (var i = 0; i < quad_size; i++) {							// NW
 		for (var j = 0; j < quad_size; j++)
-			environment_grid[# i, j] = UNIT.BUILDING;
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.BUILDING;
 	}
 	for (var i = grid_width - quad_size; i < grid_width; i++) {		// NE
 		for (var j = 0; j < quad_size; j++)
-			environment_grid[# i, j] = UNIT.BUILDING;
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.BUILDING;
 	}
 	for (var i = 0; i < quad_size; i++) {							// SW
 		for (var j = grid_height - quad_size; j < grid_height; j++)
-			environment_grid[# i, j] = UNIT.PARKING_LOT;
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.PARKING_LOT;
 	}
 	for (var i = grid_width - quad_size; i < grid_width; i++) {		// SE
 		for (var j = grid_height - quad_size; j < grid_height; j++)
-			environment_grid[# i, j] = UNIT.GRASS;
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.GRASS;
 	}
 	for (var i = quad_size + sidewalk_width; i < grid_width - quad_size - sidewalk_width; i++) {	// crosswalk
 		for (j = quad_size + sidewalk_width - 1; j < quad_size + sidewalk_width; j++)
-			environment_grid[# i, j] = UNIT.CROSS_WALK;
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.CROSS_WALK;
 	}
 	for (var i = quad_size + sidewalk_width; i < grid_width - quad_size - sidewalk_width; i++) {	// crosswalk
 		for (j = grid_height - quad_size + sidewalk_width - 2; j < grid_height - quad_size + sidewalk_width - 1; j++)
-			environment_grid[# i, j] = UNIT.CROSS_WALK;
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.CROSS_WALK;
 	}
 	for (var j = quad_size + sidewalk_width; j < grid_height - quad_size - sidewalk_width; j++) {	// crosswalk
 		for (i = quad_size + sidewalk_width - 1; i < quad_size + sidewalk_width; i++)
-			environment_grid[# i, j] = UNIT.CROSS_WALK;
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.CROSS_WALK;
 	}
 	for (var j = quad_size + sidewalk_width; j < grid_height - quad_size - sidewalk_width; j++) {	// crosswalk
 		for (i = grid_width - quad_size + sidewalk_width - 2; i < grid_width - quad_size + sidewalk_width - 1; i++)
-			environment_grid[# i, j] = UNIT.CROSS_WALK;
+			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.CROSS_WALK;
 	}
 
 	for (var i = 0; i < grid_width; i++) {
 		if (i > quad_size + sidewalk_width - 2 && i < grid_width - quad_size - sidewalk_width + 1)	// turning lane
 			continue;
-		environment_grid[# i, grid_height div 2] = UNIT.TURNING_LANE;	
+		GRID_ENVIRONMENT[# i, grid_height div 2] = ENVIRONMENT.TURNING_LANE;	
 	}
 	for (var j = 0; j < grid_width; j++) {
 		if (j > quad_size + sidewalk_width - 2 && j < grid_height - quad_size - sidewalk_width + 1)	// turning lane
 			continue;
-		environment_grid[# grid_width div 2, j] = UNIT.TURNING_LANE;	
+		GRID_ENVIRONMENT[# grid_width div 2, j] = ENVIRONMENT.TURNING_LANE;	
 	}	
 }
-	
-#region Capture Environment Objects Into Grid
-var _list		= ds_list_create();
-var _objects	= [obj_building, obj_grass, obj_sidewalk, obj_turning_lane, obj_crosswalk];
+capture_environment	= function() {
+	var _list		= ds_list_create();
+	var _objects	= [obj_building, obj_grass, obj_sidewalk, obj_turning_lane, obj_crosswalk];
 
-for (var i = 0; i < array_length(_objects); i++) {
-	var _object_index = _objects[i];
-	var _object_count = collision_rectangle_list(x, y, x + sprite_width, y + sprite_height, _object_index, false, false, _list, false);
+	for (var i = 0; i < array_length(_objects); i++) {
+		var _object_index = _objects[i];
+		var _object_count = collision_rectangle_list(x, y, x + sprite_width, y + sprite_height, _object_index, false, false, _list, false);
 	
-	for (var j = 0; j < _object_count; j++) {
-		var _object = _list[| j];
-		if (_object != noone && _object != undefined) {
-			for (var k = 0; k < _object.sprite_width; k += UNIT_SIZE) {
-				for (var l = 0; l < _object.sprite_height; l += UNIT_SIZE) {
-					if (grid_in_bounds(environment_grid, k div UNIT_SIZE, l div UNIT_SIZE)) {
-						var _coords = world_to_grid(_object.x + k, _object.y + l);
+		for (var j = 0; j < _object_count; j++) {
+			var _object = _list[| j];
+			if (_object != noone && _object != undefined) {
+				for (var k = 0; k < _object.sprite_width; k += UNIT_SIZE) {
+					for (var l = 0; l < _object.sprite_height; l += UNIT_SIZE) {
+						if (grid_in_bounds(GRID_ENVIRONMENT, k div UNIT_SIZE, l div UNIT_SIZE)) {
+							var _coords = world_to_grid(_object.x + k, _object.y + l);
 						
-						switch (i) {
-							case 0:	environment_grid[# _coords[0], _coords[1]] = UNIT.BUILDING;		break;
-							case 1: environment_grid[# _coords[0], _coords[1]] = UNIT.GRASS;		break;
-							case 2: environment_grid[# _coords[0], _coords[1]] = UNIT.SIDEWALK;		break;
-							case 3: environment_grid[# _coords[0], _coords[1]] = UNIT.TURNING_LANE;	break;
-							case 4: environment_grid[# _coords[0], _coords[1]] = UNIT.CROSS_WALK;	break;
+							switch (i) {
+								case 0:	GRID_ENVIRONMENT[# _coords[0], _coords[1]] = ENVIRONMENT.BUILDING;		break;
+								case 1: GRID_ENVIRONMENT[# _coords[0], _coords[1]] = ENVIRONMENT.GRASS;		break;
+								case 2: GRID_ENVIRONMENT[# _coords[0], _coords[1]] = ENVIRONMENT.SIDEWALK;		break;
+								case 3: GRID_ENVIRONMENT[# _coords[0], _coords[1]] = ENVIRONMENT.TURNING_LANE;	break;
+								case 4: GRID_ENVIRONMENT[# _coords[0], _coords[1]] = ENVIRONMENT.CROSS_WALK;	break;
+							}
 						}
 					}
 				}
 			}
 		}
+		ds_list_clear(_list);
 	}
-	ds_list_clear(_list);
+	ds_list_destroy(_list);
 }
-ds_list_destroy(_list);
-#endregion
+act_on_entities		= function() {
+	for (var i = 0; i < ds_list_size(LIST_ENTITIES); i++) {
+		var _entity = LIST_ENTITIES[| i];
+		if (instance_exists(_entity) && _entity.action != undefined)
+			_entity.action();
+	}	
+}
 
-
-
-
-
-
-
-
+resize_grids(grid_width, grid_height);
+clear_structures();
+capture_environment();
 
 
 
