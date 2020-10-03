@@ -84,7 +84,7 @@ function grid_check_for(_entity, _u, _v, _dir, _dist) {
 	
 	switch (_dir) {
 		case DIR.RIGHT:
-			for (var i = _u; i < _u + _dist; i++) {
+			for (var i = _u + 1; i <= _u + _dist; i++) {
 				if (grid_in_bounds(_grid, i, _v)) {
 					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
 						_i =  i;
@@ -95,7 +95,7 @@ function grid_check_for(_entity, _u, _v, _dir, _dist) {
 			}
 			break;
 		case DIR.LEFT:
-			for (var i = _u; i > _u - _dist; i++) {
+			for (var i = _u - 1; i >= _u - _dist; i++) {
 				if (grid_in_bounds(_grid, i, _v)) {
 					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
 						_i =  i;
@@ -106,7 +106,7 @@ function grid_check_for(_entity, _u, _v, _dir, _dist) {
 			}
 			break;
 		case DIR.UP:
-			for (var j = _v; j > _v - _dist; j--) {
+			for (var j = _v - 1; j >= _v - _dist; j--) {
 				if (grid_in_bounds(_grid, _u, j)) {
 					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
 						_i = _u;
@@ -117,7 +117,7 @@ function grid_check_for(_entity, _u, _v, _dir, _dist) {
 			}
 			break;
 		case DIR.DOWN:
-			for (var j = _v; j < _v + _dist; j++) {
+			for (var j = _v + 1; j <= _v + _dist; j++) {
 				if (grid_in_bounds(_grid, _u, j)) {
 					if ((_enum == undefined && _grid[# i, _v] != _empty_value) || _grid[# i, _v] == _enum) {
 						_i = _u;
@@ -131,16 +131,20 @@ function grid_check_for(_entity, _u, _v, _dir, _dist) {
 	return [_i, _j];
 }
 	
-/// @function grid_get_inst_at(entity, u, v, list, notme)
-function grid_get_inst_at(_entity, _u, _v, _list, _notme) {
+/// @function grid_get_instances_at(entity, u, v, list, notme)
+function grid_get_instances_at(_entity, _u, _v, _list, _notme) {
 	var _coords = grid_to_world(_u, _v);
 	var _count	= collision_rectangle_list(_coords[0] + 1, _coords[1] + 1, _coords[0] + UNIT_SIZE - 1, _coords[1] + UNIT_SIZE - 1, obj_entity, false, _notme, _list, false);
+	var _number = _count;
 	
 	for (var i = _count - 1; i >= 0; i--) {
 		var _inst = _list[| i];
-		if (_inst.entity != _entity)
+		if (_inst.entity != _entity) {
 			ds_list_delete(_list, i);
+			_number--;
+		}
 	}
+	return _number;
 }
 
 /// @function grid_get_entities_at(entity, u, v)

@@ -1,1 +1,1 @@
-ds_list_delete(list);
+ds_list_destroy(list);
