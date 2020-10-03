@@ -39,16 +39,7 @@ draw_grid		= function() {
 	for (var j = 0; j <= grid_height; j++)
 		draw_line_color(x, y + j * UNIT_SIZE, x + grid_width * UNIT_SIZE, y + j * UNIT_SIZE, c_black, c_black);	
 }
-world_to_grid	= function(_x, _y) {
-	var _u = (_x - x) div UNIT_SIZE;
-	var _v = (_y - y) div UNIT_SIZE;
-	return [_u, _v];
-}
-grid_to_world	= function(_u, _v) {
-	var _x = x + _u * UNIT_SIZE;
-	var _y = y + _v * UNIT_SIZE;
-	return [_x, _y];
-}
+
 fill_grid		= function() {
 	for (var i = quad_size + sidewalk_width; i < grid_width - quad_size - sidewalk_width; i++) {	// road
 		for (var j = 0; j < grid_height; j++)

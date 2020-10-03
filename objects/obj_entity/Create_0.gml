@@ -1,23 +1,10 @@
-entity				= undefined;
-u_curr				= undefined;
-v_curr				= undefined;
-u_past				= undefined;
-v_past				= undefined;
-			
-move_scale			= 1;
-accel				= undefined;
-fric				= undefined;
-brake_speed_soft	= undefined;
-brake_speed_hard	= undefined;
-move_speed			= undefined;
-hspd				= 0;
-vspd				= 0;
-turn_dir			= DIR.NONE;
+entity	= undefined;
+u_curr	= undefined;
+v_curr	= undefined;
+u_past	= undefined;
+v_past	= undefined;
 
-sight_dist_calm			= undefined;
-sight_dist_emergency	= undefined;
-stop_target_x			= undefined;
-stop_target_y			= undefined;
+ds_list_add(obj_game.entities, id);
 
 /// Functions
 left_free_of_entity		= function() {
@@ -69,7 +56,7 @@ down_environment		= function() {
 	return obj_grid.environment_grid[# _u, _v];
 }
 update_uv				= function() {
-	var _coords = obj_grid.world_to_grid(x, y);
+	var _coords = world_to_grid(x, y);
 	var _u		= _coords[0];
 	var _v		= _coords[1];
 	obj_grid.entities_grid[# _u, _v] = entity;

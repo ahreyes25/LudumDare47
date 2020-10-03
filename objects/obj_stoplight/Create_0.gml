@@ -1,23 +1,33 @@
-light			= "green";
-time_green		= room_speed * 4;
-time_yellow		= room_speed * 2;
-time_red		= time_green;
+var _coords			= world_to_grid(x, y);
+u_curr				= _coords[0];
+v_curr				= _coords[1];
+light				= "green";
+light_time_green	= 10;
+light_time_red		= light_time_green;
+light_time_yellow	= 3;
+light_count			= 6;
 
+action				= undefined;
+ds_list_add(obj_game.entities, id);
+
+// functions
 change_light	= function() {
-	if (light == "green")
+	if (light == "green") {
 		light = "yellow";
-	else if (light == "yellow")
+		light_count = light_time_yellow;
+	}
+	else if (light == "yellow") {
 		light = "red";
-	else
+		light_count = light_time_red;
+	}
+	else {
 		light = "green";
+		light_count = light_time_green;
+	}
 }
-get_time		= function() {
-	if (light == "green")
-		return time_green;
-	else if (light == "yellow")
-		return time_yellow;
-	else if (light == "red")
-		return time_red;
+countdown		= function() {
+	light_count--;
+	if (light_count <= 0)
+		change_light();
 }
-
-alarm[0]		= get_time();
+action			= countdown;

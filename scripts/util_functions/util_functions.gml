@@ -32,3 +32,17 @@ function grid_in_bounds(_grid, _i, _j) {
 		_j >= 0 && _j <= ds_grid_height(_grid) - 1
 	);	
 }
+	
+/// @function world_to_grid(x, y)
+function world_to_grid(_x, _y) {
+	var _u = (_x - obj_grid.x) div UNIT_SIZE;
+	var _v = (_y - obj_grid.y) div UNIT_SIZE;
+	return [_u, _v];
+}
+
+/// @function grid_to_world(u, v)
+function grid_to_world(_u, _v) {
+	var _x = obj_grid.x + _u * UNIT_SIZE;
+	var _y = obj_grid.y + _v * UNIT_SIZE;
+	return [_x, _y];
+}

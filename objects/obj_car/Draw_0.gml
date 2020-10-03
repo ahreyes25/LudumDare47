@@ -1,4 +1,5 @@
 draw_self();
-draw_text(x, y, state.get_name());
-draw_text(x, y + 10, facing);
-draw_line(x + UNIT_SIZE / 2, y, x + (UNIT_SIZE / 2) + sight_dist_calm, y);
+draw_text(x, y + 10, state);
+draw_text(x, y + 30, momentum);
+draw_text(x, y + 50, stoplight);
+draw_text(x, y + 70, id);
