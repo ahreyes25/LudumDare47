@@ -9,11 +9,13 @@ move_speed		= 1;
 action			= undefined;
 state			= "drive";
 list			= ds_list_create();
+crash_angle		= undefined;
+crash_axis		= undefined;
 ds_list_add(LIST_ENTITIES, id);
 
 // Load Car Model
-var _type = choose("Car-1.obj", "Car-2.obj", "Car-3.obj");
-model = dotobj_model_load_file(_type, true, true);
+type = choose("Car-1.obj", "Car-2.obj", "Car-3.obj");
+model = dotobj_model_load_file(type, true, true);
 model.scale(SCALE_3D + 5);
 model.zscale += 10;
 model.yscale += 5

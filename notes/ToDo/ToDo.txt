@@ -1,5 +1,6 @@
 - car logic
 	- cars crashing
+	- rotate cars
 
 - human logic
 	- walking on sidewalks
@@ -22,6 +23,7 @@
 	- water spewing
 
 - extra ideas
+	- remove all extre debug keys
 	- piano shadow as it fall
 	- fire particles
 	- particle fadeout sprites on ground

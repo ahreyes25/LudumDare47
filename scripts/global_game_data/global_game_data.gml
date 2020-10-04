@@ -27,11 +27,13 @@ global.grid_environment		= ds_grid_create(1, 1);
 global.grid_lights			= ds_grid_create(1, 1);
 global.grid_cars			= ds_grid_create(1, 1);
 global.grid_chars			= ds_grid_create(1, 1);
+global.grid_crashes			= ds_grid_create(1, 1);
 #macro LIST_ENTITIES		global.list_entities
 #macro GRID_ENVIRONMENT		global.grid_environment
 #macro GRID_LIGHTS			global.grid_lights
 #macro GRID_CARS			global.grid_cars
 #macro GRID_CHARS			global.grid_chars
+#macro GRID_CRASHES			global.grid_crashes
 
 global.scale_3d				= 20;
 global.show_2d				= false;

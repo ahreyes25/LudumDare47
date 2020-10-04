@@ -54,6 +54,16 @@ function clear_structures()  {
 	ds_grid_clear(GRID_LIGHTS,		LIGHT.NONE);
 	ds_grid_clear(GRID_CARS,		CAR.NONE);		
 	ds_grid_clear(GRID_CHARS,		CHAR.NONE);		
+	
+	// Destroy Lists Stored In Grid First
+	for (var i = 0; i < ds_grid_width(GRID_CRASHES); i++) {
+		for (var j = 0; j < ds_grid_height(GRID_CRASHES); j++) {
+			var _value = GRID_CRASHES[# i, j];
+			if (_value != undefined)
+				ds_list_destroy(_value);
+		}
+	}
+	ds_grid_clear(GRID_CRASHES,		undefined);		
 }
 
 /// @function resize_grids(width, height)
@@ -62,6 +72,7 @@ function resize_grids(_width, _height) {
 	ds_grid_resize(GRID_LIGHTS,		 _width, _height);
 	ds_grid_resize(GRID_CARS,		 _width, _height);
 	ds_grid_resize(GRID_CHARS,		 _width, _height);
+	ds_grid_resize(GRID_CRASHES,	 _width, _height);
 }
 	
 /// @function grid_adjacent(grid, u, v, dir)
@@ -185,6 +196,62 @@ function grid_get_grid(_entity) {
 	}
 }
 	
+/// @function grid_check_for_crash(id, u, v, dir, dist)
+function grid_check_for_crash(_id, _u, _v, _dir, _dist) {
+	var _i				= undefined;
+	var _j				= undefined;
+	var _grid			= GRID_CRASHES;
+	var _empty_value	= grid_get_empty_value(_id.entity);
+	
+	switch (_dir) {
+		case DIR.RIGHT:
+			for (var i = _u + 1; i <= _u + _dist; i++) {
+				if (grid_in_bounds(_grid, i, _v)) {
+					if (GRID_CRASHES[# i, _v] != undefined) {
+						_i =  i;
+						_j = _v;
+						break;
+					}
+				} else break;
+			}
+			break;
+		case DIR.LEFT:
+			for (var i = _u - 1; i >= _u - _dist; i--) {
+				if (grid_in_bounds(_grid, i, _v)) {
+					if (GRID_CRASHES[# i, _v] != undefined) {
+						_i =  i;
+						_j = _v;
+						break;
+					}
+				} else break;
+			}
+			break;
+		case DIR.UP:
+			for (var j = _v - 1; j >= _v - _dist; j--) {
+				if (grid_in_bounds(_grid, _u, j)) {
+					if (GRID_CRASHES[# _u, j] != undefined) {
+						_i = _u;
+						_j =  j;
+						break;
+					}
+				} else break;
+			}
+			break;
+		case DIR.DOWN:
+			for (var j = _v + 1; j <= _v + _dist; j++) {
+				if (grid_in_bounds(_grid, _u, j)) {
+					if (GRID_CRASHES[# _u, j] != undefined) {
+						_i = _u;
+						_j =  j;
+						break;
+					}
+				} else break;
+			}
+			break;
+	}
+	return [_i, _j];
+}
+	
 /// @function bezier_quadratic_get_point(point0, point1, point2, t)
 function bezier_quadratic_get_point(argument0, argument1, argument2, argument3) {
 	var _p0 = argument0;
@@ -223,15 +290,16 @@ function water_particle_create(_x, _y) {
 	_water.height		= 100;	
 }
 	
-/// @function fire_particle_create(x, y, offset)
-function fire_particle_create(_x, _y, _offset) {
+/// @function fire_particle_create(x, y, z)
+function fire_particle_create(_x, _y, _z) {
+	var _offset = UNIT_SIZE * 0.25;
 	var _fire = instance_create_depth(_x + irandom_range(-_offset, _offset), _y + irandom_range(-_offset, _offset), depth, obj_float_particle);
 	_fire.sprite_index = spr_fire_particle;
 	_fire.image_index  = irandom(_fire.image_number - 1);
 	_fire.image_speed  = 0;
 	_fire.xscale		= random_range(0.6, 1.0);
 	_fire.yscale		= _fire.xscale;
-	_fire.z				= 0;
+	_fire.z				= _z;
 	_fire.iter_speed	= 1;
 	_fire.height		= 200;
 }

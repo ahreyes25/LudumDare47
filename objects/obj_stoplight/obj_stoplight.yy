@@ -4,7 +4,7 @@
     "path": "sprites/spr_stoplight/spr_stoplight.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
