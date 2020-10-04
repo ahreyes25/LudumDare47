@@ -14,6 +14,9 @@ yto			= obj_grid.center_y;
 zto			= -50;
 fov			= 60;
 
+u_color		= shader_get_uniform(shdr_color_blend, "u_color");
+u_alpha		= shader_get_uniform(shdr_color_blend, "u_alpha");
+
 positions	= [
 	[_gx - _gw * 0.60, _gy + _gh * 0.20, -300],
 	[_gx - _gw * 0.50, _gy + _gh * 0.40, -250],

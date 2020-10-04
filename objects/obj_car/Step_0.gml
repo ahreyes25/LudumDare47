@@ -1,6 +1,7 @@
 event_inherited();
 model.x = x;
 model.y = y;
+model.z = z;
 show	= grid_in_bounds(GRID_CARS, u, v);
 
 // Face Way Driving
@@ -30,8 +31,8 @@ if (state != "crash" && abs(x - target_x) <= 0.1 && abs(y - target_y) <= 0.1) {
 			case "y": model.yangle = random_range(45, 270); break;
 			case "z": model.zangle = random_range(45, 270); break;
 		}
-		z = -_zoffset * UNIT_SIZE * 0.5;
-		model.z = z;
+		target_z = -_zoffset * UNIT_SIZE * 0.5;
+		//model.z = z;
 	}
 }
 

@@ -1,6 +1,5 @@
-- car logic
-	- cars crashing
-	- rotate cars
+- piano hitting ground
+- car stopping for piano if possible
 
 - human logic
 	- walking on sidewalks
@@ -23,6 +22,7 @@
 	- water spewing
 
 - extra ideas
+	- rotate cars when accel/breaking/turning
 	- remove all extre debug keys
 	- piano shadow as it fall
 	- fire particles

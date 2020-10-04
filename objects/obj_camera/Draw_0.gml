@@ -37,9 +37,23 @@ if (!SHOW_2D) {
 	with (obj_stoplight_3D)
 		model.submit();
 
+	var _u_color = u_color;
+	var _u_alpha = u_alpha;
 	with (obj_car) {	
-		if (show)
+		if (show) {
+			if (state == "crash") {
+				shader_set(shdr_color_blend);
+				var _r = color_get_red(crash_color);
+				var _g = color_get_green(crash_color);
+				var _b = color_get_blue(crash_color);
+				shader_set_uniform_f_array(_u_color, [_r, _g, _b]);
+				shader_set_uniform_f(_u_alpha, 0.2);
+			}
 			model.submit();
+			
+			if (state == "crash")
+				shader_reset();
+		}
 	}
 		
 	with (obj_dead_tree)

@@ -11,6 +11,7 @@ state			= "drive";
 list			= ds_list_create();
 crash_angle		= undefined;
 crash_axis		= undefined;
+crash_color		= c_black;
 ds_list_add(LIST_ENTITIES, id);
 
 // Load Car Model
