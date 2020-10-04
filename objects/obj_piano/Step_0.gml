@@ -43,3 +43,18 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 var _dif	 = abs(180 - model.xangle);
 var _percent = _dif / 180;
 model.z		-= UNIT_SIZE * _percent * 0.5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

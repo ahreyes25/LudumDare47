@@ -17,16 +17,31 @@ if (state != "crash") {
 	
 // Check For Car Crash After Completed Moving
 if (state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
-	var _car = collision_circle(x, y, 5, obj_car, false, true);
-	if (_car != undefined && _car != noone)
-		do_crash();
-	var _piano = collision_circle(x, y, 5, obj_piano, false, false);
-	if (_piano != undefined && _piano != noone) {
-		if (abs(_piano.z - z) <= UNIT_SIZE * 0.25) {
+	// Check For Crash Against Stack Of Cars
+	if (state == "ascend" || state == "descend") {
+		var _list = GRID_CRASHES[# u, v];
+		if (_list != undefined) {
+			if (z >= -ds_list_size(_list) * UNIT_SIZE * 0.5)
+				do_crash();
+		}
+	}
+	// Check For Crash Against Grounded Cars
+	else if (state != "crash") {
+		var _car = collision_circle(x, y, 5, obj_car, false, true);
+		if (_car != undefined && _car != noone)
 			do_crash();
+	}
+		
+	// Crash Against Piano
+	if (state != "crash") {
+		var _piano = collision_circle(x, y, 5, obj_piano, false, false);
+		if (_piano != undefined && _piano != noone) {
+			if (abs(_piano.z - z) <= UNIT_SIZE * 0.25) {
+				do_crash();
 			
-			if (_piano.state != "crash")
-				_piano.do_crash();
+				if (_piano.state != "crash")
+					_piano.do_crash();
+			}
 		}
 	}
 }
@@ -56,7 +71,7 @@ if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - t
 			model.zangle_target = 45;
 			state	 = "ascend";
 			action	 = ascend;
-			hangtime = clamp(0, momentum - 1, 10);
+			hangtime = momentum;
 		}
 		// Crash
 		else if (abs(_ramp.z - z) <= UNIT_SIZE * 0.25) {
@@ -73,3 +88,4 @@ if (state == "crash") {
 	var _percent = _dif / 180;
 	model.z		-= UNIT_SIZE * _percent * 0.5;
 }
+	
