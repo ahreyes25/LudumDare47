@@ -1,12 +1,14 @@
 event_inherited();
 
 entity				= ENTITY.STOPLIGHT;
-light				= "green";
-light_time_green	= 10;
-light_time_red		= light_time_green;
+light_time_green	= 7;
 light_time_yellow	= 3;
-light_count			= 6;
+light_time_red		= light_time_green + light_time_yellow;
 action				= undefined;
+
+if (light == "green")		light_count	= light_time_green;
+else if (light == "yellow")	light_count	= light_time_yellow;
+else if (light == "red")	light_count	= light_time_red;
 
 update_uvs();
 store_in_grid();

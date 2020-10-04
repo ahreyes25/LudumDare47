@@ -1,7 +1,7 @@
 if (live_call()) return live_result;
 
-x	 = obj_grid.center_x;
-y	 = obj_grid.center_y;
+x	 = obj_grid.center_x - obj_grid.grid_width  * UNIT_SIZE * 0.25;
+y	 = obj_grid.center_y + obj_grid.grid_height * UNIT_SIZE * 0.5;
 xto	 = obj_grid.center_x;
 yto	 = obj_grid.center_y;
 z	 = -100;

@@ -28,7 +28,13 @@
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_stoplight","path":"objects/obj_stoplight/obj_stoplight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_stoplight","path":"objects/obj_stoplight/obj_stoplight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":6,"value":"\"green\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "\"green\"",
+        "\"yellow\"",
+        "\"red\"",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"light","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "Entities",

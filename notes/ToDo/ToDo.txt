@@ -7,6 +7,27 @@
 	- crossing streets
 	
 - destroy things off screen
+- visualize turn counter on screen
+- click on spaces
+- visualize grid option
+- tutorial
+- main menu
+- manhole cover
+- trashcan
+- baby stroller and dogs?
+- player inventory
+- ground block
+- import part
+- import parking lot
+- import office building
+
+- sounds
+	- car accelerating
+	- car braking
+	- car collision
+	- people screaming
+	- stoplight sound => make it up
+	- water spewing
 
 - extra ideas
 	- car right hand turn

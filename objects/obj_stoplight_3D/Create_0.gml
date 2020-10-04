@@ -5,6 +5,7 @@ model.scale(SCALE_3D * 1.25);
 model.x = x;
 model.y = y;
 model.z = z;
+model.zangle = rotate;
 
 xscale		=  1;
 yscale		=  1;
