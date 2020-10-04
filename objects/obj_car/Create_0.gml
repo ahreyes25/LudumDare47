@@ -27,7 +27,7 @@ update_uvs();
 store_in_grid();
 
 check_for_brake	= function() {
-	// Check For Cars To Start Braking
+	// Check For Cars
 	ds_list_clear(list);
 	var _car_coords = grid_check_for(ENTITY.CAR, u, v, facing, momentum + 1);
 	if (_car_coords[0] != undefined && _car_coords[1] != undefined) {
@@ -40,7 +40,7 @@ check_for_brake	= function() {
 		}
 	}
 	
-	// Check For Stoplights To Start Braking
+	// Check For Stoplights
 	if (state != "brake") {
 		ds_list_clear(list);
 		var _stoplight_coords = grid_check_for(ENTITY.STOPLIGHT, u, v, facing, momentum + 1);
@@ -100,6 +100,15 @@ check_for_brake	= function() {
 			}	
 		}
 	}
+	
+	// Check For Crash Stack
+	if (state != "brake") {
+		var _crash_coords = grid_check_for_crash(id, u, v, facing, momentum + 1);
+		if (_crash_coords[0] != undefined && _crash_coords[1] != undefined) {
+			action = brake;
+			state  = "brake";
+		}
+	}
 }
 check_for_drive = function() {
 	var _car_pass = false;
@@ -122,7 +131,12 @@ check_for_drive = function() {
 			_light_pass = true;
 	}
 	
-	if (_car_pass && _light_pass) {
+	var _crash_pass = false;
+	var _coords = grid_check_for_crash(id, u, v, facing, 1);
+	if (_coords[0] == undefined && _coords[1] == undefined)
+		_crash_pass = true;
+	
+	if (_car_pass && _light_pass && _crash_pass) {
 		action =  drive;
 		state  = "drive";
 	}

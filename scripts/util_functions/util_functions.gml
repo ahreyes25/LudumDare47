@@ -201,7 +201,6 @@ function grid_check_for_crash(_id, _u, _v, _dir, _dist) {
 	var _i				= undefined;
 	var _j				= undefined;
 	var _grid			= GRID_CRASHES;
-	var _empty_value	= grid_get_empty_value(_id.entity);
 	
 	switch (_dir) {
 		case DIR.RIGHT:
