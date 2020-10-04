@@ -5,17 +5,13 @@
 	- walking on sidewalks
 	- crossing streets
 	
-- destroy things off screen
 - visualize turn counter on screen
 - tutorial
 - main menu
 - manhole cover
-- trashcan
 - baby stroller and dogs?
 - player inventory
-- ground block
-- import park
-- import parking lot
+- base ground texture
 
 - sounds
 	- car accelerating

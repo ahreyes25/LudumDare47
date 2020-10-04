@@ -30,8 +30,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Entities",
-    "path": "folders/Objects/Entities.yy",
+    "name": "Environment",
+    "path": "folders/Objects/Environment.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_stoplight_3D",

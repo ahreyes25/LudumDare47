@@ -4,7 +4,7 @@ v			= undefined;
 z			= 0;
 target_x	= x;
 target_y	= y;
-ds_list_add(LIST_ENTITIES, id);
+show		= true;
 
 move			= function(_amount, _dir) {
 	var _instant = argument_count == 3 ? argument[2] : false;

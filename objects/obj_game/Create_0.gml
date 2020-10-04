@@ -1,3 +1,4 @@
+randomize();
 global_game_data();
 dotobj_init();
 
@@ -11,3 +12,5 @@ global.building_model		= dotobj_model_load_file("Building-1.obj", true, false);
 global.building2_model		= dotobj_model_load_file("Building-2.obj", true, false);
 global.parking_lot_model	= dotobj_model_load_file("ParkingLot.obj", false, false);
 global.base_model			= dotobj_model_load_file("Island-Base.obj", true, false);
+global.water_tower_model	= dotobj_model_load_file("Water-Tower.obj", true, false);
+global.hill_model			= dotobj_model_load_file("Grass-Hill.obj", true, false);

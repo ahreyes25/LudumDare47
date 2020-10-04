@@ -10,3 +10,4 @@ yscale		=  image_yscale;
 u_xscale	=  shader_get_uniform(shdr_billboard_cylinder, "u_xscale");
 u_yscale	=  shader_get_uniform(shdr_billboard_cylinder, "u_yscale");
 action		= undefined;
+ds_list_add(LIST_ENTITIES, id);

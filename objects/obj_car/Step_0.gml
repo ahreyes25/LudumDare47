@@ -18,3 +18,4 @@ if (abs(x - target_x) <= 0.1 && abs(y - target_y) <= 0.1) {
 		state  = "crash";
 	}
 }
+show = grid_in_bounds(GRID_CARS, u, v);

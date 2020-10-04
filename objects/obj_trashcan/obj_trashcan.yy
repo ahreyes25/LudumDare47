@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_firehydrant",
-    "path": "sprites/spr_firehydrant/spr_firehydrant.yy",
+    "name": "spr_trashcan",
+    "path": "sprites/spr_trashcan/spr_trashcan.yy",
   },
   "solid": false,
   "visible": false,
@@ -21,8 +21,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_firehydrant","path":"objects/obj_firehydrant/obj_firehydrant.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_firehydrant","path":"objects/obj_firehydrant/obj_firehydrant.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_trashcan","path":"objects/obj_trashcan/obj_trashcan.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_trashcan","path":"objects/obj_trashcan/obj_trashcan.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -31,7 +31,7 @@
     "path": "folders/Objects/Environment.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_firehydrant",
+  "name": "obj_trashcan",
   "tags": [],
   "resourceType": "GMObject",
 }

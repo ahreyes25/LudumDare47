@@ -120,8 +120,14 @@ act_on_entities			= function() {
 	for (var i = ds_list_size(LIST_ENTITIES) - 1; i >= 0; i--) {
 		var _entity = LIST_ENTITIES[| i];
 		var _exists = instance_exists(_entity);
-		if (_exists && _entity.action != undefined)
-			_entity.action();
+		if (_exists && _entity.action != undefined) {
+			if (_entity.object_index == obj_car) {
+				if (!_entity.off)
+					_entity.action();
+			}
+			else
+				_entity.action();
+		}
 		else if (!_exists)
 			ds_list_delete(LIST_ENTITIES, i);
 	}	
@@ -131,7 +137,18 @@ resize_grids(grid_width, grid_height);
 clear_structures();
 capture_environment();
 
+var _car_pos = [
+	[center_x - sprite_width * 0.36, center_y + sprite_height * 0.25 + UNIT_SIZE],
+];
 
+for (var i = 0; i < 2; i++) {
+	var _pos = _car_pos[0];
+	var _x	 = _pos[0];
+	var _y	 = _pos[1] + UNIT_SIZE * i;
+	var _car = instance_create_depth(_x, _y, depth, obj_car);
+	_car.zangle = (i == 0) ? 90 : 270;
+	_car.action = undefined;
+}
 
 
 

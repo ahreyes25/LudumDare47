@@ -5,6 +5,7 @@ light_time_green	= 7;
 light_time_yellow	= 3;
 light_time_red		= light_time_green + light_time_yellow;
 action				= undefined;
+ds_list_add(LIST_ENTITIES, id);
 
 if (light == "green")		light_count	= light_time_green;
 else if (light == "yellow")	light_count	= light_time_yellow;

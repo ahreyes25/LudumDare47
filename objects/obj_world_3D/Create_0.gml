@@ -29,3 +29,15 @@ parking_lot.x = x;
 parking_lot.y = y;
 parking_lot.z = z;
 parking_lot.scale(SCALE_3D + 5);
+
+water_tower = global.water_tower_model;
+water_tower.x = x;
+water_tower.y = y + 80;
+water_tower.z = z;
+water_tower.scale(SCALE_3D + 5);
+
+hill = global.hill_model;
+hill.x = x;
+hill.y = y;
+hill.z = z;
+hill.scale(SCALE_3D + 5);

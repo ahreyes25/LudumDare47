@@ -1,5 +1,6 @@
 event_inherited();
 
+off				= false;
 entity			= ENTITY.CAR;
 action			= undefined;
 max_momentum	= 2;
@@ -8,6 +9,7 @@ move_speed		= 1;
 action			= undefined;
 state			= "drive";
 list			= ds_list_create();
+ds_list_add(LIST_ENTITIES, id);
 
 // Load Car Model
 var _type = choose("Car-1.obj", "Car-2.obj", "Car-3.obj");

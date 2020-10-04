@@ -1,7 +1,4 @@
-if (z_override != undefined)
-	z		= z_override;
-else
-	z		= -1;
+z			= -1;
 depth		=  0;
 xscale		=  choose(image_xscale, -image_xscale);
 yscale		=  image_yscale;

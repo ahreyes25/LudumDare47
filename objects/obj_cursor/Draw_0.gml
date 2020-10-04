@@ -1,5 +1,3 @@
-if (live_call()) return live_result;
-
 if (show) {
 	image_xscale = 1 + sin(scale_iter) * 0.1;
 	image_yscale = 1 + sin(scale_iter) * 0.1;
