@@ -198,12 +198,30 @@ function bezier_quadratic_get_point(argument0, argument1, argument2, argument3) 
 	];
 }
 
+/// @function blood_particle_create(x, y)
+function blood_particle_create(_x, _y) {
+	var _blood = instance_create_depth(_x, _y, depth, obj_particle);
+	_blood.sprite_index = spr_blood_particle;
+	_blood.image_index  = irandom(_blood.image_number - 1);
+	_blood.image_speed  = 0;
+	_blood.xscale		= random_range(0.6, 1.0);
+	_blood.yscale		= _blood.xscale;
+	_blood.z			= z - sprite_height / 2;
+	_blood.height		= 50;
+	_blood.iter_speed	= 0.02;
+}
 
-
-
-
-
-
+/// @function water_particle_create(x, y)
+function water_particle_create(_x, _y) {
+	var _water = instance_create_depth(_x, _y, depth, obj_particle);
+	_water.sprite_index = spr_water_particle;
+	_water.image_index  = irandom(_water.image_number - 1);
+	_water.image_speed  = 0;
+	_water.xscale		= random_range(1.0, 1.4);
+	_water.yscale		= _water.xscale;
+	_water.z			= z - sprite_height;
+	_water.height		= 100;	
+}
 
 
 

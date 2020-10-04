@@ -37,3 +37,6 @@ global.scale_3d				= 20;
 global.show_2d				= false;
 #macro SCALE_3D				global.scale_3d
 #macro SHOW_2D				global.show_2d
+
+global.slow_factor			= 1;
+#macro SLOW_FACTOR			global.slow_factor

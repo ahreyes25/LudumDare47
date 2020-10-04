@@ -44,6 +44,8 @@ if (!SHOW_2D) {
 		
 	with (obj_dead_tree)
 		model.submit();
+	with (obj_alive_tree)
+		model.submit();
 
 	//shader_reset();
 	//gpu_set_cullmode(cull_noculling);
