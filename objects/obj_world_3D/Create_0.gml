@@ -11,3 +11,15 @@ building.x = x;
 building.y = y;
 building.z = z;
 building.scale(SCALE_3D + 5);
+
+base = global.base_model;
+base.x = x;
+base.y = y;
+base.z = z;
+base.scale(SCALE_3D + 5);
+
+building2 = global.building2_model;
+building2.x = x;
+building2.y = y;
+building2.z = z;
+building2.scale(SCALE_3D + 5);

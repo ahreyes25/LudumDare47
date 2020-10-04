@@ -34,8 +34,10 @@ if (!SHOW_2D) {
 	//shader_set(shdr_simple_lighting);
 
 	with (obj_world_3D)	{
+		base.submit();
 		street.submit();
 		building.submit();
+		building2.submit();
 	}
 	with (obj_stoplight_3D)
 		model.submit();
@@ -48,7 +50,7 @@ if (!SHOW_2D) {
 
 	// Draw Billboard Objects
 	shader_set(shdr_billboard_cylinder);
-	var _billboards = [obj_char, obj_vine_large, obj_grass_patch, obj_firehydrant, obj_stoplight_3D];
+	var _billboards = [obj_char, obj_vine_large, obj_vine_medium, obj_grass_patch, obj_firehydrant, obj_stoplight_3D];
 	for (var i = 0; i < array_length(_billboards); i++) {
 		with (_billboards[i]) {
 			shader_set_uniform_f(u_xscale, xscale);

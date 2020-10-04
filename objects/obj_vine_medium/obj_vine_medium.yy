@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_vine_large",
-    "path": "sprites/spr_vine_large/spr_vine_large.yy",
+    "name": "spr_vine_medium",
+    "path": "sprites/spr_vine_medium/spr_vine_medium.yy",
   },
   "solid": false,
   "visible": false,
@@ -21,8 +21,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_vine_large","path":"objects/obj_vine_large/obj_vine_large.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_vine_large","path":"objects/obj_vine_large/obj_vine_large.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_vine_medium","path":"objects/obj_vine_medium/obj_vine_medium.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_vine_medium","path":"objects/obj_vine_medium/obj_vine_medium.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
     {"varType":0,"value":"undefined","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"z_override","tags":[],"resourceType":"GMObjectProperty",},
@@ -33,7 +33,7 @@
     "path": "folders/Objects/Environment.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_vine_large",
+  "name": "obj_vine_medium",
   "tags": [],
   "resourceType": "GMObject",
 }

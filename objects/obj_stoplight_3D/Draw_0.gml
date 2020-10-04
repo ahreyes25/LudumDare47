@@ -1,5 +1,3 @@
-draw_self();
-
 if (stoplight != undefined && instance_exists(stoplight)) {
 	if (stoplight.light == "green")
 		draw_sprite_billboard_cylinder(spr_stoplight_lights, 2, x, y, z - 40);	
