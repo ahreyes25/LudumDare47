@@ -1,10 +1,12 @@
 - car logic
-	- crashing
+	- car stopping and then going in intersection
+	- cars crashing
 
 - human logic
 	- walking on sidewalks
 	- crossing streets
-	- going in/out of buildings
+	
+- destroy things off screen
 
 - extra ideas
 	- car right hand turn

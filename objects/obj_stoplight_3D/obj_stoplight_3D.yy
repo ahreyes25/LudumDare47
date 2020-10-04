@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_stoplight_3D",
-    "path": "sprites/spr_stoplight_3D/spr_stoplight_3D.yy",
+    "name": "spr_stoplight_lights",
+    "path": "sprites/spr_stoplight_lights/spr_stoplight_lights.yy",
   },
   "solid": false,
   "visible": false,
@@ -22,8 +22,11 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_stoplight_3D","path":"objects/obj_stoplight_3D/obj_stoplight_3D.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_stoplight_3D","path":"objects/obj_stoplight_3D/obj_stoplight_3D.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":0,"value":"undefined","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"stoplight","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "Entities",
