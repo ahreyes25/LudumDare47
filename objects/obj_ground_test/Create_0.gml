@@ -7,7 +7,7 @@ yscale		=  1;
 zscale		=  1;
 
 vbuffer		= vertex_create_buffer();
-texture		= sprite_get_texture(spr_texture_grass, 0);
+//texture		= sprite_get_texture(spr_texture_grass, 0);
 primitive	=  pr_trianglelist;
 
 vertex_begin(vbuffer, VERTEX_FORMAT);

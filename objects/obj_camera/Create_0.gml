@@ -1,15 +1,15 @@
-x			= 0;
-y			= 0;
-z			= -10000;
-xto			= 0;
-yto			= 0;
-zto			= 10000;
+x			= room_width  / 2;
+y			= room_height;
+z			= 100;
+xto			= x;
+yto			= room_height / 2;
+zto			= 0;
 fov			= 60;
 
 // Only Used With First Person Or Third Person Camera
-look_dir	= 0;
-look_pitch	= 0;
-move_speed	= 4;
+look_dir	=  90;
+look_pitch	= -45;
+move_speed	=  4;
 
 look_first_person = function() {		
 	xto = x + dcos(look_dir) * dcos(look_pitch);

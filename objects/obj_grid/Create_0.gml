@@ -4,6 +4,9 @@ quad_size		= 7;
 sidewalk_width	= 1;
 depth			= 100;
 action_interval	= 30;
+center_x		= x;
+center_y		= y;
+world_3d		= undefined;
 
 // Functions
 draw_grid			= function() {		

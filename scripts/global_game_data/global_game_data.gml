@@ -32,3 +32,8 @@ global.grid_chars			= ds_grid_create(1, 1);
 #macro GRID_LIGHTS			global.grid_lights
 #macro GRID_CARS			global.grid_cars
 #macro GRID_CHARS			global.grid_chars
+
+global.scale_3d				= 20;
+global.show_2d				= false;
+#macro SCALE_3D				global.scale_3d
+#macro SHOW_2D				global.show_2d

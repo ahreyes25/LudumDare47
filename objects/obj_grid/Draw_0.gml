@@ -1,2 +1,3 @@
 //draw_self();
-draw_grid();
+if (SHOW_2D)
+	draw_grid();

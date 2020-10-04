@@ -9,6 +9,13 @@ action			= undefined;
 state			= "drive";
 list			= ds_list_create();
 
+// Load Car Model
+model = dotobj_model_load_file("Car-1.obj", true, true);
+model.scale(SCALE_3D);
+model.x = x;
+model.y = y;
+model.z = z;
+
 update_uvs();
 store_in_grid();
 

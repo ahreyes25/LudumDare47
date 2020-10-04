@@ -1,0 +1,24 @@
+# Blender MTL File: 'Intersection.blend'
+# Material Count: 2
+
+newmtl Roads
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.003642 0.003549 0.003549
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Road-Tex-Color-Pixel.png
+
+newmtl Sidewalk
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.182801 0.220279 0.220325
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Road-Tex-Color-Pixel.png

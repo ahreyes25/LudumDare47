@@ -1,4 +1,3 @@
-/*
 #macro DOTOBJ_OUTPUT_DEBUG          true    //Outputs extra debug info (this is useful to check the library is working properly!)
 #macro DOTOBJ_OUTPUT_WARNINGS       true    //Outputs warning messages to the console
 #macro DOTOBJ_OUTPUT_LOAD_TIME      true    //Outputs the amount of time taken to load a .obj file to the console
@@ -55,7 +54,7 @@ function dotobj_class_model() constructor {
 	yscale		= 1;
 	zscale		= 1;
     
-    submit = function() {
+    submit	= function() {
         var _g = 0;
 		matrix_set(matrix_world, matrix_build(x, y, z, xangle, yangle, zangle, xscale, yscale, zscale));
         repeat (ds_list_size(group_list)) {
@@ -64,8 +63,11 @@ function dotobj_class_model() constructor {
         }
 		matrix_set(matrix_world, matrix_build_identity());
     }
-	update = function() {
-		x++;
+	update	= function() {}
+	scale	= function(_scale) {
+		xscale = _scale;	
+		yscale = _scale;	
+		zscale = _scale;	
 	}
 }
 

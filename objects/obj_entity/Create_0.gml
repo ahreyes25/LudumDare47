@@ -1,6 +1,7 @@
 entity		= undefined;
 u			= undefined;
 v			= undefined;
+z			= 0;
 target_x	= x;
 target_y	= y;
 ds_list_add(LIST_ENTITIES, id);
