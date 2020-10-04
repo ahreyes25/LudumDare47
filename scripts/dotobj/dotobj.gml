@@ -42,17 +42,20 @@ function dotobj_init() {
 
 /// @function dotobj_class_model()
 function dotobj_class_model() constructor {
-    group_map	= ds_map_create();
-    group_list	= ds_list_create();
-	x			= 0;
-	y			= 0;
-	z			= 0;
-	xangle		= 90;
-	yangle		= 0;
-	zangle		= 0;
-	xscale		= 1;
-	yscale		= 1;
-	zscale		= 1;
+    group_map		= ds_map_create();
+    group_list		= ds_list_create();
+	x				= 0;
+	y				= 0;
+	z				= 0;
+	xangle			= 90;
+	yangle			= 0;
+	zangle			= 0;
+	xscale			= 1;
+	yscale			= 1;
+	zscale			= 1;
+	xangle_target	= xangle;
+	yangle_target	= yangle;
+	zangle_target	= zangle;
     
     submit	= function() {
         var _g = 0;
@@ -63,7 +66,11 @@ function dotobj_class_model() constructor {
         }
 		matrix_set(matrix_world, matrix_build_identity());
     }
-	update	= function() {}
+	update	= function() {
+		xangle = lerp(xangle, xangle_target, 0.1);
+		yangle = lerp(yangle, yangle_target, 0.1);
+		zangle = lerp(zangle, zangle_target, 0.1);
+	}
 	scale	= function(_scale) {
 		xscale = _scale;	
 		yscale = _scale;	

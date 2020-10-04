@@ -2,6 +2,7 @@ event_inherited();
 model.x = x;
 model.y = y;
 model.z = z;
+model.update();
 show	= grid_in_bounds(GRID_CARS, u, v);
 
 // Face Way Driving
@@ -28,3 +29,8 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 	if (_list[| _size - 1] == id)
 		fire_particle_create(x, y, -_size * UNIT_SIZE * 0.5);
 }
+
+// Offset Z Position To Account For Bottom Model Origin
+var _dif	 = abs(180 - model.xangle);
+var _percent = _dif / 180;
+model.z		-= UNIT_SIZE * _percent * 0.5;

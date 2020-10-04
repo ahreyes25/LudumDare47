@@ -27,11 +27,8 @@ do_crash = function() {
 	var _zoffset = ds_list_size(GRID_CRASHES[# u, v]);
 	ds_list_add(GRID_CRASHES[# u, v], id);
 		
-	switch (choose("x", "y", "z")) {
-		case "x": model.xangle = random_range(45, 270); break;
-		case "y": model.yangle = random_range(45, 270); break;
-		case "z": model.zangle = random_range(45, 270); break;
-	}
+	model.xangle_target = random_range(-90, 90);
+	model.zangle_target = random_range(-90, 90);
 	target_z = -_zoffset * UNIT_SIZE * 0.5;	
 }
 	
