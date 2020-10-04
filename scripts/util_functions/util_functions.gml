@@ -184,3 +184,44 @@ function grid_get_grid(_entity) {
 		case ENTITY.STOPLIGHT:	return GRID_LIGHTS;	break;
 	}
 }
+	
+/// @function bezier_quadratic_get_point(point0, point1, point2, t)
+function bezier_quadratic_get_point(argument0, argument1, argument2, argument3) {
+	var _p0 = argument0;
+	var _p1 = argument1;
+	var _p2 = argument2;
+	var _t	= argument3;
+
+	return [
+		(power(1 - _t, 2) * _p0[0]) + ((1 - _t) * 2 * _t * _p1[0]) + (_t * _t * _p2[0]),
+		(power(1 - _t, 2) * _p0[1]) + ((1 - _t) * 2 * _t * _p1[1]) + (_t * _t * _p2[1])
+	];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
