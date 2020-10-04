@@ -22,7 +22,7 @@ if (state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 		do_crash();
 	var _piano = collision_circle(x, y, 5, obj_piano, false, false);
 	if (_piano != undefined && _piano != noone) {
-		if (abs(_piano.z - z) <= UNIT_SIZE) {
+		if (abs(_piano.z - z) <= UNIT_SIZE * 0.5) {
 			do_crash();
 			_piano.do_crash();
 		}
@@ -38,14 +38,25 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 }
 
 // Adjust For Ramp
-if (abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
+if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 	var _ramp = collision_circle(x, y, 5, obj_ramp, false, false);
 	if (_ramp != noone && _ramp != undefined) {
-		target_z = _ramp.z - UNIT_SIZE * 0.5;
-		model.zangle_target = 45;
-		state	 = "ascend";
-		action	 = ascend;
-		hangtime = clamp(0, momentum - 1, 10);
+		var _sideways = (
+			(_ramp.facing == DIR.RIGHT	&& facing != DIR.RIGHT)	||
+			(_ramp.facing == DIR.LEFT	&& facing != DIR.LEFT)	||
+			(_ramp.facing == DIR.UP		&& facing != DIR.UP)	||
+			(_ramp.facing == DIR.DOWN	&& facing != DIR.DOWN)
+		);
+		
+		if (!_sideways) {
+			target_z = _ramp.z - UNIT_SIZE * 0.5;
+			model.zangle_target = 45;
+			state	 = "ascend";
+			action	 = ascend;
+			hangtime = clamp(0, momentum - 1, 10);
+		}
+		else if (abs(_ramp.z - z) <= UNIT_SIZE * 0.5)
+			do_crash();
 	}
 }
 
