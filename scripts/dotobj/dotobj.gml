@@ -69,6 +69,10 @@ function dotobj_class_model() constructor {
 		yscale = _scale;	
 		zscale = _scale;	
 	}
+	cleanup = function() {
+		ds_map_destroy(group_map);
+		ds_list_destroy(group_list);
+	}
 }
 
 /// @function dotobj_class_group(model, name, line)

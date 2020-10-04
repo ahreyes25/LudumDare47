@@ -6,8 +6,8 @@ xto	 = obj_grid.center_x;
 yto	 = obj_grid.center_y;
 z	 = -100;
 
-var _cam_width  = window_get_width()  / 1;
-var _cam_height = window_get_height() / 1;
+var _cam_width  = window_get_width()  / 3;
+var _cam_height = window_get_height() / 3;
 
 //draw_clear(c_black);
 
@@ -46,18 +46,13 @@ if (!SHOW_2D) {
 
 	// Draw Billboard Objects
 	shader_set(shdr_billboard_cylinder);
-	with (obj_billboard_cylinder) {
-		shader_set_uniform_f(u_xscale, xscale);
-		shader_set_uniform_f(u_yscale, yscale);
-		event_perform(ev_draw, 0);
-	}
-	shader_reset();
-
-	shader_set(shdr_billboard_sphere);
-	with (obj_billboard_sphere)	{
-		shader_set_uniform_f(u_xscale, xscale);
-		shader_set_uniform_f(u_yscale, yscale);
-		event_perform(ev_draw, 0);
+	var _billboards = [obj_char, obj_vine_large];
+	for (var i = 0; i < array_length(_billboards); i++) {
+		with (_billboards[i]) {
+			shader_set_uniform_f(u_xscale, xscale);
+			shader_set_uniform_f(u_yscale, yscale);
+			event_perform(ev_draw, 0);
+		}
 	}
 	shader_reset();
 }
