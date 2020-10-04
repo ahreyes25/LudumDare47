@@ -23,3 +23,9 @@ building2.x = x;
 building2.y = y;
 building2.z = z;
 building2.scale(SCALE_3D + 5);
+
+parking_lot = global.parking_lot_model;
+parking_lot.x = x;
+parking_lot.y = y;
+parking_lot.z = z;
+parking_lot.scale(SCALE_3D + 5);

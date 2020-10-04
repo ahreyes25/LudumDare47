@@ -4,8 +4,8 @@ quad_size		= 7;
 sidewalk_width	= 1;
 depth			= 100;
 action_interval	= 30;
-center_x		= x;
-center_y		= y;
+center_x		= x + (grid_width  * UNIT_SIZE / 2);
+center_y		= y + (grid_height * UNIT_SIZE / 2);
 world_3d		= undefined;
 
 // Functions

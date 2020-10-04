@@ -1,5 +1,4 @@
 - car logic
-	- car stopping and then going in intersection
 	- cars crashing
 
 - human logic
@@ -8,8 +7,6 @@
 	
 - destroy things off screen
 - visualize turn counter on screen
-- click on spaces
-- visualize grid option
 - tutorial
 - main menu
 - manhole cover
@@ -17,9 +14,8 @@
 - baby stroller and dogs?
 - player inventory
 - ground block
-- import part
+- import park
 - import parking lot
-- import office building
 
 - sounds
 	- car accelerating

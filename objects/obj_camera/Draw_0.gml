@@ -1,11 +1,5 @@
 if (live_call()) return live_result;
 
-x	 = obj_grid.center_x - obj_grid.grid_width  * UNIT_SIZE * 0.25;
-y	 = obj_grid.center_y + obj_grid.grid_height * UNIT_SIZE * 0.5;
-xto	 = obj_grid.center_x;
-yto	 = obj_grid.center_y;
-z	 = -100;
-
 var _cam_width  = window_get_width()  / 3;
 var _cam_height = window_get_height() / 3;
 
@@ -38,6 +32,7 @@ if (!SHOW_2D) {
 		street.submit();
 		building.submit();
 		building2.submit();
+		parking_lot.submit();
 	}
 	with (obj_stoplight_3D)
 		model.submit();
