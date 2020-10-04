@@ -222,6 +222,19 @@ function water_particle_create(_x, _y) {
 	_water.z			= z - sprite_height;
 	_water.height		= 100;	
 }
+	
+/// @function fire_particle_create(x, y, offset)
+function fire_particle_create(_x, _y, _offset) {
+	var _fire = instance_create_depth(_x + irandom_range(-_offset, _offset), _y + irandom_range(-_offset, _offset), depth, obj_float_particle);
+	_fire.sprite_index = spr_fire_particle;
+	_fire.image_index  = irandom(_fire.image_number - 1);
+	_fire.image_speed  = 0;
+	_fire.xscale		= random_range(0.6, 1.0);
+	_fire.yscale		= _fire.xscale;
+	_fire.z				= 0;
+	_fire.iter_speed	= 1;
+	_fire.height		= 200;
+}
 
 
 

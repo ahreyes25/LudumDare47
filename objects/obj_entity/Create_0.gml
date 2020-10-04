@@ -4,6 +4,7 @@ v			= undefined;
 z			= 0;
 target_x	= x;
 target_y	= y;
+target_z	= z;
 show		= true;
 
 move			= function(_amount, _dir) {

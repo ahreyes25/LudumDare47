@@ -19,3 +19,6 @@ if (abs(x - target_x) <= 0.1 && abs(y - target_y) <= 0.1) {
 	}
 }
 show = grid_in_bounds(GRID_CARS, u, v);
+
+if (keyboard_check(ord("F")) && SLOW_FACTOR != 0)
+	fire_particle_create(x, y, UNIT_SIZE * 0.25);

@@ -4,7 +4,7 @@
     "path": "sprites/spr_car/spr_car.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {

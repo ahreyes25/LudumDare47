@@ -22,7 +22,9 @@
 	- water spewing
 
 - extra ideas
-	- slowmotion system for water particles
+	- piano shadow as it fall
+	- fire particles
+	- particle fadeout sprites on ground
 	- car right hand turn
 	- car left hand turn
 	- shopping cart in parking lot
