@@ -34,8 +34,6 @@ if (!SHOW_2D) {
 		water_tower.submit();
 		hill.submit();
 	}
-	with (obj_stoplight_3D)
-		model.submit();
 
 	var _u_color = u_color;
 	var _u_alpha = u_alpha;
@@ -70,11 +68,10 @@ if (!SHOW_2D) {
 		if (state == "crash")
 			shader_reset();
 	}
-		
-	with (obj_dead_tree)
-		model.submit();
-	with (obj_alive_tree)
-		model.submit();
+	with (obj_stoplight_3D)	model.submit();	
+	with (obj_dead_tree)	model.submit();
+	with (obj_alive_tree)	model.submit();
+	with (obj_ramp)			model.submit();
 
 	//shader_reset();
 	//gpu_set_cullmode(cull_noculling);

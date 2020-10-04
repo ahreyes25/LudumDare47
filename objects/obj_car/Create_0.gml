@@ -5,6 +5,7 @@ entity			= ENTITY.CAR;
 action			= undefined;
 max_momentum	= 2;
 momentum		= max_momentum;
+hangtime		= 0;
 move_speed		= 1;
 action			= undefined;
 state			= "drive";
@@ -109,6 +110,30 @@ check_for_brake	= function() {
 			state  = "brake";
 		}
 	}
+	
+	// Check For Sideways Ramps
+	if (state != "brake") {
+		ds_list_clear(list);
+		var _ramp_coords = grid_check_for(ENTITY.CAR, u, v, facing, momentum + 1, ENTITY.RAMP);
+		if (_ramp_coords[0] != undefined && _ramp_coords[1] != undefined) {
+			grid_get_instances_at(ENTITY.RAMP, _ramp_coords[0], _ramp_coords[1], list, true);
+			
+			var _ramp = list[| 0];
+			if (_ramp != noone && _ramp != undefined)  {
+				var _sideways = (
+					(_ramp.facing == DIR.RIGHT	&& facing != DIR.RIGHT)	||
+					(_ramp.facing == DIR.LEFT	&& facing != DIR.LEFT)	||
+					(_ramp.facing == DIR.UP		&& facing != DIR.UP)	||
+					(_ramp.facing == DIR.DOWN	&& facing != DIR.DOWN)
+				);
+				
+				if (_sideways) {
+					action = brake;
+					state  = "brake";
+				}
+			}
+		}
+	}
 }
 check_for_drive = function() {
 	var _car_pass = false;
@@ -135,8 +160,13 @@ check_for_drive = function() {
 	var _coords = grid_check_for_crash(id, u, v, facing, 1);
 	if (_coords[0] == undefined && _coords[1] == undefined)
 		_crash_pass = true;
+		
+	var _ramp_pass = false;
+	var _coords = grid_check_for(ENTITY.CAR, u, v, facing, 1, ENTITY.RAMP);
+	if (_coords[0] == undefined && _coords[1] == undefined)
+		_ramp_pass = true;
 	
-	if (_car_pass && _light_pass && _crash_pass) {
+	if (_car_pass && _light_pass && _crash_pass && _ramp_pass) {
 		action =  drive;
 		state  = "drive";
 	}
@@ -163,6 +193,25 @@ brake	= function() {
 idle	= function() {
 	momentum = 0;
 	check_for_drive();
+}
+ascend	= function() {
+	move(move_speed, facing);	
+	target_z -= UNIT_SIZE * 0.5
+	
+	hangtime--;
+	if (hangtime <= 0) {
+		state  = "descend";
+		action = descend;
+	}
+}
+descend = function() {
+	move(move_speed, facing);	
+	target_z += UNIT_SIZE * 0.5
+	
+	if (target_z >= -UNIT_SIZE * 0.1) {
+		state  = "drive";
+		action = drive;
+	}
 }
 action	= drive;
 

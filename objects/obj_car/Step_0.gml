@@ -16,10 +16,17 @@ if (state != "crash") {
 }
 	
 // Check For Car Crash After Completed Moving
-if (state != "crash" && abs(x - target_x) <= 0.2 && abs(y - target_y) <= 0.2) {
+if (state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 	var _car = collision_circle(x, y, 5, obj_car, false, true);
 	if (_car != undefined && _car != noone)
 		do_crash();
+	var _piano = collision_circle(x, y, 5, obj_piano, false, false);
+	if (_piano != undefined && _piano != noone) {
+		if (abs(_piano.z - z) <= UNIT_SIZE) {
+			do_crash();
+			_piano.do_crash();
+		}
+	}
 }
 
 // Spew Fire If Top Of Crash Pile
@@ -30,7 +37,21 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 		fire_particle_create(x, y, -_size * UNIT_SIZE * 0.5);
 }
 
+// Adjust For Ramp
+if (abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
+	var _ramp = collision_circle(x, y, 5, obj_ramp, false, false);
+	if (_ramp != noone && _ramp != undefined) {
+		target_z = _ramp.z - UNIT_SIZE * 0.5;
+		model.zangle_target = 45;
+		state	 = "ascend";
+		action	 = ascend;
+		hangtime = clamp(0, momentum - 1, 10);
+	}
+}
+
 // Offset Z Position To Account For Bottom Model Origin
-var _dif	 = abs(180 - model.xangle);
-var _percent = _dif / 180;
-model.z		-= UNIT_SIZE * _percent * 0.5;
+if (state == "crash") {
+	var _dif	 = abs(180 - model.xangle);
+	var _percent = _dif / 180;
+	model.z		-= UNIT_SIZE * _percent * 0.5;
+}

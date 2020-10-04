@@ -9,17 +9,17 @@ model.update();
 if (GRID_CRASHES[# u, v] == undefined) {
 	var _car = collision_circle(x, y, 5, obj_car, false, true);
 	if (_car != undefined && _car != noone) {
-		if (state != "crash" && abs(z - target_z) <= 0.2 && z >= -UNIT_SIZE) {
+		if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE) {
 			_car.do_crash();
 			do_crash();
 		}
 	}
 	// Check For Ground
-	else if (state != "crash" && abs(z - target_z) <= 0.2 && z >= -UNIT_SIZE * 0.5)
+	else if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE * 0.5)
 		do_crash();
 }
 // Add To Top Of Stack
-else if (state != "crash" && abs(z - target_z) <= 0.2 && z >= -UNIT_SIZE * ds_list_size(GRID_CRASHES[# u, v]))
+else if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE * ds_list_size(GRID_CRASHES[# u, v]))
 	do_crash();
 	
 

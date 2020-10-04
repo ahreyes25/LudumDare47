@@ -13,6 +13,11 @@
 - player inventory
 - base ground texture
 
+- select pieces
+- place pieces
+- rotate ramps and cars
+- draw info on screen
+
 - sounds
 	- car accelerating
 	- car braking
