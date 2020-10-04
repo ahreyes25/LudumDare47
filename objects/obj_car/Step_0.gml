@@ -22,9 +22,11 @@ if (state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 		do_crash();
 	var _piano = collision_circle(x, y, 5, obj_piano, false, false);
 	if (_piano != undefined && _piano != noone) {
-		if (abs(_piano.z - z) <= UNIT_SIZE * 0.5) {
+		if (abs(_piano.z - z) <= UNIT_SIZE * 0.25) {
 			do_crash();
-			_piano.do_crash();
+			
+			if (_piano.state != "crash")
+				_piano.do_crash();
 		}
 	}
 }
@@ -34,10 +36,10 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 	var _list = GRID_CRASHES[# u, v];
 	var _size = ds_list_size(_list);
 	if (_list[| _size - 1] == id)
-		fire_particle_create(x, y, -_size * UNIT_SIZE * 0.5);
+		fire_particle_create(x, y, z);
 }
 
-// Adjust For Ramp
+// Ramp Ascend & Ramp Crash
 if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 	var _ramp = collision_circle(x, y, 5, obj_ramp, false, false);
 	if (_ramp != noone && _ramp != undefined) {
@@ -48,6 +50,7 @@ if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - t
 			(_ramp.facing == DIR.DOWN	&& facing != DIR.DOWN)
 		);
 		
+		// Ascend
 		if (!_sideways) {
 			target_z = _ramp.z - UNIT_SIZE * 0.5;
 			model.zangle_target = 45;
@@ -55,8 +58,12 @@ if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - t
 			action	 = ascend;
 			hangtime = clamp(0, momentum - 1, 10);
 		}
-		else if (abs(_ramp.z - z) <= UNIT_SIZE * 0.5)
+		// Crash
+		else if (abs(_ramp.z - z) <= UNIT_SIZE * 0.25) {
+			if (_ramp.state != "crash")
+				_ramp.do_crash();
 			do_crash();
+		}
 	}
 }
 

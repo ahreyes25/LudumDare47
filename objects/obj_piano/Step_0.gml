@@ -10,12 +10,13 @@ if (GRID_CRASHES[# u, v] == undefined) {
 	var _car = collision_circle(x, y, 5, obj_car, false, true);
 	if (_car != undefined && _car != noone) {
 		if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE) {
-			_car.do_crash();
+			if (_car.state != "crash")
+				_car.do_crash();
 			do_crash();
 		}
 	}
 	// Check For Ground
-	else if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE * 0.5)
+	else if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE * 0.25)
 		do_crash();
 }
 // Add To Top Of Stack
@@ -28,7 +29,7 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 	var _list = GRID_CRASHES[# u, v];
 	var _size = ds_list_size(_list);
 	if (_list[| _size - 1] == id && _list[| 0] != id)
-		fire_particle_create(x, y, -_size * UNIT_SIZE * 0.5);
+		fire_particle_create(x, y, z);
 }
 
 // Offset Z Position To Account For Bottom Model Origin

@@ -1,6 +1,6 @@
 - car midair stack collision
-- car collision with sideways ramp
 - piano wood particles
+- paino crash on ramp
 
 - human logic
 	- walking on sidewalks
@@ -28,6 +28,8 @@
 	- water spewing
 
 - extra ideas
+	- remove GMLIVE
+	- Train
 	- undo action
 	- rotate cars when accel/breaking/turning
 	- remove all extre debug keys
