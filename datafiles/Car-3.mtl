@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd Car-1-Tex-Color3.png
+map_Kd Car-1-Tex-Color2.png
 
 newmtl Car_Body1
 Ns 225.000000
@@ -21,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd Car-1-Tex-Color3.png
+map_Kd Car-1-Tex-Color2.png
 
 newmtl Car_Window
 Ns 254.547520
@@ -32,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd Car-1-Tex-Color3.png
+map_Kd Car-1-Tex-Color2.png
 
 newmtl Car_dirt
 Ns 225.000000
@@ -43,7 +43,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd Car-1-Tex-Color3.png
+map_Kd Car-1-Tex-Color2.png
 
 newmtl Car_tire
 Ns 323.999994
@@ -54,4 +54,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd Car-1-Tex-Color3.png
+map_Kd Car-1-Tex-Color2.png

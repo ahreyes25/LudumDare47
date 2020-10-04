@@ -10,7 +10,8 @@ state			= "drive";
 list			= ds_list_create();
 
 // Load Car Model
-model = dotobj_model_load_file("Car-1.obj", true, true);
+var _type = choose("Car-1.obj", "Car-2.obj", "Car-3.obj");
+model = dotobj_model_load_file(_type, true, true);
 model.scale(SCALE_3D + 5);
 model.zscale += 10;
 model.yscale += 5
@@ -29,7 +30,7 @@ check_for_brake	= function() {
 		grid_get_instances_at(ENTITY.CAR, _car_coords[0], _car_coords[1], list, true);
 		var _car = list[| 0];
 		
-		if (_car != noone && _car != undefined && (_car.momentum < _car.max_momentum))  {
+		if (_car != noone && _car != undefined && (_car.momentum < _car.max_momentum || _car.state == "brake"))  {
 			action = brake;
 			state  = "brake";
 		}

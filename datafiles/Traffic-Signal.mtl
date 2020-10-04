@@ -1,57 +1,57 @@
-# Blender MTL File: 'Intersection3.blend'
+# Blender MTL File: 'Intersection4.blend'
 # Material Count: 5
 
-newmtl Car_Axel
-Ns 575.999996
-Ka 1.000000 1.000000 1.000000
-Kd 0.048131 0.017521 0.003418
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd Car-1-Tex-Color3.png
-
-newmtl Car_Body1
+newmtl Green
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.308688 0.308688 0.308688
+Kd 0.114435 0.309469 0.152926
 Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd Car-1-Tex-Color3.png
+map_Kd Traffic-Signal-Tex-Color.png
 
-newmtl Car_Window
-Ns 254.547520
-Ka 1.000000 1.000000 1.000000
-Kd 0.010288 0.000546 0.000546
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd Car-1-Tex-Color3.png
-
-newmtl Car_dirt
+newmtl Grey
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.500663 0.006177 0.002767
+Kd 0.194618 0.194618 0.184475
 Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd Car-1-Tex-Color3.png
+map_Kd Traffic-Signal-Tex-Color.png
 
-newmtl Car_tire
-Ns 323.999994
+newmtl Light_grey
+Ns 225.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.010021 0.010021 0.010021
+Kd 0.508881 0.508881 0.496933
 Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd Car-1-Tex-Color3.png
+map_Kd Traffic-Signal-Tex-Color.png
+
+newmtl Red
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.534827 0.015405 0.015996
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Traffic-Signal-Tex-Color.png
+
+newmtl Yellow
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.539480 0.376262 0.015209
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Traffic-Signal-Tex-Color.png
