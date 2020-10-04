@@ -7,34 +7,56 @@ target_y	= y;
 ds_list_add(LIST_ENTITIES, id);
 
 move			= function(_amount, _dir) {
+	var _instant = argument_count == 3 ? argument[2] : false;
+	
 	var _grid			= grid_get_grid(entity);
 	var _empty_value	= grid_get_empty_value(entity);
 	
 	switch (_dir) {
 		case DIR.RIGHT:
 			_grid[# u, v] = _empty_value;
-			target_x += UNIT_SIZE * _amount;	
+			if (_instant) {
+				x += UNIT_SIZE * _amount;	
+				target_x = x;
+			}
+			else
+				target_x += UNIT_SIZE * _amount;	
 			u += _amount;
 			_grid[# u, v] = entity;
 			break;
 			
 		case DIR.LEFT:	
 			_grid[# u, v] = _empty_value;
-			target_x -= UNIT_SIZE * _amount;	
+			if (_instant) {
+				x -= UNIT_SIZE * _amount;
+				target_x = x;
+			}
+			else
+				target_x -= UNIT_SIZE * _amount;
 			u -= _amount;
 			_grid[# u, v] = entity;
 			break;
 			
 		case DIR.UP:	
 			_grid[# u, v] = _empty_value;
-			target_y -= UNIT_SIZE * _amount;	
+			if (_instant) {
+				y -= UNIT_SIZE * _amount;	
+				target_y = y;
+			}
+			else
+				target_y -= UNIT_SIZE * _amount;	
 			v -= _amount;
 			_grid[# u, v] = entity;
 			break;
 			
 		case DIR.DOWN:	
 			_grid[# u, v] = _empty_value;
-			target_y += UNIT_SIZE * _amount;	
+			if (_instant) {
+				y += UNIT_SIZE * _amount;	
+				target_y = y;
+			}
+			else
+				target_y += UNIT_SIZE * _amount;	
 			v += _amount;
 			_grid[# u, v] = entity;
 			break;

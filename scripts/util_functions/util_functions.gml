@@ -9,7 +9,7 @@ function vertex_add_point(_vbuffer, _x, _y, _z, _nx, _ny, _nz, _utex, _vtex, _co
 /// @function draw_sprite_billboard_cylinder(sprite, subimage, x, y, z)  
 function draw_sprite_billboard_cylinder(_sprite, _subimage, _x, _y, _z) {
     matrix_set(matrix_world, matrix_build(_x, _y, _z, 0, 0, 0, 1, 1, 1));
-    draw_sprite(_sprite, _subimage, 0, 0);
+    draw_sprite_ext(_sprite, _subimage, 0, 0, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
     matrix_set(matrix_world, matrix_build_identity());
 }
 

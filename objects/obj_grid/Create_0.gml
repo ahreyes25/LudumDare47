@@ -9,7 +9,7 @@ center_y		= y;
 world_3d		= undefined;
 
 // Functions
-draw_grid			= function() {		
+draw_grid				= function() {		
 	for (var i = 0; i < grid_width; i++) {
 		for (var j = 0; j < grid_height; j++) {
 			var _coords = grid_to_world(i, j);
@@ -31,7 +31,7 @@ draw_grid			= function() {
 	for (var j = 0; j <= grid_height; j++)
 		draw_line_color(x, y + j * UNIT_SIZE, x + grid_width * UNIT_SIZE, y + j * UNIT_SIZE, c_black, c_black);	
 }
-fill_grid			= function() {
+fill_grid				= function() {
 	for (var i = quad_size + sidewalk_width; i < grid_width - quad_size - sidewalk_width; i++) {	// road
 		for (var j = 0; j < grid_height; j++)
 			GRID_ENVIRONMENT[# i, j] = ENVIRONMENT.ROAD;	
@@ -84,7 +84,7 @@ fill_grid			= function() {
 		GRID_ENVIRONMENT[# grid_width div 2, j] = ENVIRONMENT.TURNING_LANE;	
 	}	
 }
-capture_environment	= function() {
+capture_environment		= function() {
 	var _list		= ds_list_create();
 	var _objects	= [obj_building, obj_grass, obj_sidewalk, obj_turning_lane, obj_crosswalk];
 
@@ -116,7 +116,7 @@ capture_environment	= function() {
 	}
 	ds_list_destroy(_list);
 }
-act_on_entities		= function() {
+act_on_entities			= function() {
 	for (var i = ds_list_size(LIST_ENTITIES) - 1; i >= 0; i--) {
 		var _entity = LIST_ENTITIES[| i];
 		var _exists = instance_exists(_entity);
