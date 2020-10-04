@@ -6,5 +6,5 @@ if (SHOW_2D) {
 		case DIR.DOWN:	image_angle = 270;	break;	
 	}
 	draw_self();
-	draw_text(x, y, z);
+	//draw_text(x, y, z);
 }
