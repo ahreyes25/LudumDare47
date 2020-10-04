@@ -13,10 +13,27 @@ model.x = x;
 model.y = y;
 model.z = z;
 ds_list_add(LIST_ENTITIES, id);
+update_uvs();
 
-fall = function() {
+fall	 = function() {
 	target_z = z + UNIT_SIZE;	
 }
-
+do_crash = function() {
+	action = undefined;
+	state  = "crash";
+		
+	if (GRID_CRASHES[# u, v] == undefined)
+		GRID_CRASHES[# u, v] = ds_list_create();
+	var _zoffset = ds_list_size(GRID_CRASHES[# u, v]);
+	ds_list_add(GRID_CRASHES[# u, v], id);
+		
+	switch (choose("x", "y", "z")) {
+		case "x": model.xangle = random_range(45, 270); break;
+		case "y": model.yangle = random_range(45, 270); break;
+		case "z": model.zangle = random_range(45, 270); break;
+	}
+	target_z = -_zoffset * UNIT_SIZE * 0.5;	
+}
+	
 action = fall;
 state  = "fall";

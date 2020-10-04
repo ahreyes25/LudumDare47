@@ -1,5 +1,6 @@
 - piano hitting ground
 - car stopping for piano if possible
+- put piano on top of stack
 
 - human logic
 	- walking on sidewalks

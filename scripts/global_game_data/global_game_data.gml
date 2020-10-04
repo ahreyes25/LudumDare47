@@ -42,3 +42,6 @@ global.show_2d				= false;
 
 global.slow_factor			= 1;
 #macro SLOW_FACTOR			global.slow_factor
+
+global.crash_color			= c_black;
+#macro CRASH_COLOR			global.crash_color

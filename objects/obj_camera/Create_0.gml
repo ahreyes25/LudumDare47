@@ -13,18 +13,19 @@ xto			= obj_grid.center_x;
 yto			= obj_grid.center_y;
 zto			= -50;
 fov			= 60;
-
 u_color		= shader_get_uniform(shdr_color_blend, "u_color");
 u_alpha		= shader_get_uniform(shdr_color_blend, "u_alpha");
 
 positions	= [
-	[_gx - _gw * 0.60, _gy + _gh * 0.20, -300],
+	[_gx - _gw * 2.50, _gy + _gh * 0.40, -450],
+	//[_gx - _gw * 1.80, _gy + _gh * 0.60, -400],
 	[_gx - _gw * 0.50, _gy + _gh * 0.40, -250],
 	[x, y, z],
 	[_gx, y, -150],
 	[_gx + _gw * 0.25, y, z],
 	[_gx + _gw * 0.50, _gy + _gh * 0.40, -250],
-	[_gx + _gw * 0.60, _gy + _gh * 0.20, -300],
+	//[_gx + _gw * 1.80, _gy + _gh * 0.60, -400],
+	[_gx + _gw * 2.50, _gy + _gh * 0.40, -450],
 ];
 position_index = 1;
 

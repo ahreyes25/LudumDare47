@@ -43,9 +43,9 @@ if (!SHOW_2D) {
 		if (show) {
 			if (state == "crash") {
 				shader_set(shdr_color_blend);
-				var _r = color_get_red(crash_color);
-				var _g = color_get_green(crash_color);
-				var _b = color_get_blue(crash_color);
+				var _r = color_get_red(CRASH_COLOR);
+				var _g = color_get_green(CRASH_COLOR);
+				var _b = color_get_blue(CRASH_COLOR);
 				shader_set_uniform_f_array(_u_color, [_r, _g, _b]);
 				shader_set_uniform_f(_u_alpha, 0.2);
 			}
@@ -55,13 +55,25 @@ if (!SHOW_2D) {
 				shader_reset();
 		}
 	}
+	
+	with (obj_piano) {
+		if (state == "crash") {
+			shader_set(shdr_color_blend);
+			var _r = color_get_red(CRASH_COLOR);
+			var _g = color_get_green(CRASH_COLOR);
+			var _b = color_get_blue(CRASH_COLOR);
+			shader_set_uniform_f_array(_u_color, [_r, _g, _b]);
+			shader_set_uniform_f(_u_alpha, 0.2);
+		}
+		model.submit();
+		
+		if (state == "crash")
+			shader_reset();
+	}
 		
 	with (obj_dead_tree)
 		model.submit();
 	with (obj_alive_tree)
-		model.submit();
-		
-	with (obj_piano)
 		model.submit();
 
 	//shader_reset();

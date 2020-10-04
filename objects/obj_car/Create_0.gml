@@ -11,7 +11,6 @@ state			= "drive";
 list			= ds_list_create();
 crash_angle		= undefined;
 crash_axis		= undefined;
-crash_color		= c_black;
 ds_list_add(LIST_ENTITIES, id);
 
 // Load Car Model
@@ -152,3 +151,20 @@ idle	= function() {
 	check_for_drive();
 }
 action	= drive;
+
+do_crash	= function() {
+	action = undefined;
+	state  = "crash";
+		
+	if (GRID_CRASHES[# u, v] == undefined)
+		GRID_CRASHES[# u, v] = ds_list_create();
+	var _zoffset = ds_list_size(GRID_CRASHES[# u, v]);
+	ds_list_add(GRID_CRASHES[# u, v], id);
+		
+	switch (choose("x", "y", "z")) {
+		case "x": model.xangle = random_range(45, 270); break;
+		case "y": model.yangle = random_range(45, 270); break;
+		case "z": model.zangle = random_range(45, 270); break;
+	}
+	target_z = -_zoffset * UNIT_SIZE * 0.5;
+}

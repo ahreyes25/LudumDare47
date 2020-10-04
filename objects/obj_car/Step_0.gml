@@ -17,23 +17,8 @@ if (state != "crash") {
 // Check For Car Crash
 if (state != "crash" && abs(x - target_x) <= 0.1 && abs(y - target_y) <= 0.1) {
 	var _car = collision_circle(x, y, 5, obj_car, false, true);
-	if (_car != undefined && _car != noone) {
-		action		= undefined;
-		state		= "crash";
-		
-		if (GRID_CRASHES[# u, v] == undefined)
-			GRID_CRASHES[# u, v] = ds_list_create();
-		var _zoffset = ds_list_size(GRID_CRASHES[# u, v]);
-		ds_list_add(GRID_CRASHES[# u, v], id);
-		
-		switch (choose("x", "y", "z")) {
-			case "x": model.xangle = random_range(45, 270); break;
-			case "y": model.yangle = random_range(45, 270); break;
-			case "z": model.zangle = random_range(45, 270); break;
-		}
-		target_z = -_zoffset * UNIT_SIZE * 0.5;
-		//model.z = z;
-	}
+	if (_car != undefined && _car != noone)
+		do_crash();
 }
 
 // Spew Fire If Top Of Crash Pile

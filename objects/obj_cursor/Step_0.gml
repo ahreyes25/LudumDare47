@@ -1,17 +1,17 @@
 check_to_place_piece();
 
-var _left_pressed	= keyboard_check_pressed(ord("A"));
-var _right_pressed	= keyboard_check_pressed(ord("D"));
-var _up_pressed		= keyboard_check_pressed(ord("W"));
-var _down_pressed	= keyboard_check_pressed(ord("S"));
+var _left_pressed	= !keyboard_check(vk_shift) && keyboard_check_pressed(ord("A"));
+var _right_pressed	= !keyboard_check(vk_shift) && keyboard_check_pressed(ord("D"));
+var _up_pressed		= !keyboard_check(vk_shift) && keyboard_check_pressed(ord("W"));
+var _down_pressed	= !keyboard_check(vk_shift) && keyboard_check_pressed(ord("S"));
 
-if (obj_camera.position_index == 0 || obj_camera.position_index == 1) {
+if (obj_camera.position_index <= 1) {
 	if (_left_pressed)	move(1, DIR.UP);
 	if (_right_pressed) move(1, DIR.DOWN);
 	if (_up_pressed)	move(1, DIR.RIGHT);
 	if (_down_pressed)	move(1, DIR.LEFT);
 }
-else if (obj_camera.position_index == 6 || obj_camera.position_index == 5) {
+else if (obj_camera.position_index >= array_length(obj_camera.positions) - 2) {
 	if (_left_pressed)	move(1, DIR.DOWN);
 	if (_right_pressed) move(1, DIR.UP);
 	if (_up_pressed)	move(1, DIR.LEFT);
