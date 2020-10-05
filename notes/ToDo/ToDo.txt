@@ -4,7 +4,6 @@
 	- walking on sidewalks
 	- crossing streets
 	
-- visualize turn counter on screen
 - tutorial
 - main menu
 - manhole cover
