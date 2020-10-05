@@ -66,7 +66,7 @@ if (obj_cursor.selected_object != id && state != "crash" && state != "ascend" &&
 		);
 		
 		// Ascend
-		if (!_sideways) {
+		if (!_sideways && obj_cursor.selected_object != _ramp) {
 			target_z = _ramp.z - UNIT_SIZE * 0.5;
 			model.zangle_target = 45;
 			state	 = "ascend";
@@ -74,7 +74,7 @@ if (obj_cursor.selected_object != id && state != "crash" && state != "ascend" &&
 			hangtime = momentum;
 		}
 		// Crash
-		else if (obj_cursor.selected_object != id && abs(_ramp.target_z - target_z) <= UNIT_SIZE * 0.25) {
+		else if (obj_cursor.selected_object != _ramp && obj_cursor.selected_object != id && abs(_ramp.target_z - target_z) <= UNIT_SIZE * 0.25) {
 			if (_ramp.state != "crash" && obj_cursor.selected_object != _ramp)
 				_ramp.do_crash();
 			do_crash();

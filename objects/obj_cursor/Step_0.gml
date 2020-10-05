@@ -72,8 +72,7 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 			break;
 			
 		case obj_ramp:	
-			var _inst = collision_circle(_x, _y, 5, obj_ramp, false, false);	
-			var _pass = (_inst == noone || _inst == undefined);
+			var _pass = (GRID_CARS[# u, v] == grid_get_empty_value(ENTITY.CAR));
 			break;
 			
 		case obj_char:	
@@ -98,7 +97,8 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 
 depth = obj_camera.depth - 1;
 
-
+if (keyboard_check_pressed(vk_numpad0))
+	obj_game.placed_item_this_round = false;
 
 
 
