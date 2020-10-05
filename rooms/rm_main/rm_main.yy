@@ -78,6 +78,7 @@
             {"propertyId":{"name":"z_override","path":"objects/obj_tree_top/obj_tree_top.yy",},"objectId":{"name":"obj_tree_top","path":"objects/obj_tree_top/obj_tree_top.yy",},"value":"-66","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"obj_tree_top","path":"objects/obj_tree_top/obj_tree_top.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":708.0,"y":516.0,"resourceVersion":"1.0","name":"inst_16AAE779","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_firehydrant","path":"objects/obj_firehydrant/obj_firehydrant.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":468.0,"y":540.0,"resourceVersion":"1.0","name":"inst_4D170C46","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_cone","path":"objects/obj_cone/obj_cone.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":516.0,"y":444.0,"resourceVersion":"1.0","name":"inst_5C7808C","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":12,"gridY":12,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Decorations","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_char","path":"objects/obj_char/obj_char.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":612.0,"y":252.0,"resourceVersion":"1.0","name":"inst_32119D40","tags":[],"resourceType":"GMRInstance",},
@@ -288,6 +289,7 @@
     {"name":"inst_75EC1A0C","path":"rooms/rm_main/rm_main.yy",},
     {"name":"inst_16AAE779","path":"rooms/rm_main/rm_main.yy",},
     {"name":"inst_4D170C46","path":"rooms/rm_main/rm_main.yy",},
+    {"name":"inst_5C7808C","path":"rooms/rm_main/rm_main.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

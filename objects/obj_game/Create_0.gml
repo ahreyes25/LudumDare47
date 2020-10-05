@@ -22,6 +22,7 @@ global.stoplight_model		= dotobj_model_load_file("Traffic-Signal.obj", true, tru
 global.ramp_model			= dotobj_model_load_file("Ramp.obj", true, false);
 global.dead_tree_model		= dotobj_model_load_file("Tree-Dead.obj", false, true);
 global.piano_model			= dotobj_model_load_file("Piano.obj", true, true);
+global.cone_model			= dotobj_model_load_file("Traffic-Cone.obj", true, false);
 
 // Game Logic 
 in_main_menu			= true;
