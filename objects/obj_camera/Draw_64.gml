@@ -109,4 +109,9 @@ if (!obj_game.in_main_menu) {
 	draw_set_color(c_white);
 	
 	draw_sprite_ext(spr_help_tab, 0, help_x, 200, 3, 3, 0, c_white, 1);
+	
+	// Space Prompt
+	var _acting = (obj_game.execute || obj_game.alarm[1] != -1 || obj_game.placed_item_this_round);
+	if (!_acting)
+		draw_text_transformed_color(SW * 0.75, SH - string_height("A") * 1.5 - 10, "Press Space For Next Turn", 1.5, 1.5, 0, c_black, c_black, c_black, c_black, 1);
 }
