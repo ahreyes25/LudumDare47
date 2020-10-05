@@ -19,3 +19,10 @@ action = undefined;
 state  = "";
 
 update_uvs();
+
+do_crash	= function() {
+	if (GRID_CRASHES[# u, v] == undefined)
+		GRID_CRASHES[# u, v] = ds_list_create();
+	ds_list_insert(GRID_CRASHES[# u, v], 0, id);
+	state = "crash";
+}

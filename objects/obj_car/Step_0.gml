@@ -74,6 +74,18 @@ if (obj_cursor.selected_object != id && state != "crash" && abs(x - target_x) <=
 			}
 		}
 	}
+		
+	// Crash Against Cone
+	if (state != "crash") {
+		var _cone = collision_circle(target_x, target_y, 5, obj_cone, false, false);
+		if (obj_cursor.selected_object != _cone && _cone != undefined && _cone != noone) {
+			if (abs((_cone.z - UNIT_SIZE * 0.75) - target_z) <= UNIT_SIZE * 0.25)
+				do_crash();
+				
+				if (_cone.state != "crash")
+					_cone.do_crash();
+		}
+	}
 }
 
 // Spew Fire If Top Of Crash Pile

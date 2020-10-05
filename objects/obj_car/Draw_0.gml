@@ -3,7 +3,7 @@ if (SHOW_2D) {
 	draw_text(x, y, state);
 	draw_text(x, y + 10, "u: " + string(u) + ", v: " + string(v));
 }
-if (status_sprite != undefined && show) {
+if (status_sprite != undefined && show && !off) {
 	image_alpha = 0.75;
 	
 	var _status_sprite = status_sprite != undefined ? sprite_get_name(status_sprite) : "undefined";

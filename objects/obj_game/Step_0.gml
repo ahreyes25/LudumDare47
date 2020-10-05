@@ -83,7 +83,7 @@ inventory_y = lerp(inventory_y, inventory_y_target, 0.1);
 
 // Restart Round
 if (turn_counter >= turns_total && alarm[2] == -1)
-	alarm[2] = 60 * 4;
+	alarm[2] = 60 * 3;
 
 // Toggle Fullscreen
 if (keyboard_check_pressed(vk_f11))

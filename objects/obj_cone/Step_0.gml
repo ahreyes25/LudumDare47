@@ -6,6 +6,7 @@ model.z = z;
 model.update();
 
 if (!moving && !stored) {
-	store_in_grid();
+	update_uvs();
+	GRID_CONES[# u, v] = CONE.BASIC;
 	stored = true;
 }

@@ -155,6 +155,21 @@ check_for_brake	= function() {
 			}
 		}
 	}
+		
+	// Check For Cones
+	if (state != "brake") {
+		ds_list_clear(list);
+		var _cone_coords = grid_check_for(ENTITY.CONE, u, v, facing, momentum + 1);
+		if (_cone_coords[0] != undefined && _cone_coords[1] != undefined) {
+			grid_get_instances_at(ENTITY.CONE, _cone_coords[0], _cone_coords[1], list, true);
+			
+			var _cone = list[| 0];
+			if (_cone != noone && _cone != undefined)  {
+				action = brake;
+				state  = "brake";
+			}
+		}
+	}
 }
 check_for_drive = function() {
 	var _car_pass = false;
@@ -208,11 +223,16 @@ check_for_drive = function() {
 	if (_coords[0] == undefined && _coords[1] == undefined)
 		_ramp_pass = true;
 		
+	var _cone_pass = false;
+	var _coords = grid_check_for(ENTITY.CONE, u, v, facing, 1);
+	if (_coords[0] == undefined && _coords[1] == undefined)
+		_cone_pass = true;
+		
 	// Dont Pass Lights If Sitting In Crosswalk
 	if (GRID_LIGHTS[# u, v] != LIGHT.NONE)
 		_light_pass = false;
 	
-	if (_car_pass && _light_pass && _crash_pass && _ramp_pass) {
+	if (_car_pass && _light_pass && _crash_pass && _ramp_pass && _cone_pass) {
 		action =  drive;
 		state  = "drive";
 	}
