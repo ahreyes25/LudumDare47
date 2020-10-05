@@ -101,7 +101,7 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 					var _inst	= _list[| i];	
 					if (_inst == obj_cursor.selected_object)
 						continue;
-					var _below	= (_inst.z > -_inst.height_units * UNIT_SIZE);
+					var _below	= (_inst.z > -3 * UNIT_SIZE);	// check against default piano spawn height
 					if (!_below) {
 						_pass = false;
 						break;

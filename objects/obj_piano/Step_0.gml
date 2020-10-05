@@ -7,19 +7,43 @@ model.update();
 
 // Check For Crashes When There Are No Crashes Below Us
 if (GRID_CRASHES[# u, v] == undefined) {		
-	// Check For Ramps and Cars
+	// Check For Ramps, Cars, Cones, and Pianos
 	if (obj_cursor.selected_object != id && state != "crash" && abs(z - target_z) <= 1 && target_z >= -UNIT_SIZE * 0.5) {
-		var _car = collision_circle(x, y, 5, obj_car, false, true);
-		if (_car != undefined && _car != noone && obj_cursor.selected_object != _car) {
-			if (_car.state != "crash" && obj_cursor.selected_object != _car)
-				_car.do_crash();
-			do_crash();
+		// Car
+		if (state != "crash") {
+			var _car = collision_circle(x, y, 5, obj_car, false, false);
+			if (_car != undefined && _car != noone && obj_cursor.selected_object != _car) {
+				if (_car.state != "crash" && obj_cursor.selected_object != _car)
+					_car.do_crash();
+				do_crash();
+			}
 		}
-		else {
-			var _ramp = collision_circle(target_x, target_y, 5, obj_ramp, false, true);
+		// Ramp
+		if (state != "crash") {
+			var _ramp = collision_circle(target_x, target_y, 5, obj_ramp, false, false);
 			if (_ramp != undefined && _ramp != noone && obj_cursor.selected_object != _ramp) {
 				if (_ramp.state != "crash" && obj_cursor.selected_object != _ramp)
 					_ramp.do_crash();
+				do_crash();
+			}
+		}
+		
+		// Cone
+		if (state != "crash") {
+			var _cone = collision_circle(target_x, target_y, 5, obj_cone, false, false);
+			if (_cone != undefined && _cone != noone && obj_cursor.selected_object != _cone) {
+				if (_cone.state != "crash" && obj_cursor.selected_object != _cone)
+					_cone.do_crash();
+				do_crash();
+			}
+		}
+		
+		// Pianos
+		if (state != "crash") {
+			var _piano = collision_circle(target_x, target_y, 5, obj_piano, false, false);
+			if (_piano != undefined && _piano != noone && obj_cursor.selected_object != _piano) {
+				if (_piano.state != "crash" && obj_cursor.selected_object != _piano && _piano.target_z >= target_z)
+					_piano.do_crash();
 				do_crash();
 			}
 		}
@@ -44,9 +68,11 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 }
 
 // Offset Z Position To Account For Bottom Model Origin
-var _dif	 = abs(180 - model.xangle);
-var _percent = _dif / 180;
-model.z		-= UNIT_SIZE * _percent * 0.3;
+if (obj_cursor.selected_object != id && state == "crash") {
+	var _dif	 = abs(180 - model.xangle);
+	var _percent = _dif / 180;
+	model.z		-= UNIT_SIZE * _percent * 0.3;
+}
 
 // Wood Particles
 if (alarm0 != -1 && SLOW_FACTOR != 0) {

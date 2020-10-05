@@ -66,7 +66,7 @@ if (obj_cursor.selected_object != id && state != "crash" && abs(x - target_x) <=
 	if (state != "crash") {
 		var _piano = collision_circle(target_x, target_y, 5, obj_piano, false, false);
 		if (obj_cursor.selected_object != _piano && _piano != undefined && _piano != noone) {
-			if (abs(_piano.z - target_z) <= UNIT_SIZE * 0.25) {
+			if (abs(_piano.z - target_z) < UNIT_SIZE * 0.5) {
 				do_crash();
 			
 				if (_piano.state != "crash")
