@@ -1,5 +1,5 @@
-/*
-if (structures_show) {
+
+if (true) {
 	var _structure_data = structures[structure_index];
 	
 	draw_text(20, 20, _structure_data[2]);

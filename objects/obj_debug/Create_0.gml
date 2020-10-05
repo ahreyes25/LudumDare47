@@ -1,4 +1,3 @@
-/*
 show_debug_overlay(true);
 
 structures = [
@@ -7,6 +6,7 @@ structures = [
 	[GRID_CARS,			"grid", "cars"],
 	[GRID_CHARS,		"grid", "chars"],
 	[GRID_LIGHTS,		"grid", "lights"],
+	[GRID_CONES,		"grid", "cones"],
 ];
 structure_index = 0;
 structures_show	= true;

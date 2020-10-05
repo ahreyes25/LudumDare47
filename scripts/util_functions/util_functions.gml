@@ -54,6 +54,7 @@ function clear_structures()  {
 	ds_grid_clear(GRID_LIGHTS,		LIGHT.NONE);
 	ds_grid_clear(GRID_CARS,		CAR.NONE);		
 	ds_grid_clear(GRID_CHARS,		CHAR.NONE);		
+	ds_grid_clear(GRID_CONES,		CONE.NONE);		
 	
 	// Destroy Lists Stored In Grid First
 	for (var i = 0; i < ds_grid_width(GRID_CRASHES); i++) {
@@ -73,6 +74,7 @@ function resize_grids(_width, _height) {
 	ds_grid_resize(GRID_CARS,		 _width, _height);
 	ds_grid_resize(GRID_CHARS,		 _width, _height);
 	ds_grid_resize(GRID_CRASHES,	 _width, _height);
+	ds_grid_resize(GRID_CONES,	 _width, _height);
 }
 	
 /// @function grid_adjacent(grid, u, v, dir)
@@ -174,6 +176,7 @@ function grid_get_entities_at(_entity, _u, _v) {
 		case ENTITY.CAR:		return GRID_CARS[# _u, _v];		break;
 		case ENTITY.CHAR:		return GRID_CHARS[# _u, _v];	break;
 		case ENTITY.STOPLIGHT:	return GRID_LIGHTS[# _u, _v];	break;
+		case ENTITY.CONE:		return GRID_CONES[# _u, _v];	break;
 	}
 }
 
@@ -183,6 +186,7 @@ function grid_get_empty_value(_entity) {
 		case ENTITY.CAR:		return CAR.NONE;
 		case ENTITY.CHAR:		return CHAR.NONE;
 		case ENTITY.STOPLIGHT:	return LIGHT.NONE;
+		case ENTITY.CONE:		return CONE.NONE;
 		default:				return 0;
 	}
 }
@@ -193,6 +197,7 @@ function grid_get_grid(_entity) {
 		case ENTITY.CAR:		return GRID_CARS;	break;
 		case ENTITY.CHAR:		return GRID_CHARS;	break;
 		case ENTITY.STOPLIGHT:	return GRID_LIGHTS;	break;
+		case ENTITY.CONE:		return GRID_CONES;	break;
 	}
 }
 	

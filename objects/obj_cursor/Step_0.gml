@@ -87,9 +87,8 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 			var _pass = (GRID_CARS[# u, v] == grid_get_empty_value(ENTITY.CAR));
 			break;
 			
-		case obj_char:	
-			var _inst = collision_circle(_x, _y, 5, obj_char, false, false);	
-			var _pass = (_inst == noone || _inst == undefined);
+		case obj_cone:	
+			var _pass = (GRID_CONES[# u, v] == grid_get_empty_value(ENTITY.CONE));
 			break;
 			
 		case obj_piano:	
@@ -131,6 +130,10 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 		
 		if (selected_object.object_index == obj_car)
 			selected_object.editing = false;
+		else if (selected_object.object_index == obj_ramp)
+			selected_object.moving = false;
+		else if (selected_object.object_index == obj_cone)
+			selected_object.moving = false;
 			
 		selected_object = undefined;	
 		obj_cursor.show = false;

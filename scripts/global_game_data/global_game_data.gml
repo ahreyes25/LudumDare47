@@ -5,6 +5,7 @@ enum ENTITY { CAR, CHAR, STOPLIGHT, RAMP, CONE, NONE }
 enum CAR { BASIC, NONE }
 enum CHAR { GUY_BASIC, GIRL_BASIC, GUY_SPORTS, GIRL_SPORTS, MAILMAN, DOG, NONE }
 enum LIGHT { BASIC, NONE }
+enum CONE { BASIC, NONE }
 
 display_reset(8, true);
 
@@ -33,12 +34,14 @@ global.grid_lights			= ds_grid_create(1, 1);
 global.grid_cars			= ds_grid_create(1, 1);
 global.grid_chars			= ds_grid_create(1, 1);
 global.grid_crashes			= ds_grid_create(1, 1);
+global.grid_cones			= ds_grid_create(1, 1);
 #macro LIST_ENTITIES		global.list_entities
 #macro GRID_ENVIRONMENT		global.grid_environment
 #macro GRID_LIGHTS			global.grid_lights
 #macro GRID_CARS			global.grid_cars
 #macro GRID_CHARS			global.grid_chars
 #macro GRID_CRASHES			global.grid_crashes
+#macro GRID_CONES			global.grid_cones
 
 global.scale_3d				= 20;
 global.show_2d				= false;

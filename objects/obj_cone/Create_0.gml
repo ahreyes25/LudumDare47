@@ -13,5 +13,9 @@ model.y = y;
 model.z = z;
 entity = ENTITY.CONE;
 facing = DIR.NONE;
+moving = false;
+stored = false;
+action = undefined;
+state  = "";
 
 update_uvs();

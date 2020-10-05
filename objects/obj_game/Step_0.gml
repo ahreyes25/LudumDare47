@@ -59,6 +59,10 @@ if (_mxg >= _x_left && _mxg <= _x_right && _myg >= _y_top && _myg <= _y_bot) {
 		
 		if (_instance.object_index == obj_car)
 			_instance.editing = true;
+		else if (_instance.object_index == obj_ramp)
+			_instance.moving = true;
+		else if (_instance.object_index == obj_cone)
+			_instance.moving = true;
 		obj_menu.show_controls = false;
 	}
 }
