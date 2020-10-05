@@ -30,11 +30,28 @@ if (obj_cursor.selected_object != id && state != "crash") {
 	
 // Check For Car Crash After Completed Moving
 if (obj_cursor.selected_object != id && state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
-	// Check For Crash Against Stack Of Cars
+	// Check For Crash Cars While Midair
 	if (state == "ascend" || state == "descend") {
+		// Crash Into Stack Of Cars
 		var _list = GRID_CRASHES[# u, v];
 		if (_list != undefined) {
 			if (target_z >= -ds_list_size(_list) * UNIT_SIZE * 0.5)
+				do_crash();
+		}
+		// Crash Into Other Flying Car
+		else {
+			ds_list_clear(list);
+			var _car_count	 = grid_get_instances_at(ENTITY.CAR, u, v, list, true);
+			var _crashed_one = false;
+			
+			for (var i = 0; i < _car_count; i++) {
+				var _car = list[| i];
+				if (_car.target_z == target_z) {
+					_car.do_crash();
+					_crashed_one = true;	
+				}
+			}
+			if (_crashed_one)
 				do_crash();
 		}
 	}
