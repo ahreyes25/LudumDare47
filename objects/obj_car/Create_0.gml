@@ -14,6 +14,7 @@ list			= ds_list_create();
 crash_angle		= undefined;
 crash_axis		= undefined;
 editing			= false;
+status_sprite	= spr_status_arrow;
 
 // Load Car Model
 var _color = obj_game.car_colors[| obj_game.cars_created];
@@ -28,6 +29,11 @@ model.x = x;
 model.y = y;
 model.z = z;
 obj_game.cars_created++;
+xscale		=  1;
+yscale		=  1;
+depth		=  0;
+u_xscale	=  shader_get_uniform(shdr_billboard_cylinder, "u_xscale");
+u_yscale	=  shader_get_uniform(shdr_billboard_cylinder, "u_yscale");
 
 update_uvs();
 store_in_grid();
@@ -218,6 +224,7 @@ drive	= function() {
 	
 	check_for_brake();
 	move(move_speed, facing);	
+	status_sprite = spr_status_arrow;
 }
 brake	= function() {
 	if (momentum > 1)
@@ -229,10 +236,12 @@ brake	= function() {
 		action = idle;
 		state  = "idle";
 	}
+	status_sprite = spr_status_brake;
 }
 idle	= function() {
 	momentum = 0;
 	check_for_drive();
+	status_sprite = undefined;
 }
 ascend	= function() {
 	move(move_speed, facing);	
@@ -243,6 +252,7 @@ ascend	= function() {
 		state  = "descend";
 		action = descend;
 	}
+	status_sprite = spr_status_ascend;
 }
 descend = function() {
 	move(move_speed, facing);	
@@ -252,6 +262,7 @@ descend = function() {
 		state  = "drive";
 		action = drive;
 	}
+	status_sprite = spr_status_descend;
 }
 action	= drive;
 
@@ -267,4 +278,7 @@ do_crash	= function() {
 	model.xangle_target = random_range(-90, 90);
 	model.zangle_target = random_range(-90, 90);
 	target_z = -_zoffset * UNIT_SIZE * 0.5;
+	status_sprite = undefined;
 }
+	
+	

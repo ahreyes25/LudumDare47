@@ -17,7 +17,7 @@ if (new_round_flickering) {
 
 
 #region Space To Advance Game
-if (!obj_menu.show_controls && keyboard_check_pressed(vk_space) && turn_counter < turns_total && alarm[1] == -1 && !placed_item_this_round) {
+if (!obj_menu.show_controls && keyboard_check_pressed(vk_space) && turn_counter < turns_total && alarm[1] == -1 && !placed_item_this_round && alarm[5] == -1) {
 	obj_grid.act_on_entities();
 	turn_counter++;
 	recreate_actions();

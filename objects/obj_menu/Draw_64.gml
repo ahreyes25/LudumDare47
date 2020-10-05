@@ -9,7 +9,7 @@ if (obj_game.in_main_menu) {
 	draw_set_valign(fa_center);
 	
 	if (!start_flicker)
-		draw_text_transformed_color(SW * 0.5, SH * 0.66, "Press Enter", _s, _s, 0, _b, _b, _b, _b, 1); 
+		draw_text_transformed_color(SW * 0.5, SH * 0.66, "Press Space", _s, _s, 0, _b, _b, _b, _b, 1); 
 	draw_text_transformed_color(SW * 0.5, SH * 0.66 + _text_height, cleared_game == false ? "Press R To Reset Loop" : "Game Reset!", _s, _s, 0, _b, _b, _b, _b, 1); 
 
 	var _s = 1;

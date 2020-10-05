@@ -1,5 +1,8 @@
 event_inherited();
 
+if (instance_exists(obj_camera))
+	depth = obj_camera.depth - 1;
+
 if (editing) {
 	switch (facing) {
 		case DIR.LEFT:	model.zangle = 0;	model.zangle_target = 0;	break;	

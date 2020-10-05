@@ -1,10 +1,11 @@
 if (keyboard_check_pressed(vk_f1))
 	show_controls = !show_controls;
 
-if (keyboard_check_pressed(vk_enter)) {
+if (keyboard_check_pressed(vk_space) && (show_controls || obj_game.in_main_menu)) {
 	obj_game.in_main_menu = false;
 	obj_camera.panning = false;	
 	cleared_game = false;
+	obj_game.alarm[5] = 10;
 	
 	if (!showed_controls) {
 		show_controls = true;

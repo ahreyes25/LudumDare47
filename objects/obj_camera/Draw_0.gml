@@ -80,10 +80,12 @@ if (!SHOW_2D) {
 	shader_set(shdr_billboard_cylinder);
 	var _billboards = [obj_char, obj_vine_large, obj_vine_medium, obj_grass_patch, 
 		obj_firehydrant, obj_stoplight_3D, obj_trashcan, obj_particle, obj_float_particle,
-		obj_tree_top];
+		obj_tree_top, obj_car];
 		
 	for (var i = 0; i < array_length(_billboards); i++) {
 		with (_billboards[i]) {
+			if (object_index == obj_car && status_sprite == spr_status_arrow)
+				continue;
 			shader_set_uniform_f(u_xscale, xscale);
 			shader_set_uniform_f(u_yscale, yscale);
 			event_perform(ev_draw, 0);
