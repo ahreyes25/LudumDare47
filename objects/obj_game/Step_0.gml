@@ -9,8 +9,9 @@ depth = obj_camera.depth + 1;
 
 // Game Logic
 if (!in_main_menu) {
-	if (alarm[0] == -1 && turn_counter < turns_total) {
+	if (alarm[0] == -1 && turn_counter < turns_total)
 		alarm[0] = frames_per_turn;
-		turn_counter++;
-	}
 }
+
+if (keyboard_check_pressed(vk_space))
+	execute = !execute;

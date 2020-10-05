@@ -2,22 +2,22 @@ if (live_call()) return live_result;
 
 // Draw In Game GUI
 if (!obj_game.in_main_menu) {
-	var _scale = 4;
-	var _round_width = sprite_get_width(spr_round) * _scale;
-	var _round_height = sprite_get_height(spr_round) * _scale;
-	var _turn_width = sprite_get_width(spr_turn) * _scale;
-	var _turn_height = sprite_get_height(spr_turn) * _scale;
-	var _numbers_width = sprite_get_width(spr_numbers) * _scale;
+	var _scale			= 4;
+	var _round_width	= sprite_get_width(spr_round) * _scale;
+	var _round_height	= sprite_get_height(spr_round) * _scale;
+	var _turn_width		= sprite_get_width(spr_turn) * _scale;
+	var _turn_height	= sprite_get_height(spr_turn) * _scale;
+	var _numbers_width	= sprite_get_width(spr_numbers) * _scale;
 	var _numbers_height = sprite_get_height(spr_numbers) * _scale;
-	var _colon_width = sprite_get_width(spr_colon) * _scale;
-	var _colon_height = sprite_get_height(spr_colon) * _scale;
-	var _slash_width = sprite_get_width(spr_slash) * _scale;
-	var _slash_height = sprite_get_height(spr_slash) * _scale;
+	var _colon_width	= sprite_get_width(spr_colon) * _scale;
+	var _colon_height	= sprite_get_height(spr_colon) * _scale;
+	var _slash_width	= sprite_get_width(spr_slash) * _scale;
+	var _slash_height	= sprite_get_height(spr_slash) * _scale;
 	
 	var _round_x = 30;
 	var _round_y = 30;
-	var _turn_x = 30;
-	var _turn_y = 100;
+	var _turn_x  = 30;
+	var _turn_y  = 100;
 	
 	#region Rounds
 	draw_sprite_ext(spr_round, 0, _round_x, _round_y, _scale, _scale, 0, c_white, 1);
@@ -83,6 +83,8 @@ if (!obj_game.in_main_menu) {
 		draw_sprite_ext(spr_numbers, _right_digit, _turn_x + _turn_width + _colon_width * 2 + _numbers_width * 3 + _numbers_width * _shift, _turn_y + _slash_height * 0.5, _scale, _scale, 0, c_white, 1);
 	}
 	#endregion
+	
+	
 }
 // Draw Main Menu
 else {}
