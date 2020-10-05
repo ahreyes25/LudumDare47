@@ -11,7 +11,7 @@ if (alarm[0] == -1 && turn_counter < turns_total)
 	alarm[0] = frames_per_turn;
 
 #region Space To Advance Game
-if (keyboard_check_pressed(vk_space) && turn_counter < turns_total && alarm[1] == -1 && !placed_item_this_round) {
+if (!obj_menu.show_controls && keyboard_check_pressed(vk_space) && turn_counter < turns_total && alarm[1] == -1 && !placed_item_this_round) {
 	obj_grid.act_on_entities();
 	turn_counter++;
 	recreate_actions();

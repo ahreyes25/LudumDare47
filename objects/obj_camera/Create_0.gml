@@ -14,6 +14,8 @@ panning		= false;
 pan_xstart	= undefined;
 pan_ystart	= undefined;
 pan_zstart	= undefined;
+help_x_target	= 0;
+help_x			= 0;
 
 zoom_scale	= 1;
 positions	= [

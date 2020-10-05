@@ -110,5 +110,7 @@ if (!obj_game.in_main_menu) {
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);
+	
+	draw_sprite_ext(spr_help_tab, 0, help_x, 200, 3, 3, 0, c_white, 1);
 }
 // Draw Main Menu

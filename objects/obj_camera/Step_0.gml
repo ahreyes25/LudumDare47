@@ -1,6 +1,6 @@
 //if (!SHOW_2D)
 	//mouse_move_camera();
-	
+
 if (obj_game.in_main_menu) {
 	if (!panning) {
 		position_index += pan_dir;
@@ -31,6 +31,7 @@ if (panning)
 x = lerp(x, xtarget, _lerp_speed);
 y = lerp(y, ytarget, _lerp_speed);
 z = lerp(z, ztarget, _lerp_speed);
+help_x = lerp(help_x, help_x_target, 0.1);
 
 depth = -10;
 
@@ -54,4 +55,13 @@ if (keyboard_check(vk_shift) && !panning) {
 	}	
 }
 
-// Inventory
+help_x_target = obj_menu.show_controls ? -sprite_get_width(spr_help_tab) * 3 : 0;
+if (device_mouse_check_button_pressed(0, mb_left)) {
+	var _mxg = device_mouse_x_to_gui(0);
+	var _myg = device_mouse_y_to_gui(0);
+	var _sw  = sprite_get_width(spr_help_tab);
+	var _sh = sprite_get_height(spr_help_tab);
+	
+	if (_mxg >= help_x && _mxg <= help_x + _sw * 3 && _myg >= 200 - _sh * 0.5 * 3 && _myg <= 200 + _sh * 0.5 * 3)
+		obj_menu.show_controls = true;
+}
