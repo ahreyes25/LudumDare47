@@ -35,16 +35,25 @@ else {
 	if (_up_pressed)	move(1, DIR.UP);
 	if (_down_pressed)	move(1, DIR.DOWN);
 }
+	
+// Rotate Selected Item
+if (selected_object != undefined) {
+	if (keyboard_check_pressed(ord("E"))) {
+		switch (selected_object.facing) {
+			case DIR.RIGHT:	selected_object.facing = DIR.DOWN;	break;	
+			case DIR.LEFT:	selected_object.facing = DIR.UP;	break;	
+			case DIR.UP:	selected_object.facing = DIR.RIGHT; break;	
+			case DIR.DOWN:	selected_object.facing = DIR.LEFT;	break;	
+		}
+	}
+	else if (keyboard_check_pressed(ord("Q"))) {
+		switch (selected_object.facing) {
+			case DIR.RIGHT:	selected_object.facing = DIR.UP;	break;	
+			case DIR.LEFT:	selected_object.facing = DIR.DOWN;	break;	
+			case DIR.UP:	selected_object.facing = DIR.LEFT;	break;	
+			case DIR.DOWN:	selected_object.facing = DIR.RIGHT;	break;	
+		}
+	}
+}
 
-//aif (selected_object != undefined) {
-//a	var _coords = grid_to_world(u, v);
-//a	
-//a	selected_object.x = _coords[0];
-//a	selected_object.y = _coords[1];
-//a	show_debug_message("item u: " + string(selected_object.u) + ", v: " + string(selected_object.v));
-//a	show_debug_message("item x: " + string(selected_object.x) + ", y: " + string(selected_object.y));
-//a}
 depth = obj_camera.depth - 1;
-
-show_debug_message("cursor u: " + string(u) + ", v: " + string(v));
-show_debug_message("cursor x: " + string(x) + ", y: " + string(y));

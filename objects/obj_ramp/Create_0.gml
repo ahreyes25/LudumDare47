@@ -12,21 +12,10 @@ model.z = z;
 //model.yscale += 10;
 update_uvs();
 entity	= ENTITY.RAMP;
-
-moving = false;
-stored = false;
-state  = "";
-
+moving	= false;
+stored	= false;
+state	= "";
 alarm0	= -1;
-
-switch (facing) {
-	case DIR.LEFT:	model.zangle = 0;	break;	
-	case DIR.RIGHT:	model.zangle = 180;	break;	
-	case DIR.UP:	model.zangle = 270;	break;	
-	case DIR.DOWN:	model.zangle = 90;	break;	
-}
-
-model.zangle_target = model.zangle;
 
 do_crash	= function() {
 	if (GRID_CRASHES[# u, v] == undefined)
