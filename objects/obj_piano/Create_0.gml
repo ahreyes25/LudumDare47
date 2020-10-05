@@ -40,3 +40,9 @@ state  = "fall";
 model.xangle_target = 45;
 model.yangle_target = 45;
 model.zangle_target = 45;
+
+xscale		=  1;
+yscale		=  1;
+depth		=  0;
+u_xscale	=  shader_get_uniform(shdr_billboard_cylinder, "u_xscale");
+u_yscale	=  shader_get_uniform(shdr_billboard_cylinder, "u_yscale");
