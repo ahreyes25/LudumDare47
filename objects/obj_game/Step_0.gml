@@ -9,6 +9,12 @@ if (in_main_menu) return;
 
 if (alarm[0] == -1 && turn_counter < turns_total)
 	alarm[0] = frames_per_turn;
+if (new_round_flickering) {
+	alarm[4] = 120;
+	alarm[3] = new_round_flicker_count;
+	new_round_flickering = false;
+}
+
 
 #region Space To Advance Game
 if (!obj_menu.show_controls && keyboard_check_pressed(vk_space) && turn_counter < turns_total && alarm[1] == -1 && !placed_item_this_round) {
@@ -53,6 +59,7 @@ if (_mxg >= _x_left && _mxg <= _x_right && _myg >= _y_top && _myg <= _y_bot) {
 		
 		if (_instance.object_index == obj_car)
 			_instance.editing = true;
+		obj_menu.show_controls = false;
 	}
 }
 

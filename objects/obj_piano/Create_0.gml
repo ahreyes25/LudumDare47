@@ -14,6 +14,7 @@ model.y = y;
 model.z = z;
 update_uvs();
 alarm0 = -1;
+facing = DIR.NONE;
 
 fall	 = function() {
 	target_z = z + UNIT_SIZE;	

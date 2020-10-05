@@ -25,18 +25,18 @@ if (!obj_game.in_main_menu) {
 		// Draw Rounds Counter
 		if (obj_game.round_counter < 100) {
 			var _shift = obj_game.round_counter >= 10;
-			if (obj_game.round_counter >= 10) {
+			if (obj_game.round_counter >= 10 && obj_game.new_round_flicker) {
 				var _left_digit = (obj_game.round_counter div 10);
 				draw_sprite_ext(spr_numbers, _left_digit, _round_x + _round_width + _colon_width * 2, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
 			}
-			else 
+			else if (obj_game.new_round_flicker)
 				draw_sprite_ext(spr_numbers, obj_game.round_counter, _round_x + _round_width + _colon_width * 2, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
-			if (obj_game.round_counter >= 10) {
+			if (obj_game.round_counter >= 10 && obj_game.new_round_flicker) {
 				var _right_digit = (obj_game.round_counter mod 10);
 				draw_sprite_ext(spr_numbers, _right_digit, _round_x + _round_width + _colon_width * 2 + _numbers_width, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
 			}
 		}
-		else
+		else if (obj_game.new_round_flicker)
 			draw_sprite_ext(spr_infinity, obj_game.round_counter, _round_x + _round_width + _colon_width * 2, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
 
 		// Slash

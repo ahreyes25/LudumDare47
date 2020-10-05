@@ -65,13 +65,14 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 		case obj_car:	
 			var _list	= ds_list_create();
 			var _count	= collision_circle_list(_x, _y, 5, obj_car, false, false, _list, false);	
-			var _pass	= false;
+			var _pass	= true;
 			
-			if (_count <= 1)
+			if (_count > 1) {
 				_pass = true;
-			else {
 				for (var i = 0; i < _count; i++) {
 					var _inst	= _list[| i];	
+					if (_inst == obj_cursor.selected_object)
+						continue;
 					var _in_air = (_inst.state == "ascend" || _inst.state == "descend");
 					if (!_in_air) {
 						_pass = false;
@@ -92,15 +93,27 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 			break;
 			
 		case obj_piano:	
-			var _inst		= collision_circle(_x, _y, 5, obj_piano, false, false);	
-			var _no_piano	= (_inst == noone || _inst == undefined);
-			var _in_air		= (_inst != noone && _inst != undefined && (_inst.z > -_inst.height_units * UNIT_SIZE));
-			var _pass		= (_no_piano || _in_air);
+			var _list	= ds_list_create();
+			var _count	= collision_circle_list(_x, _y, 5, obj_piano, false, false, _list, false);	
+			var _pass	= true;
+			
+			if (_count > 1) {
+				for (var i = 0; i < _count; i++) {
+					var _inst	= _list[| i];	
+					if (_inst == obj_cursor.selected_object)
+						continue;
+					var _below	= (_inst.z > -_inst.height_units * UNIT_SIZE);
+					if (!_below) {
+						_pass = false;
+						break;
+					}
+				}
+			}
+			ds_list_destroy(_list);
 			break;
 	}
 
 	if (_pass) {
-		
 		// Save Action For Replay Later
 		var _action = [
 			obj_game.turn_counter,

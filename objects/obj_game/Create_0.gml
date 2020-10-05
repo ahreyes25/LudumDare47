@@ -37,6 +37,9 @@ placed_item_this_round	= false;
 frames_per_turn			= 35;
 execute					= false;
 space_cooldown			= frames_per_turn;
+new_round_flicker		= false;
+new_round_flicker_count	= 10;
+new_round_flickering	= false;
 
 car_colors				= ds_list_create();
 cars_created			= 0;

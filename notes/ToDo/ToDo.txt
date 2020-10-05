@@ -1,7 +1,6 @@
 // NEED TO DO
 - arrow direction sprites
 - car icon sprites
-- objectives / tutorial screen
 - have cars crash into buildings
 - plugin sounds & music
 - dont stop at red lights facing away from us
