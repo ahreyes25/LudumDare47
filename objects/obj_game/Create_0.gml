@@ -14,8 +14,15 @@ global.parking_lot_model	= dotobj_model_load_file("ParkingLot.obj", false, false
 global.base_model			= dotobj_model_load_file("Island-Base.obj", true, false);
 global.water_tower_model	= dotobj_model_load_file("Water-Tower.obj", true, false);
 global.hill_model			= dotobj_model_load_file("Grass-Hill.obj", true, false);
+global.car1_model			= dotobj_model_load_file("Car-1.obj", true, true);
+global.car2_model			= dotobj_model_load_file("Car-2.obj", true, true);
+global.car3_model			= dotobj_model_load_file("Car-3.obj", true, true);
+global.stoplight_model		= dotobj_model_load_file("Traffic-Signal.obj", true, true);
+global.ramp_model			= dotobj_model_load_file("Ramp.obj", true, false);
+global.dead_tree_model		= dotobj_model_load_file("Tree-Dead.obj", false, true);
+global.piano_model			= dotobj_model_load_file("Piano.obj", true, true);
 
-// Game Logic
+// Game Logic 
 in_main_menu			= false;
 rounds_total			= 10000;
 round_counter			= 0;

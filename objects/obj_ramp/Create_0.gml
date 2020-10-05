@@ -2,7 +2,7 @@ event_inherited();
 
 z = -1;
 
-model = dotobj_model_load_file("Ramp.obj", true, false);
+model = new Model_Instance(global.ramp_model);
 model.scale(SCALE_3D + 10);
 model.x = x;
 model.y = y;

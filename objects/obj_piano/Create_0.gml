@@ -3,7 +3,7 @@ event_inherited();
 z = -height_units * UNIT_SIZE;
 target_z = z;
 
-model = dotobj_model_load_file("Piano.obj", true, true);
+model = new Model_Instance(global.piano_model);
 model.scale(SCALE_3D + 5);
 model.yscale += 5;
 model.xangle = 150;

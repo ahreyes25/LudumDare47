@@ -2,6 +2,7 @@ event_inherited();
 
 off				= false;
 entity			= ENTITY.CAR;
+
 action			= undefined;
 max_momentum	= 2;
 momentum		= (starting_momentum != undefined) ? starting_momentum : 0;
@@ -14,8 +15,8 @@ crash_angle		= undefined;
 crash_axis		= undefined;
 
 // Load Car Model
-type = choose("Car-1.obj", "Car-2.obj", "Car-3.obj");
-model = dotobj_model_load_file(type, true, true);
+var _type = choose(global.car1_model, global.car2_model, global.car3_model);
+model = new Model_Instance(_type);
 model.scale(SCALE_3D + 5);
 model.zscale += 10;
 model.yscale += 5

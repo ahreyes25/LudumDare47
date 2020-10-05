@@ -1,10 +1,12 @@
 // NEED TO DO
-- have infinite rounds and remember player placement of items, and recreate those actions
+- restart rounds once turns has completed
+	- go to new round
+- recreate player actions from previous round
+
 - main menu
 - objectives / tutorial screen
 - have cars crash into buildings
 - plugin sounds & music
-- check MEMORY LEAKS!!
 
 - import and implement traffic cone
 - piano fall streaks

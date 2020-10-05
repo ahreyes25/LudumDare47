@@ -44,10 +44,49 @@ global.scale_3d				= 20;
 global.show_2d				= false;
 #macro SCALE_3D				global.scale_3d
 #macro SHOW_2D				global.show_2d
-
 global.slow_factor			= 1;
 #macro SLOW_FACTOR			global.slow_factor
-
 global.crash_color			= c_black;
 #macro CRASH_COLOR			global.crash_color
+
+function Model_Instance(_model_struct) constructor {
+	group_map		= _model_struct.group_map;
+	group_list		= _model_struct.group_list;
+	x				= _model_struct.x;
+	y				= _model_struct.y;
+	z				= _model_struct.z;
+	xangle			= _model_struct.xangle;
+	yangle			= _model_struct.yangle;
+	zangle			= _model_struct.zangle;
+	xscale			= _model_struct.xscale;
+	yscale			= _model_struct.yscale;
+	zscale			= _model_struct.zscale;
+	xangle_target	= _model_struct.xangle_target;
+	yangle_target	= _model_struct.yangle_target;
+	zangle_target	= _model_struct.zangle_target;
+	
+	submit			= function() {
+		var _g = 0;
+		matrix_set(matrix_world, matrix_build(x, y, z, xangle, yangle, zangle, xscale, yscale, zscale));
+        repeat (ds_list_size(group_list)) {
+            group_map[? group_list[| _g]].submit();
+            ++_g;
+        }
+		matrix_set(matrix_world, matrix_build_identity());	
+	}
+	update			= function() {
+		xangle = lerp(xangle, xangle_target, 0.1);
+		yangle = lerp(yangle, yangle_target, 0.1);
+		zangle = lerp(zangle, zangle_target, 0.1);	
+	}
+	scale			= function(_scale) {
+		xscale = _scale;	
+		yscale = _scale;	
+		zscale = _scale;		
+	}
+	cleanup			= function() {
+		ds_map_destroy(group_map);
+		ds_list_destroy(group_list);	
+	}
+}
 

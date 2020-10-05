@@ -1,6 +1,6 @@
 z = -1;
 
-model = dotobj_model_load_file("Tree-Dead.obj", false, true);
+model = new Model_Instance(global.dead_tree_model);
 model.scale(SCALE_3D * 2);
 model.x = x;
 model.y = y;
