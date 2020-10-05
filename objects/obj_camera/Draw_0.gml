@@ -79,7 +79,9 @@ if (!SHOW_2D) {
 	// Draw Billboard Objects
 	shader_set(shdr_billboard_cylinder);
 	var _billboards = [obj_char, obj_vine_large, obj_vine_medium, obj_grass_patch, 
-		obj_firehydrant, obj_stoplight_3D, obj_trashcan, obj_particle, obj_float_particle];
+		obj_firehydrant, obj_stoplight_3D, obj_trashcan, obj_particle, obj_float_particle,
+		obj_tree_top];
+		
 	for (var i = 0; i < array_length(_billboards); i++) {
 		with (_billboards[i]) {
 			shader_set_uniform_f(u_xscale, xscale);
