@@ -1,3 +1,3 @@
-x = lerp(x, target_x, 0.1 * SLOW_FACTOR);
-y = lerp(y, target_y, 0.1 * SLOW_FACTOR);
-z = lerp(z, target_z, 0.1 * SLOW_FACTOR);
+x = lerp(x, target_x, 0.1);
+y = lerp(y, target_y, 0.1);
+z = lerp(z, target_z, 0.1);

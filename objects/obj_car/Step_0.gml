@@ -21,22 +21,22 @@ if (state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 	if (state == "ascend" || state == "descend") {
 		var _list = GRID_CRASHES[# u, v];
 		if (_list != undefined) {
-			if (z >= -ds_list_size(_list) * UNIT_SIZE * 0.5)
+			if (target_z >= -ds_list_size(_list) * UNIT_SIZE * 0.5)
 				do_crash();
 		}
 	}
 	// Check For Crash Against Grounded Cars
 	else if (state != "crash") {
-		var _car = collision_circle(x, y, 5, obj_car, false, true);
+		var _car = collision_circle(target_x, target_y, 5, obj_car, false, true);
 		if (_car != undefined && _car != noone && _car.z >= -0.1)
 			do_crash();
 	}
 		
 	// Crash Against Piano
 	if (state != "crash") {
-		var _piano = collision_circle(x, y, 5, obj_piano, false, false);
+		var _piano = collision_circle(target_x, target_y, 5, obj_piano, false, false);
 		if (_piano != undefined && _piano != noone) {
-			if (abs(_piano.z - z) <= UNIT_SIZE * 0.25) {
+			if (abs(_piano.z - target_z) <= UNIT_SIZE * 0.25) {
 				do_crash();
 			
 				if (_piano.state != "crash")
@@ -56,7 +56,7 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 
 // Ramp Ascend & Ramp Crash
 if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
-	var _ramp = collision_circle(x, y, 5, obj_ramp, false, false);
+	var _ramp = collision_circle(target_x, target_y, 5, obj_ramp, false, false);
 	if (_ramp != noone && _ramp != undefined) {
 		var _sideways = (
 			(_ramp.facing == DIR.RIGHT	&& facing != DIR.RIGHT)	||
@@ -80,7 +80,7 @@ if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - t
 			hangtime = momentum;
 		}
 		// Crash
-		else if (abs(_ramp.z - z) <= UNIT_SIZE * 0.25) {
+		else if (abs(_ramp.target_z - target_z) <= UNIT_SIZE * 0.25) {
 			if (_ramp.state != "crash")
 				_ramp.do_crash();
 			do_crash();

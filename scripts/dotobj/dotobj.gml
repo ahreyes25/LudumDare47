@@ -67,9 +67,9 @@ function dotobj_class_model() constructor {
 		matrix_set(matrix_world, matrix_build_identity());
     }
 	update	= function() {
-		xangle = lerp(xangle, xangle_target, 0.1 * SLOW_FACTOR);
-		yangle = lerp(yangle, yangle_target, 0.1 * SLOW_FACTOR);
-		zangle = lerp(zangle, zangle_target, 0.1 * SLOW_FACTOR);
+		xangle = lerp(xangle, xangle_target, 0.1);
+		yangle = lerp(yangle, yangle_target, 0.1);
+		zangle = lerp(zangle, zangle_target, 0.1);
 	}
 	scale	= function(_scale) {
 		xscale = _scale;	

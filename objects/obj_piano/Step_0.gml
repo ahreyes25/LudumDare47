@@ -8,7 +8,7 @@ model.update();
 // Check For Crashes When There Are No Crashes Below Us
 if (GRID_CRASHES[# u, v] == undefined) {		
 	// Check For Ramps and Cars
-	if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE * 0.5) {
+	if (state != "crash" && abs(z - target_z) <= 1 && target_z >= -UNIT_SIZE * 0.5) {
 		var _car = collision_circle(x, y, 5, obj_car, false, true);
 		if (_car != undefined && _car != noone) {
 			if (_car.state != "crash")
@@ -16,7 +16,7 @@ if (GRID_CRASHES[# u, v] == undefined) {
 			do_crash();
 		}
 		else {
-			var _ramp = collision_circle(x, y, 5, obj_ramp, false, true);
+			var _ramp = collision_circle(target_x, target_y, 5, obj_ramp, false, true);
 			if (_ramp != undefined && _ramp != noone) {
 				if (_ramp.state != "crash")
 					_ramp.do_crash();
@@ -25,14 +25,14 @@ if (GRID_CRASHES[# u, v] == undefined) {
 		}
 	}
 	// Check For Ground
-	if (state != "crash" && z > 0)  {
+	if (state != "crash" && target_z > 0)  {
 		z = 0;
 		target_z = 0;
 		do_crash();
 	}
 }
 // Add To Top Of Stack
-else if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE * ds_list_size(GRID_CRASHES[# u, v]) * 0.5)
+else if (state != "crash" && abs(z - target_z) <= 1 && target_z >= -UNIT_SIZE * ds_list_size(GRID_CRASHES[# u, v]) * 0.5)
 	do_crash();
 	
 // Spew Fire If Top Of Crash Pile

@@ -22,5 +22,5 @@ round_counter	= 0;
 turn_counter	= 0;
 turns_total		= 10;
 
-frames_per_turn	= 60;
+frames_per_turn	= 30;
 execute			= false;
