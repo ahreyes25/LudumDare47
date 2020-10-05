@@ -21,3 +21,9 @@ if (obj_game.in_main_menu) {
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 }
+
+if (show_controls) {
+	var _width  = SW / sprite_get_width(spr_controls);
+	var _height = SH / sprite_get_height(spr_controls);
+	draw_sprite_ext(spr_controls, 0, 0, 0, _width, _height, 0, c_white, 1);
+}

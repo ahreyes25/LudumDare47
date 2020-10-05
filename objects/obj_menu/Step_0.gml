@@ -2,6 +2,11 @@ if (keyboard_check_pressed(vk_enter)) {
 	obj_game.in_main_menu = false;
 	obj_camera.panning = false;	
 	cleared_game = false;
+	
+	if (!showed_controls) {
+		show_controls = true;
+		showed_controls = true;
+	}
 }
 if (keyboard_check_pressed(vk_escape)) {
 	obj_game.in_main_menu = true;
@@ -15,3 +20,6 @@ if (keyboard_check_pressed(ord("R")) && obj_game.in_main_menu) {
 	room_restart();
 	cleared_game = true;
 }
+
+if (keyboard_check_pressed(vk_f1))
+	show_controls = !show_controls;

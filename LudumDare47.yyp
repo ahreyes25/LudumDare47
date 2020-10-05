@@ -74,6 +74,7 @@
     {"id":{"name":"controls","path":"notes/controls/controls.yy",},"order":2,},
     {"id":{"name":"spr_crosswalk","path":"sprites/spr_crosswalk/spr_crosswalk.yy",},"order":4,},
     {"id":{"name":"spr_stoplight_lights","path":"sprites/spr_stoplight_lights/spr_stoplight_lights.yy",},"order":9,},
+    {"id":{"name":"spr_controls","path":"sprites/spr_controls/spr_controls.yy",},"order":10,},
     {"id":{"name":"spr_infinity","path":"sprites/spr_infinity/spr_infinity.yy",},"order":6,},
     {"id":{"name":"GMLiveAPI","path":"scripts/GMLiveAPI/GMLiveAPI.yy",},"order":1,},
     {"id":{"name":"spr_trashcan","path":"sprites/spr_trashcan/spr_trashcan.yy",},"order":10,},

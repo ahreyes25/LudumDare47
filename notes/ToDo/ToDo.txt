@@ -9,6 +9,7 @@
 - import and implement traffic cone
 - piano fall streaks
 - rotate cars on ramps/ascending/descending
+- fire hydrants
 
 - human logic
 	- walking on sidewalks
