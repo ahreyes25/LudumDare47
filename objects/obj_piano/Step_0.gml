@@ -6,13 +6,9 @@ model.z = z;
 model.update();
 
 // Check For Crashes When There Are No Crashes Below Us
-if (GRID_CRASHES[# u, v] == undefined) {
-	// Check For Ground
-	if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE * 0.25)
-		do_crash();
-		
+if (GRID_CRASHES[# u, v] == undefined) {		
 	// Check For Ramps and Cars
-	else if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE * 0.5) {
+	if (state != "crash" && abs(z - target_z) <= 1 && z >= -UNIT_SIZE * 0.5) {
 		var _car = collision_circle(x, y, 5, obj_car, false, true);
 		if (_car != undefined && _car != noone) {
 			if (_car.state != "crash")
@@ -27,6 +23,12 @@ if (GRID_CRASHES[# u, v] == undefined) {
 				do_crash();
 			}
 		}
+	}
+	// Check For Ground
+	if (state != "crash" && z > 0)  {
+		z = 0;
+		target_z = 0;
+		do_crash();
 	}
 }
 // Add To Top Of Stack
@@ -44,7 +46,7 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 // Offset Z Position To Account For Bottom Model Origin
 var _dif	 = abs(180 - model.xangle);
 var _percent = _dif / 180;
-model.z		-= UNIT_SIZE * _percent * 0.5;
+model.z		-= UNIT_SIZE * _percent * 0.3;
 
 
 

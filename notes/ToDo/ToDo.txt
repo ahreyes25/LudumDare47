@@ -1,4 +1,8 @@
 - piano wood particles
+- pull camera out
+- cannot move camera while paused
+- swap xyz checks from lerped to target
+
 
 - human logic
 	- walking on sidewalks
