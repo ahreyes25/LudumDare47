@@ -17,6 +17,11 @@ gpu_set_tex_repeat(true);
 //gpu_set_tex_mip_filter(tf_anisotropic);
 //gpu_set_tex_max_aniso(16);
 
+global.sw = surface_get_width(application_surface);
+global.sh = surface_get_height(application_surface);
+#macro SW global.sw
+#macro SH global.sh
+
 global.camera_perspective	= PERSPECTIVE.FIRST;
 global.unit_size			= 24;
 #macro CAMERA_PERSPECTIVE	global.camera_perspective
@@ -45,3 +50,4 @@ global.slow_factor			= 1;
 
 global.crash_color			= c_black;
 #macro CRASH_COLOR			global.crash_color
+

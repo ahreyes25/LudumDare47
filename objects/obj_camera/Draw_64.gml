@@ -22,34 +22,39 @@ if (!obj_game.in_main_menu) {
 	#region Rounds
 	draw_sprite_ext(spr_round, 0, _round_x, _round_y, _scale, _scale, 0, c_white, 1);
 	draw_sprite_ext(spr_colon, 0, _round_x + _round_width + _colon_width * 0.5, _round_y + _colon_height * 0.5, _scale, _scale, 0, c_white, 1);
-		
+
 	// Draw Rounds Counter
-	var _shift = obj_game.round_counter >= 10;
-	if (obj_game.round_counter >= 10) {
-		var _left_digit = (obj_game.round_counter div 10);
-		draw_sprite_ext(spr_numbers, _left_digit, _round_x + _round_width + _colon_width * 2, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
+	if (obj_game.round_counter < 100) {
+		var _shift = obj_game.round_counter >= 10;
+		if (obj_game.round_counter >= 10) {
+			var _left_digit = (obj_game.round_counter div 10);
+			draw_sprite_ext(spr_numbers, _left_digit, _round_x + _round_width + _colon_width * 2, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
+		}
+		else 
+			draw_sprite_ext(spr_numbers, obj_game.round_counter, _round_x + _round_width + _colon_width * 2, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
+		if (obj_game.round_counter >= 10) {
+			var _right_digit = (obj_game.round_counter mod 10);
+			draw_sprite_ext(spr_numbers, _right_digit, _round_x + _round_width + _colon_width * 2 + _numbers_width, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
+		}
 	}
-	else 
-		draw_sprite_ext(spr_numbers, obj_game.round_counter, _round_x + _round_width + _colon_width * 2, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
-	if (obj_game.round_counter >= 10) {
-		var _right_digit = (obj_game.round_counter mod 10);
-		draw_sprite_ext(spr_numbers, _right_digit, _round_x + _round_width + _colon_width * 2 + _numbers_width, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
-	}
+	else
+		draw_sprite_ext(spr_infinity, obj_game.round_counter, _round_x + _round_width + _colon_width * 2, _round_y + _numbers_height / 2, _scale, _scale, 0, c_white, 1);
 
 	// Slash
 	draw_sprite_ext(spr_slash, 0, _round_x + _round_width + _colon_width * 2 + _numbers_width + _numbers_width * _shift, _round_y + _slash_height * 0.5, _scale, _scale, 0, c_white, 1);	
 	
 	// Draw Rounds Total
-	if (obj_game.rounds_total >= 10) {
-		var _left_digit = (obj_game.rounds_total div 10);
-		draw_sprite_ext(spr_numbers, _left_digit, _round_x + _round_width + _colon_width * 2 + _numbers_width * 2 + _numbers_width * _shift, _round_y + _slash_height * 0.5, _scale, _scale, 0, c_white, 1);
-	}
-	else 
-		draw_sprite_ext(spr_numbers, obj_game.rounds_total, _round_x + _round_width + _colon_width * 2 + _numbers_width * 2 + _numbers_width * _shift, _round_y + _slash_height * 0.5, _scale, _scale, 0, c_white, 1);
-	if (obj_game.rounds_total >= 10) {
-		var _right_digit = (obj_game.rounds_total mod 10);
-		draw_sprite_ext(spr_numbers, _right_digit, _round_x + _round_width + _colon_width * 2 + _numbers_width * 3 + _numbers_width * _shift, _round_y + _slash_height * 0.5, _scale, _scale, 0, c_white, 1);
-	}
+	draw_sprite_ext(spr_infinity, 0, _round_x + _round_width + _colon_width * 2 + _numbers_width * 2 + _numbers_width * _shift, _round_y + _slash_height * 0.5, _scale, _scale, 0, c_white, 1);
+	//if (obj_game.rounds_total >= 10) {
+	//	var _left_digit = (obj_game.rounds_total div 10);
+	//	draw_sprite_ext(spr_numbers, _left_digit, _round_x + _round_width + _colon_width * 2 + _numbers_width * 2 + _numbers_width * _shift, _round_y + _slash_height * 0.5, _scale, _scale, 0, c_white, 1);
+	//}
+	//else 
+	//	draw_sprite_ext(spr_numbers, obj_game.rounds_total, _round_x + _round_width + _colon_width * 2 + _numbers_width * 2 + _numbers_width * _shift, _round_y + _slash_height * 0.5, _scale, _scale, 0, c_white, 1);
+	//if (obj_game.rounds_total >= 10) {
+	//	var _right_digit = (obj_game.rounds_total mod 10);
+	//	draw_sprite_ext(spr_numbers, _right_digit, _round_x + _round_width + _colon_width * 2 + _numbers_width * 3 + _numbers_width * _shift, _round_y + _slash_height * 0.5, _scale, _scale, 0, c_white, 1);
+	//}
 	#endregion
 	#region Turns
 	draw_sprite_ext(spr_turn, 0, _turn_x, _turn_y, _scale, _scale, 0, c_white, 1);
@@ -84,7 +89,27 @@ if (!obj_game.in_main_menu) {
 	}
 	#endregion
 	
-	
+	// Draw Inventory
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_center);
+	draw_set_color(c_black);
+	var _frame_width	= sprite_get_width(spr_frame) * _scale;
+	var _frame_height	= sprite_get_height(spr_frame) * _scale;
+	var _xstart			= SW * 0.5 - (_frame_width * (obj_game.inventory_size / 2)) + _frame_width * 0.5;
+
+	// Draw Inventory Tab
+	draw_sprite_ext(spr_inventory_tab, !obj_game.inventory_show, _xstart + obj_game.inventory_size * 0.5 * _frame_width - _frame_width / 2, obj_game.inventory_y + 4, _scale, _scale, 0, c_white, 1);
+
+	// Draw Inventory Slots
+	for (var i = 0; i < obj_game.inventory_size; i++) {
+		draw_sprite_ext(spr_frame, 0, _xstart + (i * _frame_width), obj_game.inventory_y + _frame_height, _scale, _scale, 0, c_white, 1);
+		
+		var _object = obj_game.inventory[i][0];
+		draw_text(_xstart + (i * _frame_width), obj_game.inventory_y + _frame_height - _frame_height * 0.5, object_get_name(_object));
+	}
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_color(c_white);
 }
 // Draw Main Menu
 else {}

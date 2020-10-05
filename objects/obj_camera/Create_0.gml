@@ -18,7 +18,7 @@ u_alpha		= shader_get_uniform(shdr_color_blend, "u_alpha");
 
 zoom_scale	= 1;
 positions	= [
-	[_gx - _gw * 2.50 * zoom_scale,		_gy + _gh * 0.40 * zoom_scale,		-500 * zoom_scale],
+	[_gx - _gw * 2.50 * zoom_scale,		_gy + _gh * 0.40 * zoom_scale,		-1000 * zoom_scale],
 	//[_gx - _gw * 1.80,				_gy + _gh * 0.60 * zoom_scale,		-400 * zoom_scale],
 	[_gx - _gw * 0.50 * zoom_scale,		_gy + _gh * 0.40 * zoom_scale,		-250 * zoom_scale],
 	[_gx - _gw * 0.25 * zoom_scale,		_gy + _gh * 0.60 * zoom_scale,		-200 * zoom_scale],
@@ -26,7 +26,7 @@ positions	= [
 	[_gx + _gw * 0.25 * zoom_scale,		_gy + _gh * 0.60 * zoom_scale,		-200 * zoom_scale],
 	[_gx + _gw * 0.50 * zoom_scale,		_gy + _gh * 0.40 * zoom_scale,		-250 * zoom_scale],
 	//[_gx + _gw * 1.80 * zoom_scale,	_gy + _gh * 0.60 * zoom_scale,		-400 * zoom_scale],
-	[_gx + _gw * 2.50 * zoom_scale,		_gy + _gh * 0.40 * zoom_scale,		-500 * zoom_scale],
+	[_gx + _gw * 2.50 * zoom_scale,		_gy + _gh * 0.40 * zoom_scale,		-1000 * zoom_scale],
 ];
 position_index = 1;
 

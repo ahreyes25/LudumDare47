@@ -36,3 +36,7 @@ do_crash = function() {
 	
 action = fall;
 state  = "fall";
+
+model.xangle_target = 45;
+model.yangle_target = 45;
+model.zangle_target = 45;

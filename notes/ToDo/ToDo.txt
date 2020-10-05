@@ -1,19 +1,35 @@
-- cannot move camera while paused
+// NEED TO DO
+- rotate selected items on cursor
+
+- have infinite rounds and remember player placement of items, and recreate those actions
+- main menu
+- objectives / tutorial screen
 - have cars crash into buildings
+- plugin sounds & music
+- check MEMORY LEAKS!!
+
+- import and implement traffic cone
+- piano fall streaks
+- rotate cars on ramps/ascending/descending
+
 - human logic
 	- walking on sidewalks
 	- crossing streets
-	
-- tutorial
-- main menu
+
+- remove GMLIVE
+- remove all extre debug keys
+
+// If We Have Time
 - manhole cover
 - baby stroller and dogs?
-- player inventory
-
-- select pieces
-- place pieces
-- rotate ramps and cars
-- draw info on screen
+- Train
+- undo actions
+- have game rewind to start
+- rotate cars when accel/breaking/turning
+- piano shadow as it fall
+- particle fadeout sprites on ground
+- shopping cart in parking lot
+- cannot move camera while paused
 
 - sounds
 	- car accelerating
@@ -22,16 +38,3 @@
 	- people screaming
 	- stoplight sound => make it up
 	- water spewing
-
-- extra ideas
-	- swap xyz checks from lerped to target
-	- remove GMLIVE
-	- Train
-	- undo action
-	- rotate cars when accel/breaking/turning
-	- remove all extre debug keys
-	- piano shadow as it fall
-	- particle fadeout sprites on ground
-	- car right hand turn
-	- car left hand turn
-	- shopping cart in parking lot

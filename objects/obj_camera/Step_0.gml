@@ -35,3 +35,5 @@ if (keyboard_check(vk_shift)) {
 			position_index--;
 	}	
 }
+
+// Inventory
