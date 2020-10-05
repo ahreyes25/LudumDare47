@@ -4,7 +4,7 @@ if (instance_exists(obj_grid) && !instance_exists(obj_camera))
 	instance_create_depth(x, y, depth, obj_camera);
 depth = obj_camera.depth + 1;	
 
-SLOW_FACTOR = execute;
+SLOW_FACTOR = (execute || alarm[1] != -1);
 
 // Game Logic
 if (!in_main_menu) {
@@ -13,11 +13,12 @@ if (!in_main_menu) {
 }
 
 #region Space To Advance Game
-if (keyboard_check_pressed(vk_space)) {
+if (keyboard_check_pressed(vk_space) && turn_counter < turns_total && alarm[1] == -1) {
 	obj_grid.act_on_entities();
 	turn_counter++;
+	execute = true;
 	alarm[0] = frames_per_turn;
-	execute = true;  
+	alarm[1] = space_cooldown;
 }
 if (keyboard_check_released(vk_space)) {
 	execute = false;

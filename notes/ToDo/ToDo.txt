@@ -1,6 +1,4 @@
 // NEED TO DO
-- turn counter exceeding turn limit
-
 - have infinite rounds and remember player placement of items, and recreate those actions
 - main menu
 - objectives / tutorial screen
@@ -20,6 +18,7 @@
 - remove all extre debug keys
 
 // If We Have Time
+- land on downwards facing ramps
 - clouds background
 - manhole cover
 - baby stroller and dogs?

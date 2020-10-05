@@ -28,8 +28,7 @@ inventory_y				= inventory_y_target;
 placed_item_this_round	= false;
 frames_per_turn			= 30;
 execute					= false;
-
-
+space_cooldown			= frames_per_turn;
 
 
 
