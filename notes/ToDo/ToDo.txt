@@ -1,19 +1,20 @@
 // NEED TO DO
-- arrow direction sprites
 - car icon sprites
-- have cars crash into buildings
+- arrow direction sprites for cars ascending or descending
 - plugin sounds & music
 - dont stop at red lights facing away from us
 
 - import and implement traffic cone
 - piano fall streaks
-- rotate cars on ramps/ascending/descending
-- fire hydrants
+- fire hydrants bursting
+- humans exploding
 
 - human logic
 	- walking on sidewalks
 	- crossing streets
+	- arrow direction sprites
 
+- rotate cars on ramps/ascending/descending
 - remove GMLIVE
 - remove all extre debug keys
 

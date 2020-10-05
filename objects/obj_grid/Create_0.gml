@@ -154,6 +154,7 @@ for (var i = 0; i < 2; i++) {
 	var _car = instance_create_depth(_x, _y, depth, obj_car);
 	_car.zangle = (i == 0) ? 90 : 270;
 	_car.action = undefined;
+	_car.off = true;
 }
 
 

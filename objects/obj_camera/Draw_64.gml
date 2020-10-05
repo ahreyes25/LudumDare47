@@ -1,4 +1,3 @@
-// Draw In Game GUI
 if (!obj_game.in_main_menu) {
 	var _scale			= 4;
 	var _round_width	= sprite_get_width(spr_round) * _scale;
@@ -103,9 +102,7 @@ if (!obj_game.in_main_menu) {
 	// Draw Inventory Slots
 	for (var i = 0; i < array_length(obj_game.inventory); i++) {
 		draw_sprite_ext(spr_frame, 0, _xstart + (i * _frame_width), obj_game.inventory_y + _frame_height, _scale, _scale, 0, c_white, 1);
-		
-		var _object = obj_game.inventory[i];
-		draw_text(_xstart + (i * _frame_width), obj_game.inventory_y + _frame_height - _frame_height * 0.5, object_get_name(_object));
+		draw_sprite_ext(spr_inventory_icons, i, _xstart + (i * _frame_width), obj_game.inventory_y + _frame_height - _frame_height * 0.5, _scale * (36 / 17), _scale * (36 / 17), 0, c_white, 1);
 	}
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
@@ -113,4 +110,3 @@ if (!obj_game.in_main_menu) {
 	
 	draw_sprite_ext(spr_help_tab, 0, help_x, 200, 3, 3, 0, c_white, 1);
 }
-// Draw Main Menu

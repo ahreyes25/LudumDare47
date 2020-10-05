@@ -59,9 +59,11 @@ if (obj_cursor.selected_object != id && state != "crash" && abs(x - target_x) <=
 // Spew Fire If Top Of Crash Pile
 if (obj_cursor.selected_object != id && state == "crash" && SLOW_FACTOR != 0) {
 	var _list = GRID_CRASHES[# u, v];
-	var _size = ds_list_size(_list);
-	if (_list[| _size - 1] == id)
-		fire_particle_create(x, y, z);
+	if (_list != undefined) {
+		var _size = ds_list_size(_list);
+		if (_list[| _size - 1] == id)
+			fire_particle_create(x, y, z);
+	}
 }
 
 // Ramp Ascend & Ramp Crash
@@ -99,3 +101,23 @@ if (obj_cursor.selected_object != id && state == "crash") {
 	model.z		-= UNIT_SIZE * _percent * 0.5;
 }
 	
+// Crash Into Building
+if (state != "crash" && obj_cursor.selected_object != id && !off) {
+	var _coords = world_to_grid(target_x, target_y);
+	var _u		= _coords[0];
+	var _v		= _coords[1];
+	
+	if (GRID_ENVIRONMENT[# _u, _v] == ENVIRONMENT.BUILDING) {
+		target_x = x;
+		target_y = y;
+		target_z = z;
+	
+		switch (facing) {
+			case DIR.RIGHT:	u = _u - 1;	break;	
+			case DIR.LEFT:	u = _u + 1;	break;
+			case DIR.UP:	v = _v + 1;	break;	
+			case DIR.DOWN:	v = _v - 1;	break;	
+		}
+		do_crash();
+	}
+}

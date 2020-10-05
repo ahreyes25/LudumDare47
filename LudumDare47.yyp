@@ -48,6 +48,7 @@
     {"id":{"name":"shdr_color_blend","path":"shaders/shdr_color_blend/shdr_color_blend.yy",},"order":3,},
     {"id":{"name":"obj_building","path":"objects/obj_building/obj_building.yy",},"order":1,},
     {"id":{"name":"obj_char","path":"objects/obj_char/obj_char.yy",},"order":1,},
+    {"id":{"name":"spr_inventory_icons","path":"sprites/spr_inventory_icons/spr_inventory_icons.yy",},"order":12,},
     {"id":{"name":"obj_gmlive","path":"objects/obj_gmlive/obj_gmlive.yy",},"order":5,},
     {"id":{"name":"spr_white","path":"sprites/spr_white/spr_white.yy",},"order":0,},
     {"id":{"name":"spr_wood_particle","path":"sprites/spr_wood_particle/spr_wood_particle.yy",},"order":10,},

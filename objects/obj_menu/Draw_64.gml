@@ -14,9 +14,9 @@ if (obj_game.in_main_menu) {
 
 	var _s = 1;
 	var _text_height = string_height("A") * _s;
-	draw_text_transformed_color(SW * 0.5, SH - _text_height * 3, "Pixel Art: Aerys @_AERYS_", _s, _s, 0, _b, _b, _b, _b, 1);
-	draw_text_transformed_color(SW * 0.5, SH - _text_height * 2, "3D Modeling: Anthony @nodesworth", _s, _s, 0, _b, _b, _b, _b, 1);
-	draw_text_transformed_color(SW * 0.5, SH - _text_height * 1, "Programming: Alex @GentooGames", _s, _s, 0, _b, _b, _b, _b, 1);
+	draw_text_transformed_color(SW * 0.5, SH - _text_height * 3, "2D Art: Aerys @_AERYS_", _s, _s, 0, _b, _b, _b, _b, 1);
+	draw_text_transformed_color(SW * 0.5, SH - _text_height * 2, "3D Art: Anthony @nodesworth", _s, _s, 0, _b, _b, _b, _b, 1);
+	draw_text_transformed_color(SW * 0.5, SH - _text_height * 1, "Coding: Alex @GentooGames", _s, _s, 0, _b, _b, _b, _b, 1);
 
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);

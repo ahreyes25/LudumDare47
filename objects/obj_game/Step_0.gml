@@ -10,7 +10,7 @@ if (in_main_menu) return;
 if (alarm[0] == -1 && turn_counter < turns_total)
 	alarm[0] = frames_per_turn;
 if (new_round_flickering) {
-	alarm[4] = 120;
+	alarm[4] = 180;
 	alarm[3] = new_round_flicker_count;
 	new_round_flickering = false;
 }
