@@ -322,7 +322,17 @@ function wood_particle_create(_x, _y) {
 	_wood.height		= 100;	
 }
 
-
+/// @function music_set(_index)
+function music_set(_index) {
+	if (_index == 0) {
+		audio_emitter_gain(MUSIC_EMITTER_HAPPY, 1.0);
+		audio_emitter_gain(MUSIC_EMITTER_INTENSE, 0.0);
+	}
+	else if (_index == 1) {
+		audio_emitter_gain(MUSIC_EMITTER_HAPPY, 0.0);
+		audio_emitter_gain(MUSIC_EMITTER_INTENSE, 1.0);
+	}
+}
 
 
 

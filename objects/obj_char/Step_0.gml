@@ -3,6 +3,7 @@ if (alarm0 == -1 && !dead) {
 	if (_car != noone && _car != undefined && _car != obj_cursor.selected_object) {
 		alarm0 = 60;
 		dead = true;
+		music_set(1);
 		sprite_index = spr_characters_dead_bottom;
 		top_x = random_range(-UNIT_SIZE * 0.5, UNIT_SIZE * 0.5);
 		top_y = random_range(-UNIT_SIZE * 0.5, UNIT_SIZE * 0.5);

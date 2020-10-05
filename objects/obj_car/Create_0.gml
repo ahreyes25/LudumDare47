@@ -287,6 +287,7 @@ descend = function() {
 action	= drive;
 
 do_crash	= function() {
+	music_set(1);
 	action = undefined;
 	state  = "crash";
 		

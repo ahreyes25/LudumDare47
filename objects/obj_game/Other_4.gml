@@ -4,3 +4,4 @@ switch (room) {
 		recreate_actions();
 		break;
 }
+music_set(0);

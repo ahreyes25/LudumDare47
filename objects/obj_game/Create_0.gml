@@ -76,5 +76,12 @@ recreate_actions		= function() {
 	}	
 }
 
+global.music_emitter_happy		= audio_emitter_create();
+global.music_emitter_intense	= audio_emitter_create();
+#macro MUSIC_EMITTER_HAPPY		global.music_emitter_happy 
+#macro MUSIC_EMITTER_INTENSE	global.music_emitter_intense
 
-
+audio_emitter_gain(MUSIC_EMITTER_HAPPY, 1.0);
+audio_emitter_gain(MUSIC_EMITTER_INTENSE, 0.0);
+audio_play_sound_on(MUSIC_EMITTER_HAPPY, music_happy, true, 0);
+audio_play_sound_on(MUSIC_EMITTER_INTENSE, music_intense_2, true, 0);

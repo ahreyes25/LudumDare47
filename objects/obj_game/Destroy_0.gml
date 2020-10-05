@@ -15,3 +15,5 @@ for (var i = 0; i < ds_grid_width(GRID_CRASHES); i++) {
 ds_grid_destroy(GRID_CRASHES);
 ds_list_destroy(car_colors);
 ds_list_destroy(player_actions);
+audio_emitter_free(MUSIC_EMITTER_HAPPY);
+audio_emitter_free(MUSIC_EMITTER_INTENSE);
