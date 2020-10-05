@@ -3,18 +3,17 @@ var _gy		= obj_grid.center_y;
 var _gw		= obj_grid.grid_width  * UNIT_SIZE;
 var _gh		= obj_grid.grid_height * UNIT_SIZE;
 
-x			= _gx - _gw * 0.25;
-y			= _gy + _gh * 0.60;
-z			= -200;
-xtarget		= x;
-ytarget		= y;
-ztarget		= z;
 xto			= obj_grid.center_x;
 yto			= obj_grid.center_y;
 zto			= -50;
 fov			= 60;
 u_color		= shader_get_uniform(shdr_color_blend, "u_color");
 u_alpha		= shader_get_uniform(shdr_color_blend, "u_alpha");
+pan_dir		= 1;
+panning		= false;
+pan_xstart	= undefined;
+pan_ystart	= undefined;
+pan_zstart	= undefined;
 
 zoom_scale	= 1;
 positions	= [
@@ -29,6 +28,13 @@ positions	= [
 	[_gx + _gw * 2.50 * zoom_scale,		_gy + _gh * 0.40 * zoom_scale,		-1000 * zoom_scale],
 ];
 position_index = 1;
+
+x			= positions[position_index][0];
+y			= positions[position_index][1];
+z			= positions[position_index][2];
+xtarget		= x;
+ytarget		= y;
+ztarget		= z;
 
 // Only Used With First Person Or Third Person Camera
 look_dir	=  63;

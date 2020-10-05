@@ -1,6 +1,7 @@
 randomize();
 global_game_data();
 dotobj_init();
+draw_set_font(fnt_main);
 
 instance_create_depth(0, 0, depth, obj_debug);
 //instance_create_depth(0, 0, depth, obj_camera);
@@ -23,7 +24,7 @@ global.dead_tree_model		= dotobj_model_load_file("Tree-Dead.obj", false, true);
 global.piano_model			= dotobj_model_load_file("Piano.obj", true, true);
 
 // Game Logic 
-in_main_menu			= false;
+in_main_menu			= true;
 rounds_total			= 10000;
 round_counter			= 0;
 turn_counter			= 0;
@@ -70,9 +71,6 @@ recreate_actions		= function() {
 		}
 	}	
 }
-
-
-
 
 
 

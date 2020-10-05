@@ -110,4 +110,3 @@ if (!obj_game.in_main_menu) {
 	draw_set_color(c_white);
 }
 // Draw Main Menu
-else {}
