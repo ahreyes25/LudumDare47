@@ -34,6 +34,12 @@
         "\"yellow\"",
         "\"red\"",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"light","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":6,"value":"DIR.LEFT","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "DIR.LEFT",
+        "DIR.RIGHT",
+        "DIR.UP",
+        "DIR.DOWN",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"facing","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

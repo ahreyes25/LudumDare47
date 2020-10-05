@@ -2,7 +2,6 @@
 - car icon sprites
 - arrow direction sprites for cars ascending or descending
 - plugin sounds & music
-- dont stop at red lights facing away from us
 
 - import and implement traffic cone
 - piano fall streaks

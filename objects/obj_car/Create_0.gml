@@ -55,52 +55,62 @@ check_for_brake	= function() {
 			var _stoplight = list[| 0];
 
 			if (_stoplight != noone && _stoplight != undefined) {
-				var _stoplight_coords	= world_to_grid(_stoplight.x, _stoplight.y);
-				var _stoplight_u		= _stoplight_coords[0];
-				var _stoplight_v		= _stoplight_coords[1];
-	
-				if (facing == DIR.LEFT || facing == DIR.RIGHT) {
-					var _dist	= abs(u - _stoplight_u);
-					var _not_in = (u != _stoplight_u);
-				}
-				else {
-					var _dist	= abs(v - _stoplight_v);
-					var _not_in = (v != _stoplight_v);
-				}
 				
-				if (_not_in && _stoplight.light == "red")  {
-					action = brake;
-					state  = "brake";
-				}
-				else if (_not_in && _stoplight.light == "yellow") {
-					switch (facing) {
-						case DIR.RIGHT:
-							if (u < _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
-								action = brake;
-								state  = "brake";
-							}
-							break;
+				var _facing_same = (
+					facing == DIR.RIGHT && _stoplight.facing == DIR.LEFT  ||
+					facing == DIR.LEFT	&& _stoplight.facing == DIR.RIGHT ||
+					facing == DIR.UP	&& _stoplight.facing == DIR.DOWN  ||
+					facing == DIR.DOWN	&& _stoplight.facing == DIR.UP
+				);
+				
+				if (_facing_same) {
+					var _stoplight_coords	= world_to_grid(_stoplight.x, _stoplight.y);
+					var _stoplight_u		= _stoplight_coords[0];
+					var _stoplight_v		= _stoplight_coords[1];
+	
+					if (facing == DIR.LEFT || facing == DIR.RIGHT) {
+						var _dist	= abs(u - _stoplight_u);
+						var _not_in = (u != _stoplight_u);
+					}
+					else {
+						var _dist	= abs(v - _stoplight_v);
+						var _not_in = (v != _stoplight_v);
+					}
+				
+					if (_not_in && _stoplight.light == "red")  {
+						action = brake;
+						state  = "brake";
+					}
+					else if (_not_in && _stoplight.light == "yellow") {
+						switch (facing) {
+							case DIR.RIGHT:
+								if (u < _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
+									action = brake;
+									state  = "brake";
+								}
+								break;
 							
-						case DIR.LEFT:
-							if (u > _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
-								action = brake;
-								state  = "brake";
-							}
-							break;
+							case DIR.LEFT:
+								if (u > _stoplight_u && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
+									action = brake;
+									state  = "brake";
+								}
+								break;
 							
-						case DIR.DOWN:
-							if (v < _stoplight_v && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
-								action = brake;
-								state  = "brake";
-							}
-							break;
+							case DIR.DOWN:
+								if (v < _stoplight_v && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
+									action = brake;
+									state  = "brake";
+								}
+								break;
 							
-						case DIR.UP:
-							if (v > _stoplight_v && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
-								action = brake;
-								state  = "brake";
-							}
-							break;
+							case DIR.UP:
+								if (v > _stoplight_v && _dist - 1 >= momentum && _stoplight.light_count <= momentum + 1) {
+									action = brake;
+									state  = "brake";
+								}
+								break;
+						}
 					}
 				}
 			}	
@@ -191,6 +201,10 @@ check_for_drive = function() {
 	var _coords = grid_check_for(ENTITY.CAR, u, v, facing, 1, ENTITY.RAMP);
 	if (_coords[0] == undefined && _coords[1] == undefined)
 		_ramp_pass = true;
+		
+	// Dont Pass Lights If Sitting In Crosswalk
+	if (GRID_LIGHTS[# u, v] != LIGHT.NONE)
+		_light_pass = false;
 	
 	if (_car_pass && _light_pass && _crash_pass && _ramp_pass) {
 		action =  drive;
