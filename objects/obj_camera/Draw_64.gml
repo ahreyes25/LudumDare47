@@ -1,5 +1,3 @@
-if (live_call()) return live_result;
-
 // Draw In Game GUI
 if (!obj_game.in_main_menu) {
 	var _scale			= 4;

@@ -13,6 +13,7 @@ state			= "drive";
 list			= ds_list_create();
 crash_angle		= undefined;
 crash_axis		= undefined;
+editing			= false;
 
 // Load Car Model
 var _type = choose(global.car1_model, global.car2_model, global.car3_model);

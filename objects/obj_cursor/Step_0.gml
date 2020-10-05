@@ -1,5 +1,3 @@
-if (live_call()) return live_result;
-
 if (selected_object != undefined) {
 	if (selected_object.object_index == obj_piano)
 		ztarget = selected_object.z;
@@ -65,10 +63,23 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 	
 	switch (selected_object.object_index) {
 		case obj_car:	
-			var _inst	= collision_circle(_x, _y, 5, obj_car, false, false);	
-			var _no_car = (_inst == noone || _inst == undefined);
-			var _in_air = (_inst != noone && _inst != undefined && (_inst.state == "ascend" || _inst.state == "descend"));
-			var _pass	= _no_car || _in_air;
+			var _list	= ds_list_create();
+			var _count	= collision_circle_list(_x, _y, 5, obj_car, false, false, _list, false);	
+			var _pass	= false;
+			
+			if (_count <= 1)
+				_pass = true;
+			else {
+				for (var i = 0; i < _count; i++) {
+					var _inst	= _list[| i];	
+					var _in_air = (_inst.state == "ascend" || _inst.state == "descend");
+					if (!_in_air) {
+						_pass = false;
+						break;
+					}
+				}
+			}
+			ds_list_destroy(_list);
 			break;
 			
 		case obj_ramp:	
@@ -90,6 +101,10 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 
 	if (_pass) {
 		obj_game.placed_item_this_round = true;
+		
+		if (selected_object.object_index == obj_car)
+			selected_object.editing = false;
+			
 		selected_object = undefined;	
 		obj_cursor.show = false;
 	}

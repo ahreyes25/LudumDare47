@@ -1,5 +1,3 @@
-if (live_call()) return live_result;
-
 if (instance_exists(obj_grid) && !instance_exists(obj_camera))
 	instance_create_depth(x, y, depth, obj_camera);
 depth = obj_camera.depth + 1;	
@@ -44,13 +42,16 @@ var _myg			= device_mouse_y_to_gui(0);
 // If Mouse Over Inventory
 if (_mxg >= _x_left && _mxg <= _x_right && _myg >= _y_top && _myg <= _y_bot) {
 	var _cell_i = (_mxg - _x_left) div _frame_width;
-	if (!placed_item_this_round && device_mouse_check_button_pressed(0, mb_left)) {
+	if (device_mouse_check_button_pressed(0, mb_left) && !placed_item_this_round) {
 		obj_cursor.clear_selected();
 		obj_cursor.center();
 		
 		var _object		= inventory[_cell_i];
 		var _instance	= instance_create_depth(obj_cursor.x, obj_cursor.y, depth, _object);
 		obj_cursor.selected_object = _instance;
+		
+		if (_instance.object_index == obj_car)
+			_instance.editing = true;
 	}
 }
 
