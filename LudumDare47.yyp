@@ -42,6 +42,7 @@
     {"id":{"name":"obj_char","path":"objects/obj_char/obj_char.yy",},"order":1,},
     {"id":{"name":"obj_gmlive","path":"objects/obj_gmlive/obj_gmlive.yy",},"order":5,},
     {"id":{"name":"spr_white","path":"sprites/spr_white/spr_white.yy",},"order":0,},
+    {"id":{"name":"spr_wood_particle","path":"sprites/spr_wood_particle/spr_wood_particle.yy",},"order":10,},
     {"id":{"name":"spr_car","path":"sprites/spr_car/spr_car.yy",},"order":0,},
     {"id":{"name":"spr_dead_tree","path":"sprites/spr_dead_tree/spr_dead_tree.yy",},"order":11,},
     {"id":{"name":"obj_grid","path":"objects/obj_grid/obj_grid.yy",},"order":2,},

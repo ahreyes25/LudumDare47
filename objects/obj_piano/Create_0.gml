@@ -30,6 +30,7 @@ do_crash = function() {
 	model.xangle_target = random_range(-90, 90);
 	model.zangle_target = random_range(-90, 90);
 	target_z = -_zoffset * UNIT_SIZE * 0.5;	
+	alarm[0] = 30;
 }
 	
 action = fall;

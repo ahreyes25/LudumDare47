@@ -31,4 +31,6 @@ do_crash	= function() {
 		GRID_CRASHES[# u, v] = ds_list_create();
 	ds_list_insert(GRID_CRASHES[# u, v], 0, id);
 	state = "crash";
+	
+	alarm[0] = 30;
 }

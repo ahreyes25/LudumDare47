@@ -1,8 +1,5 @@
-- piano wood particles
-- pull camera out
 - cannot move camera while paused
-- swap xyz checks from lerped to target
-
+- car hitting car belwo on descend when not supposed to
 
 - human logic
 	- walking on sidewalks
@@ -30,6 +27,7 @@
 	- water spewing
 
 - extra ideas
+	- swap xyz checks from lerped to target
 	- remove GMLIVE
 	- Train
 	- undo action

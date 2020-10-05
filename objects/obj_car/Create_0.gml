@@ -4,7 +4,7 @@ off				= false;
 entity			= ENTITY.CAR;
 action			= undefined;
 max_momentum	= 2;
-momentum		= 0;
+momentum		= (starting_momentum != undefined) ? starting_momentum : 0;
 hangtime		= 0;
 move_speed		= 1;
 action			= undefined;

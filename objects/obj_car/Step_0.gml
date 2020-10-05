@@ -64,6 +64,12 @@ if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - t
 			(_ramp.facing == DIR.UP		&& facing != DIR.UP)	||
 			(_ramp.facing == DIR.DOWN	&& facing != DIR.DOWN)
 		);
+		//var _ramp_down = (
+		//	(_ramp.facing == DIR.RIGHT	&& facing == DIR.LEFT)	||
+		//	(_ramp.facing == DIR.LEFT	&& facing == DIR.RIGHT)	||
+		//	(_ramp.facing == DIR.UP		&& facing == DIR.DOWN)	||
+		//	(_ramp.facing == DIR.DOWN	&& facing == DIR.UP)	
+		//);
 		
 		// Ascend
 		if (!_sideways) {

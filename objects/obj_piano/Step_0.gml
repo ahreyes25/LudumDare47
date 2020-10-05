@@ -48,17 +48,8 @@ var _dif	 = abs(180 - model.xangle);
 var _percent = _dif / 180;
 model.z		-= UNIT_SIZE * _percent * 0.3;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Wood Particles
+if (alarm[0] != -1) {
+	if (irandom(1) == 0)
+		wood_particle_create(x, y);
+}

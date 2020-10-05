@@ -303,6 +303,24 @@ function fire_particle_create(_x, _y, _z) {
 	_fire.height		= 200;
 }
 
+/// @function wood_particle_create(x, y)
+function wood_particle_create(_x, _y) {
+	var _offset = UNIT_SIZE * 0.25;
+	
+	var _wood = instance_create_depth(_x + random_range(-_offset, _offset), _y + random_range(-_offset, _offset), depth, obj_particle);
+	_wood.sprite_index = spr_wood_particle;
+	_wood.image_index  = irandom(_wood.image_number - 1);
+	_wood.image_speed  = 0;
+	_wood.xscale		= random_range(1.0, 1.4);
+	_wood.yscale		= _wood.xscale;
+	_wood.z				= z - sprite_height;
+	_wood.height		= 100;	
+}
+
+
+
+
+
 
 
 
