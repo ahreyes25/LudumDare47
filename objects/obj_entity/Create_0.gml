@@ -22,8 +22,8 @@ move			= function(_amount, _dir) {
 			}
 			else
 				target_x += UNIT_SIZE * _amount;	
-			u += _amount;
-			_grid[# u, v] = entity;
+			//u += _amount;
+			//_grid[# u, v] = entity;
 			break;
 			
 		case DIR.LEFT:	
@@ -34,8 +34,8 @@ move			= function(_amount, _dir) {
 			}
 			else
 				target_x -= UNIT_SIZE * _amount;
-			u -= _amount;
-			_grid[# u, v] = entity;
+			//u -= _amount;
+			//_grid[# u, v] = entity;
 			break;
 			
 		case DIR.UP:	
@@ -46,8 +46,8 @@ move			= function(_amount, _dir) {
 			}
 			else
 				target_y -= UNIT_SIZE * _amount;	
-			v -= _amount;
-			_grid[# u, v] = entity;
+			//v -= _amount;
+			//_grid[# u, v] = entity;
 			break;
 			
 		case DIR.DOWN:	
@@ -58,8 +58,8 @@ move			= function(_amount, _dir) {
 			}
 			else
 				target_y += UNIT_SIZE * _amount;	
-			v += _amount;
-			_grid[# u, v] = entity;
+			//v += _amount;
+			//_grid[# u, v] = entity;
 			break;
 	}
 }

@@ -1,5 +1,4 @@
 - cannot move camera while paused
-- car hitting car belwo on descend when not supposed to
 
 - human logic
 	- walking on sidewalks

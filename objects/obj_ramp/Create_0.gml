@@ -17,6 +17,8 @@ moving = false;
 stored = false;
 state  = "";
 
+alarm0	= -1;
+
 switch (facing) {
 	case DIR.LEFT:	model.zangle = 0;	break;	
 	case DIR.RIGHT:	model.zangle = 180;	break;	
@@ -32,5 +34,5 @@ do_crash	= function() {
 	ds_list_insert(GRID_CRASHES[# u, v], 0, id);
 	state = "crash";
 	
-	alarm[0] = 30;
+	alarm0 = 30;
 }

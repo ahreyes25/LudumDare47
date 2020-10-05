@@ -11,7 +11,7 @@ if (!moving && !stored) {
 	stored = true;
 }
 
-if (alarm[0] != -1) {
+if (alarm0 != -1 && SLOW_FACTOR != 0) {
 	if (irandom(1) == 0)
 		wood_particle_create(x, y);
 }

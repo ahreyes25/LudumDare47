@@ -28,7 +28,7 @@ if (state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 	// Check For Crash Against Grounded Cars
 	else if (state != "crash") {
 		var _car = collision_circle(x, y, 5, obj_car, false, true);
-		if (_car != undefined && _car != noone)
+		if (_car != undefined && _car != noone && _car.z >= -0.1)
 			do_crash();
 	}
 		

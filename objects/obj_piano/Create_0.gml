@@ -14,6 +14,7 @@ model.y = y;
 model.z = z;
 ds_list_add(LIST_ENTITIES, id);
 update_uvs();
+alarm0 = -1;
 
 fall	 = function() {
 	target_z = z + UNIT_SIZE;	
@@ -30,7 +31,7 @@ do_crash = function() {
 	model.xangle_target = random_range(-90, 90);
 	model.zangle_target = random_range(-90, 90);
 	target_z = -_zoffset * UNIT_SIZE * 0.5;	
-	alarm[0] = 30;
+	alarm0 = 30;
 }
 	
 action = fall;

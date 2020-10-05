@@ -35,7 +35,7 @@ check_for_brake	= function() {
 		grid_get_instances_at(ENTITY.CAR, _car_coords[0], _car_coords[1], list, true);
 		var _car = list[| 0];
 		
-		if (_car != noone && _car != undefined && (_car.momentum < _car.max_momentum || _car.state == "brake"))  {
+		if (_car != noone && _car != undefined && _car.state != "ascend" && _car.state != "descend" && (_car.momentum < _car.max_momentum || _car.state == "brake"))  {
 			action = brake;
 			state  = "brake";
 		}
@@ -140,6 +140,27 @@ check_for_drive = function() {
 	var _car = grid_adjacent(GRID_CARS, u, v, facing);
 	if (_car == CAR.NONE)
 		_car_pass = true;
+	else {
+		ds_list_clear(list);
+		switch (facing) {
+			case DIR.RIGHT:	var _car_count = grid_get_instances_at(ENTITY.CAR, u + 1, v, list, true);	break;	
+			case DIR.LEFT:	var _car_count = grid_get_instances_at(ENTITY.CAR, u - 1, v, list, true);	break;	
+			case DIR.UP:	var _car_count = grid_get_instances_at(ENTITY.CAR, u, v - 1, list, true);	break;	
+			case DIR.DOWN:	var _car_count = grid_get_instances_at(ENTITY.CAR, u, v + 1, list, true);	break;	
+		}
+		
+		var _all_pass = true;
+		for (var i = 0; i < _car_count; i++) {
+			var _car_inst = list[| i];
+			if (_car_inst.id == id)
+				continue;
+				
+			if (_car_inst.state != "ascend" && _car_inst.state != "descend") 
+				_all_pass = false;
+			break;
+		}
+		_car_pass = _all_pass;
+	}
 		
 	var _light_pass = false;
 	var _light = grid_adjacent(GRID_LIGHTS, u, v, facing);
