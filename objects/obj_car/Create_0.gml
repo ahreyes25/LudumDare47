@@ -12,7 +12,6 @@ state			= "drive";
 list			= ds_list_create();
 crash_angle		= undefined;
 crash_axis		= undefined;
-ds_list_add(LIST_ENTITIES, id);
 
 // Load Car Model
 type = choose("Car-1.obj", "Car-2.obj", "Car-3.obj");

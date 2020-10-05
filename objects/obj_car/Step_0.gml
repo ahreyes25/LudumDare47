@@ -6,7 +6,7 @@ model.update();
 show	= grid_in_bounds(GRID_CARS, u, v);
 
 // Face Way Driving
-if (state != "crash") {
+if (obj_cursor.selected_object != id && state != "crash") {
 	switch (facing) {
 		case DIR.RIGHT:	model.zangle = 180;	break;
 		case DIR.LEFT:	model.zangle = 0;	break;
@@ -16,7 +16,7 @@ if (state != "crash") {
 }
 	
 // Check For Car Crash After Completed Moving
-if (state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
+if (obj_cursor.selected_object != id && state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 	// Check For Crash Against Stack Of Cars
 	if (state == "ascend" || state == "descend") {
 		var _list = GRID_CRASHES[# u, v];
@@ -28,14 +28,14 @@ if (state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 	// Check For Crash Against Grounded Cars
 	else if (state != "crash") {
 		var _car = collision_circle(target_x, target_y, 5, obj_car, false, true);
-		if (_car != undefined && _car != noone && _car.z >= -0.1)
+		if (_car != undefined && _car != noone && _car.z >= -0.1 && obj_cursor.selected_object != _car)
 			do_crash();
 	}
 		
 	// Crash Against Piano
 	if (state != "crash") {
 		var _piano = collision_circle(target_x, target_y, 5, obj_piano, false, false);
-		if (_piano != undefined && _piano != noone) {
+		if (obj_cursor.selected_object != _piano && _piano != undefined && _piano != noone) {
 			if (abs(_piano.z - target_z) <= UNIT_SIZE * 0.25) {
 				do_crash();
 			
@@ -47,7 +47,7 @@ if (state != "crash" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 }
 
 // Spew Fire If Top Of Crash Pile
-if (state == "crash" && SLOW_FACTOR != 0) {
+if (obj_cursor.selected_object != id && state == "crash" && SLOW_FACTOR != 0) {
 	var _list = GRID_CRASHES[# u, v];
 	var _size = ds_list_size(_list);
 	if (_list[| _size - 1] == id)
@@ -55,7 +55,7 @@ if (state == "crash" && SLOW_FACTOR != 0) {
 }
 
 // Ramp Ascend & Ramp Crash
-if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
+if (obj_cursor.selected_object != id && state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - target_y) <= 1) {
 	var _ramp = collision_circle(target_x, target_y, 5, obj_ramp, false, false);
 	if (_ramp != noone && _ramp != undefined) {
 		var _sideways = (
@@ -64,12 +64,6 @@ if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - t
 			(_ramp.facing == DIR.UP		&& facing != DIR.UP)	||
 			(_ramp.facing == DIR.DOWN	&& facing != DIR.DOWN)
 		);
-		//var _ramp_down = (
-		//	(_ramp.facing == DIR.RIGHT	&& facing == DIR.LEFT)	||
-		//	(_ramp.facing == DIR.LEFT	&& facing == DIR.RIGHT)	||
-		//	(_ramp.facing == DIR.UP		&& facing == DIR.DOWN)	||
-		//	(_ramp.facing == DIR.DOWN	&& facing == DIR.UP)	
-		//);
 		
 		// Ascend
 		if (!_sideways) {
@@ -80,8 +74,8 @@ if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - t
 			hangtime = momentum;
 		}
 		// Crash
-		else if (abs(_ramp.target_z - target_z) <= UNIT_SIZE * 0.25) {
-			if (_ramp.state != "crash")
+		else if (obj_cursor.selected_object != id && abs(_ramp.target_z - target_z) <= UNIT_SIZE * 0.25) {
+			if (_ramp.state != "crash" && obj_cursor.selected_object != _ramp)
 				_ramp.do_crash();
 			do_crash();
 		}
@@ -89,7 +83,7 @@ if (state != "crash" && state != "ascend" && abs(x - target_x) <= 1 && abs(y - t
 }
 
 // Offset Z Position To Account For Bottom Model Origin
-if (state == "crash") {
+if (obj_cursor.selected_object != id && state == "crash") {
 	var _dif	 = abs(180 - model.xangle);
 	var _percent = _dif / 180;
 	model.z		-= UNIT_SIZE * _percent * 0.5;

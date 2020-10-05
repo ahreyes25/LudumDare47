@@ -1,6 +1,8 @@
 // NEED TO DO
-- place selected item into world
-	- check that item doesnt already exist in that same spot
+- check that item doesnt already exist in that same spot
+- piano fall onto piano
+- turn counter 
+- ignore car crashing on cursor selected item
 
 - have infinite rounds and remember player placement of items, and recreate those actions
 - main menu

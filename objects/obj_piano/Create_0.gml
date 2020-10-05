@@ -12,7 +12,6 @@ model.zangle = 80;
 model.x = x;
 model.y = y;
 model.z = z;
-ds_list_add(LIST_ENTITIES, id);
 update_uvs();
 alarm0 = -1;
 

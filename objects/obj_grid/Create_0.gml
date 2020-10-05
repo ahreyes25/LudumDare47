@@ -119,6 +119,12 @@ capture_environment		= function() {
 act_on_entities			= function() {
 	for (var i = ds_list_size(LIST_ENTITIES) - 1; i >= 0; i--) {
 		var _entity = LIST_ENTITIES[| i];
+		
+		if (obj_cursor.selected_object != undefined) {
+			if (obj_cursor.selected_object == _entity)
+				continue;
+		}
+		
 		var _exists = instance_exists(_entity);
 		if (_exists && _entity.action != undefined) {
 			if (_entity.object_index == obj_car) {

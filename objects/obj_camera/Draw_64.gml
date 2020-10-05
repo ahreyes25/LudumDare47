@@ -95,16 +95,16 @@ if (!obj_game.in_main_menu) {
 	draw_set_color(c_black);
 	var _frame_width	= sprite_get_width(spr_frame) * _scale;
 	var _frame_height	= sprite_get_height(spr_frame) * _scale;
-	var _xstart			= SW * 0.5 - (_frame_width * (obj_game.inventory_size / 2)) + _frame_width * 0.5;
+	var _xstart			= SW * 0.5 - (_frame_width * (array_length(obj_game.inventory) / 2)) + _frame_width * 0.5;
 
 	// Draw Inventory Tab
-	draw_sprite_ext(spr_inventory_tab, !obj_game.inventory_show, _xstart + obj_game.inventory_size * 0.5 * _frame_width - _frame_width / 2, obj_game.inventory_y + 4, _scale, _scale, 0, c_white, 1);
+	draw_sprite_ext(spr_inventory_tab, !obj_game.inventory_show, _xstart + array_length(obj_game.inventory) * 0.5 * _frame_width - _frame_width / 2, obj_game.inventory_y + 4, _scale, _scale, 0, c_white, 1);
 
 	// Draw Inventory Slots
-	for (var i = 0; i < obj_game.inventory_size; i++) {
+	for (var i = 0; i < array_length(obj_game.inventory); i++) {
 		draw_sprite_ext(spr_frame, 0, _xstart + (i * _frame_width), obj_game.inventory_y + _frame_height, _scale, _scale, 0, c_white, 1);
 		
-		var _object = obj_game.inventory[i][0];
+		var _object = obj_game.inventory[i];
 		draw_text(_xstart + (i * _frame_width), obj_game.inventory_y + _frame_height - _frame_height * 0.5, object_get_name(_object));
 	}
 	draw_set_halign(fa_left);

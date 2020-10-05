@@ -1,0 +1,1 @@
+ds_list_delete(LIST_ENTITIES, ds_list_find_index(LIST_ENTITIES, id));

@@ -7,6 +7,6 @@ escape = menu
 f11 = fullscreen
 1 - 7 = camera presets
 click on inventory item to put item on cursor
-F or Enter or Mouse Click = Place Item In World
-- e and q to rotate cursor item
-click above inventory to hide
+F = Place Item In World
+e and q to rotate cursor item
+click inventory tab to toggle

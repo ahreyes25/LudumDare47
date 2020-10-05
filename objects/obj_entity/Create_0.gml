@@ -6,6 +6,7 @@ target_x	= x;
 target_y	= y;
 target_z	= z;
 show		= true;
+ds_list_add(LIST_ENTITIES, id);
 
 move			= function(_amount, _dir) {
 	var _instant = argument_count == 3 ? argument[2] : false;

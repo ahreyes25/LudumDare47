@@ -16,18 +16,12 @@ global.water_tower_model	= dotobj_model_load_file("Water-Tower.obj", true, false
 global.hill_model			= dotobj_model_load_file("Grass-Hill.obj", true, false);
 
 // Game Logic
-in_main_menu	= false;
-rounds_total	= 10000;
-round_counter	= 0;
-turn_counter	= 0;
-turns_total		= 10;
-inventory_size	= 4;
-inventory		= [
-	[obj_car,	false],
-	[obj_piano, false],
-	[obj_ramp,	false],
-	[obj_char,	false],
-];
+in_main_menu			= false;
+rounds_total			= 10000;
+round_counter			= 0;
+turn_counter			= 0;
+turns_total				= 10;
+inventory				= [obj_car,	obj_piano, obj_ramp, obj_char];
 inventory_show			= false;
 inventory_y_target		= SH;
 inventory_y				= inventory_y_target;

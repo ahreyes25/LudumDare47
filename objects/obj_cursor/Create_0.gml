@@ -72,6 +72,4 @@ clear_selected = function() {
 	}
 }
 
-
-	
 update_uvs();

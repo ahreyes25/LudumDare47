@@ -11,6 +11,7 @@ model.x = x;
 model.y = y;
 model.z = z;
 model.update();
+action = undefined;
 
 // Store Ramp Into Car Grid
 if (!moving && !stored) {

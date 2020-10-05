@@ -56,4 +56,76 @@ if (selected_object != undefined) {
 	}
 }
 
+// Place Selected Object Into World
+if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
+	// Check That Item Doesnt Already Exist There
+	var _coords = grid_to_world(u, v);
+	var _x		= _coords[0] + UNIT_SIZE * 0.5;
+	var _y		= _coords[1] + UNIT_SIZE * 0.5;
+	
+	switch (selected_object.object_index) {
+		case obj_car:	
+			var _inst	= collision_circle(_x, _y, 5, obj_car, false, false);	
+			var _no_car = (_inst == noone || _inst == undefined);
+			var _in_air = (_inst != noone && _inst != undefined && (_inst.state == "ascend" || _inst.state == "descend"));
+			var _pass	= _no_car || _in_air;
+			break;
+			
+		case obj_ramp:	
+			var _inst = collision_circle(_x, _y, 5, obj_ramp, false, false);	
+			var _pass = (_inst == noone || _inst == undefined);
+			break;
+			
+		case obj_char:	
+			var _inst = collision_circle(_x, _y, 5, obj_char, false, false);	
+			var _pass = (_inst == noone || _inst == undefined);
+			break;
+			
+		case obj_piano:	
+			var _inst		= collision_circle(_x, _y, 5, obj_piano, false, false);	
+			var _no_piano	= (_inst == noone || _inst == undefined);
+			var _in_air		= (_inst != noone && _inst != undefined && (_inst.z > -_inst.height_units * UNIT_SIZE));
+			var _pass		= (_no_piano || _in_air);
+			break;
+	}
+
+	if (_pass) {
+		obj_game.placed_item_this_round = true;
+		selected_object = undefined;	
+		obj_cursor.show = false;
+	}
+}
+
 depth = obj_camera.depth - 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
