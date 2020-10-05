@@ -2,7 +2,7 @@ if (instance_exists(obj_grid) && !instance_exists(obj_camera))
 	instance_create_depth(x, y, depth, obj_camera);
 depth = obj_camera.depth + 1;	
 
-SLOW_FACTOR = (execute || alarm[1] != -1);
+SLOW_FACTOR = (execute || alarm[1] != -1 || placed_item_this_round);
 
 // Game Logic
 if (!in_main_menu) {
@@ -14,6 +14,7 @@ if (!in_main_menu) {
 if (keyboard_check_pressed(vk_space) && turn_counter < turns_total && alarm[1] == -1) {
 	obj_grid.act_on_entities();
 	turn_counter++;
+	recreate_actions();
 	execute = true;
 	alarm[0] = frames_per_turn;
 	alarm[1] = space_cooldown;

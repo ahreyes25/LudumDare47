@@ -100,13 +100,28 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 	}
 
 	if (_pass) {
-		obj_game.placed_item_this_round = true;
+		
+		// Save Action For Replay Later
+		var _action = [
+			obj_game.turn_counter,
+			selected_object.object_index,
+			selected_object.u,
+			selected_object.v,
+			selected_object.x,
+			selected_object.y,
+			selected_object.z,
+			obj_game.round_counter,
+			selected_object.facing,
+		];
+		ds_list_add(obj_game.player_actions, _action);
+		
 		
 		if (selected_object.object_index == obj_car)
 			selected_object.editing = false;
 			
 		selected_object = undefined;	
 		obj_cursor.show = false;
+		obj_game.placed_item_this_round = true;
 	}
 }
 

@@ -39,11 +39,37 @@ space_cooldown			= frames_per_turn;
 
 car_colors				= ds_list_create();
 cars_created			= 0;
-for (var i = 0; i < 1000; i++)
+for (var i = 0; i < 1000; i++) {
 	ds_list_add(car_colors, choose(1, 2, 3));
+}
 
-
-
+player_actions			= ds_list_create();
+recreate_actions		= function() {
+	for (var i = 0; i < ds_list_size(player_actions); i++) {
+		var _action_data   = player_actions[| i];
+		var _turn_counter  = _action_data[0];
+		var _round_counter = _action_data[7];
+		
+		if (turn_counter == _turn_counter && round_counter != _round_counter) {
+			var _object_index	= _action_data[1];
+			var _object_u		= _action_data[2];
+			var _object_v		= _action_data[3];
+			var _object_x		= _action_data[4];
+			var _object_y		= _action_data[5];
+			var _object_z		= _action_data[6];
+			var _object_facing	= _action_data[8];
+			
+			var _inst		= instance_create_depth(_object_x, _object_y, depth, _object_index);
+			_inst.u			= _object_u;
+			_inst.v			= _object_v;
+			_inst.z			= _object_z;
+			_inst.target_x	= _object_x;
+			_inst.target_y	= _object_y;
+			_inst.target_z	= _object_z;
+			_inst.facing	= _object_facing;
+		}
+	}	
+}
 
 
 

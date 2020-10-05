@@ -1,13 +1,11 @@
 // NEED TO DO
-- restart rounds once turns has completed
-	- go to new round
-- recreate player actions from previous round
-- can spawn car on ramp? auto faces upwards
-
+- arrow direction sprites
+- car icon sprites
 - main menu
 - objectives / tutorial screen
 - have cars crash into buildings
 - plugin sounds & music
+- dont stop at red lights facing away from us
 
 - import and implement traffic cone
 - piano fall streaks
