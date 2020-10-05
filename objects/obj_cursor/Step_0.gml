@@ -135,6 +135,7 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 		selected_object = undefined;	
 		obj_cursor.show = false;
 		obj_game.placed_item_this_round = true;
+		obj_game.inventory_show = false;
 	}
 }
 

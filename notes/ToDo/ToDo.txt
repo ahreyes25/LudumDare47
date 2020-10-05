@@ -7,6 +7,7 @@
 - piano fall streaks
 - humans exploding
 
+- ghost floating away
 - human logic
 	- walking on sidewalks
 	- crossing streets

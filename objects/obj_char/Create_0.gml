@@ -10,3 +10,7 @@ yscale		=  image_yscale;
 u_xscale	=  shader_get_uniform(shdr_billboard_cylinder, "u_xscale");
 u_yscale	=  shader_get_uniform(shdr_billboard_cylinder, "u_yscale");
 action		= undefined;
+alarm0		= -1;
+dead		= false;
+top_x		= 0;
+top_y		= 0;
