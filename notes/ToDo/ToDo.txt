@@ -1,5 +1,5 @@
 - cannot move camera while paused
-
+- have cars crash into buildings
 - human logic
 	- walking on sidewalks
 	- crossing streets
@@ -10,7 +10,6 @@
 - manhole cover
 - baby stroller and dogs?
 - player inventory
-- base ground texture
 
 - select pieces
 - place pieces
@@ -33,12 +32,7 @@
 	- rotate cars when accel/breaking/turning
 	- remove all extre debug keys
 	- piano shadow as it fall
-	- fire particles
 	- particle fadeout sprites on ground
 	- car right hand turn
 	- car left hand turn
 	- shopping cart in parking lot
-	- car reactions times
-	- different driver statuses
-	- random chances, ie. run red light?
-	- car emergency stopping? (already implemented?)

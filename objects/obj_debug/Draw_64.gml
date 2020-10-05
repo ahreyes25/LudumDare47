@@ -1,3 +1,4 @@
+/*
 if (structures_show) {
 	var _structure_data = structures[structure_index];
 	

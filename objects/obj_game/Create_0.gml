@@ -14,3 +14,12 @@ global.parking_lot_model	= dotobj_model_load_file("ParkingLot.obj", false, false
 global.base_model			= dotobj_model_load_file("Island-Base.obj", true, false);
 global.water_tower_model	= dotobj_model_load_file("Water-Tower.obj", true, false);
 global.hill_model			= dotobj_model_load_file("Grass-Hill.obj", true, false);
+
+// Game Logic
+in_main_menu	= false;
+rounds_total	= 4;
+round_counter	= 0;
+turn_counter	= 0;
+turns_total		= 10;
+
+frames_per_turn	= 60;
