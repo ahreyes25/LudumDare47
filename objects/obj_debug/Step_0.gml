@@ -1,4 +1,4 @@
-
+/*
 if (keyboard_check_pressed(ord("1")))	structure_index = 0;
 if (keyboard_check_pressed(ord("2")))	structure_index = 1;
 if (keyboard_check_pressed(ord("3")))	structure_index = 2;

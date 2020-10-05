@@ -1,4 +1,4 @@
-
+/*
 if (true) {
 	var _structure_data = structures[structure_index];
 	

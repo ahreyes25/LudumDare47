@@ -3,7 +3,6 @@
 - piano land onto of piano
 - piano land onto of cone
 - show gridlines toggle when inventory shown
-- visualize car momentum
 
 - human logic
 	- humans in road cause cars to swerve in opposite direction than theyre moving

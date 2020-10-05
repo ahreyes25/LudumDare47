@@ -85,10 +85,15 @@ if (!SHOW_2D) {
 		
 	for (var i = 0; i < array_length(_billboards); i++) {
 		with (_billboards[i]) {
-			if (object_index == obj_car && status_sprite == spr_status_arrow)
-				continue;
 			shader_set_uniform_f(u_xscale, xscale);
 			shader_set_uniform_f(u_yscale, yscale);
+			
+			if (object_index == obj_car && state != "crash") {
+				image_angle = 0;
+				draw_sprite_billboard_cylinder(spr_numbers, momentum, x + UNIT_SIZE * 0.5, y, z - UNIT_SIZE * 0.5);
+			}
+			if (object_index == obj_car && status_sprite == spr_status_arrow)
+				continue;
 			event_perform(ev_draw, 0);
 		}
 	}
