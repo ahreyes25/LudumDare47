@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "music_intense.mp3",
-  "duration": 138.636841,
+  "soundFile": "sfx_scream_5.wav",
+  "duration": 0.438379,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "music_intense",
+  "name": "sfx_scream_5",
   "tags": [],
   "resourceType": "GMSound",
 }

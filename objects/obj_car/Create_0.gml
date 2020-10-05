@@ -170,6 +170,9 @@ check_for_brake	= function() {
 			}
 		}
 	}
+		
+	if (state == "brake")
+		audio_play_sound(sfx_brake, 0, 0);
 }
 check_for_drive = function() {
 	var _car_pass = false;
@@ -300,6 +303,9 @@ do_crash	= function() {
 	model.zangle_target = random_range(-90, 90);
 	target_z = -_zoffset * UNIT_SIZE * 0.5;
 	status_sprite = undefined;
+	audio_play_sound(choose(sfx_scream_1, sfx_scream_2, sfx_scream_3, sfx_scream_4, sfx_scream_5, sfx_scream_6), 0, false);
+	audio_play_sound(sfx_crash, 0, false);
+	audio_play_sound(choose(sfx_exp_1, sfx_exp_2, sfx_exp_3, sfx_exp_4, sfx_exp_5, sfx_exp_6), 0, false);
 }
 	
 	

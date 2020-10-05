@@ -139,7 +139,10 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 		obj_cursor.show = false;
 		obj_game.placed_item_this_round = true;
 		obj_game.inventory_show = false;
+		audio_play_sound(sfx_unpause, 0, 0);
 	}
+	else
+		audio_play_sound(sfx_fail, 0, 0);
 }
 
 depth = obj_camera.depth - 1;

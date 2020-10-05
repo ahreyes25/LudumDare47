@@ -85,3 +85,6 @@ audio_emitter_gain(MUSIC_EMITTER_HAPPY, 1.0);
 audio_emitter_gain(MUSIC_EMITTER_INTENSE, 0.0);
 audio_play_sound_on(MUSIC_EMITTER_HAPPY, music_happy, true, 0);
 audio_play_sound_on(MUSIC_EMITTER_INTENSE, music_intense_2, true, 0);
+water_inst_1 = undefined;
+water_inst_2 = undefined;
+water_inst_3 = undefined;

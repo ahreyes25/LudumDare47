@@ -13,8 +13,8 @@
   "soundFile": "music_intense_2.mp3",
   "duration": 81.27194,
   "parent": {
-    "name": "LudumDare47",
-    "path": "LudumDare47.yyp",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "music_intense_2",

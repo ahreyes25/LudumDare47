@@ -21,4 +21,5 @@ do_crash	= function() {
 	state = "crash";
 	
 	alarm0 = 30;
+	audio_play_sound(sfx_wood, 0, false);
 }

@@ -7,6 +7,8 @@ if (alarm0 == -1 && !dead) {
 		sprite_index = spr_characters_dead_bottom;
 		top_x = random_range(-UNIT_SIZE * 0.5, UNIT_SIZE * 0.5);
 		top_y = random_range(-UNIT_SIZE * 0.5, UNIT_SIZE * 0.5);
+		audio_play_sound(choose(sfx_scream_1, sfx_scream_2, sfx_scream_3, sfx_scream_4, sfx_scream_5, sfx_scream_6), 0, false);
+		audio_play_sound(ssfx_splurt, 0, false);
 	}
 }
 

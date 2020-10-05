@@ -32,6 +32,8 @@ do_crash = function() {
 	model.zangle_target = random_range(-90, 90);
 	target_z = -_zoffset * UNIT_SIZE * 0.5;	
 	alarm0 = 30;
+	audio_play_sound(sfx_wood, 0, false);
+	audio_play_sound(sfx_piano, 0, false);
 }
 	
 action = fall;

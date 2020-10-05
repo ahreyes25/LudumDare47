@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "music_intense.mp3",
-  "duration": 138.636841,
+  "soundFile": "sfx_exp_4.wav",
+  "duration": 0.858333,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "music_intense",
+  "name": "sfx_exp_4",
   "tags": [],
   "resourceType": "GMSound",
 }

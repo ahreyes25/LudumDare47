@@ -13,8 +13,8 @@
   "soundFile": "music_happy.mp3",
   "duration": 56.6123466,
   "parent": {
-    "name": "LudumDare47",
-    "path": "LudumDare47.yyp",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "music_happy",
