@@ -33,18 +33,14 @@ inventory_show			= false;
 inventory_y_target		= SH;
 inventory_y				= inventory_y_target;
 placed_item_this_round	= false;
-frames_per_turn			= 30;
+frames_per_turn			= 35;
 execute					= false;
 space_cooldown			= frames_per_turn;
 
-
-
-
-
-
-
-
-
+car_colors				= ds_list_create();
+cars_created			= 0;
+for (var i = 0; i < 1000; i++)
+	ds_list_add(car_colors, choose(1, 2, 3));
 
 
 

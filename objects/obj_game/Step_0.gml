@@ -69,7 +69,9 @@ if (_mxg >= _tab_x_left && _mxg <= _tab_x_right && _myg >= _tab_y_top && _myg <=
 inventory_y_target = SH - _frame_height * inventory_show;
 inventory_y = lerp(inventory_y, inventory_y_target, 0.1);
 
-
+// Restart Round
+if (turn_counter >= turns_total && alarm[2] == -1)
+	alarm[2] = 120;
 
 
 

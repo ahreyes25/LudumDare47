@@ -13,7 +13,7 @@ model.x = x;
 model.y = y;
 model.z = z;
 model.update();
-show	= grid_in_bounds(GRID_CARS, u, v);
+show = grid_in_bounds(GRID_CARS, u, v);
 
 // Face Way Driving
 if (obj_cursor.selected_object != id && state != "crash") {

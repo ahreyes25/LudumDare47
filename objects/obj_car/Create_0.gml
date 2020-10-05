@@ -16,7 +16,10 @@ crash_axis		= undefined;
 editing			= false;
 
 // Load Car Model
-var _type = choose(global.car1_model, global.car2_model, global.car3_model);
+var _color = obj_game.car_colors[| obj_game.cars_created];
+if (_color == 1)	var _type = global.car1_model;
+if (_color == 2)	var _type = global.car2_model;
+if (_color == 3)	var _type = global.car3_model;
 model = new Model_Instance(_type);
 model.scale(SCALE_3D + 5);
 model.zscale += 10;
@@ -24,6 +27,7 @@ model.yscale += 5
 model.x = x;
 model.y = y;
 model.z = z;
+obj_game.cars_created++;
 
 update_uvs();
 store_in_grid();
