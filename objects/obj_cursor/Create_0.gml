@@ -17,35 +17,43 @@ scale_iter_speed	= 0.05;
 move		= function(_amount, _dir) {
 	switch (_dir) {
 		case DIR.RIGHT:	
-			xtarget += UNIT_SIZE * _amount;
-			u += _amount;
+			if (grid_in_bounds(GRID_ENVIRONMENT, u + _amount, v)) {
+				xtarget += UNIT_SIZE * _amount;
+				u += _amount;
 			
-			if (selected_object != undefined)
-				selected_object.target_x += UNIT_SIZE * _amount;
+				if (selected_object != undefined)
+					selected_object.target_x += UNIT_SIZE * _amount;
+			}
 			break;
 			
 		case DIR.LEFT:	
-			xtarget -= UNIT_SIZE * _amount;	
-			u -= _amount;
+			if (grid_in_bounds(GRID_ENVIRONMENT, u - _amount, v)) {
+				xtarget -= UNIT_SIZE * _amount;	
+				u -= _amount;
 			
-			if (selected_object != undefined)
-				selected_object.target_x -= UNIT_SIZE * _amount;
+				if (selected_object != undefined)
+					selected_object.target_x -= UNIT_SIZE * _amount;
+			}
 			break;
 			
 		case DIR.UP:	
-			ytarget -= UNIT_SIZE * _amount;	
-			v -= _amount;
+			if (grid_in_bounds(GRID_ENVIRONMENT, u, v - _amount)) {
+				ytarget -= UNIT_SIZE * _amount;	
+				v -= _amount;
 			
-			if (selected_object != undefined)
-				selected_object.target_y -= UNIT_SIZE * _amount;
+				if (selected_object != undefined)
+					selected_object.target_y -= UNIT_SIZE * _amount;
+			}
 			break;
 			
 		case DIR.DOWN:	
-			ytarget += UNIT_SIZE * _amount;	
-			v += _amount;
+			if (grid_in_bounds(GRID_ENVIRONMENT, u, v + _amount)) {
+				ytarget += UNIT_SIZE * _amount;	
+				v += _amount;
 			
-			if (selected_object != undefined)
-				selected_object.target_y += UNIT_SIZE * _amount;
+				if (selected_object != undefined)
+					selected_object.target_y += UNIT_SIZE * _amount;
+			}
 			break;
 	}
 }

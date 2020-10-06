@@ -1,9 +1,6 @@
 // After
-- piano shadow as it fall
-- land on downwards facing ramps
-- curse words floating on screen
-- dont allow pieces to be placed outside of grid
 - show escape in controlls
+- land on downwards facing ramps
 
 
 

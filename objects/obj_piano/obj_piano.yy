@@ -4,7 +4,7 @@
     "path": "sprites/spr_piano/spr_piano.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {

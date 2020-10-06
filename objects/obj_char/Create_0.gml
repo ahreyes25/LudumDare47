@@ -20,3 +20,4 @@ alarm0		= -1;
 dead		= false;
 top_x		= 0;
 top_y		= 0;
+word		= undefined;

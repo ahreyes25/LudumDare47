@@ -13,6 +13,17 @@ function draw_sprite_billboard_cylinder(_sprite, _subimage, _x, _y, _z) {
     matrix_set(matrix_world, matrix_build_identity());
 }
 
+/// @function draw_text_billboard(x, y, z, string, angle, alpha)  
+function draw_text_billboard(_x, _y, _z, _string, _angle, _alpha) {
+	draw_set_halign(fa_center);
+	draw_set_alpha(_alpha);
+    matrix_set(matrix_world, matrix_build(_x, _y, _z, 0, 0, 0, 1, 1, 1));
+    draw_text_transformed(0, 0, _string, image_xscale, image_yscale, _angle);
+    matrix_set(matrix_world, matrix_build_identity());
+	draw_set_halign(fa_left);
+	draw_set_alpha(1);	
+}
+
 /// @function draw_sprite_billboard_sphere(sprite, subimage, x, y, z)  
 function draw_sprite_billboard_sphere(_sprite, _subimage, _x, _y, _z) {
     matrix_set(matrix_world, matrix_build(_x, _y, _z, 0, 0, 0, 1, 1, 1));
@@ -350,8 +361,19 @@ function instance_nth_nearest(pointx, pointy, object, n) {
 	return nearest;
 }
 
-
-
+/// @function create_curse_word(x, y)
+function create_curse_word(_x, _y) {
+	var _count = instance_number(obj_char);
+	for (var i = 0; i < _count; i++) {
+		var _inst = instance_nth_nearest(_x, _y, obj_char, i);
+		if (!_inst.dead && _inst.word == undefined) {
+			var _text = instance_create_depth(_inst.x, _inst.y, depth, obj_curse_word);
+			_text.owner = _inst;
+			_inst.word  = _text;
+			break;
+		}
+	}
+}
 
 
 

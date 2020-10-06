@@ -5,6 +5,9 @@ model.y = y;
 model.z = z;
 model.update();
 
+if (instance_exists(obj_camera))
+	depth = obj_camera.depth - 1;
+
 // Check For Crashes When There Are No Crashes Below Us
 if (GRID_CRASHES[# u, v] == undefined) {		
 	// Check For Ramps, Cars, Cones, and Pianos

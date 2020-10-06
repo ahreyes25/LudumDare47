@@ -306,6 +306,8 @@ do_crash	= function() {
 	audio_play_sound(choose(sfx_scream_1, sfx_scream_2, sfx_scream_3, sfx_scream_4, sfx_scream_5, sfx_scream_6), 0, false);
 	audio_play_sound(sfx_crash, 0, false);
 	audio_play_sound(choose(sfx_exp_1, sfx_exp_2, sfx_exp_3, sfx_exp_4, sfx_exp_5, sfx_exp_6), 0, false);
+	
+	create_curse_word(x, y);
 }
 	
 	

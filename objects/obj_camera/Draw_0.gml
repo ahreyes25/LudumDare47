@@ -81,7 +81,7 @@ if (!SHOW_2D) {
 	shader_set(shdr_billboard_cylinder);
 	var _billboards = [obj_char, obj_vine_large, obj_vine_medium, obj_grass_patch, 
 		obj_firehydrant, obj_stoplight_3D, obj_trashcan, obj_particle, obj_float_particle,
-		obj_tree_top, obj_car, obj_piano];
+		obj_tree_top, obj_car, obj_piano, obj_curse_word];
 		
 	for (var i = 0; i < array_length(_billboards); i++) {
 		with (_billboards[i]) {
@@ -94,6 +94,14 @@ if (!SHOW_2D) {
 			}
 			if (object_index == obj_car && status_sprite == spr_status_arrow)
 				continue;
+				
+			if (object_index == obj_piano && state == "fall") {
+				draw_sprite_billboard_cylinder(spr_fall_streaks, 0, x, y, z - UNIT_SIZE * 0.5);
+				draw_sprite_billboard_cylinder(spr_status_descend, 0, x, y, z + UNIT_SIZE * 0.5);
+			}
+			if (object_index == obj_piano && state == "fall")
+				continue;
+				
 			event_perform(ev_draw, 0);
 		}
 	}
