@@ -98,9 +98,12 @@ if (!SHOW_2D) {
 			if (object_index == obj_piano && state == "fall") {
 				draw_sprite_billboard_cylinder(spr_fall_streaks, 0, x, y, z - UNIT_SIZE * 0.5);
 				draw_sprite_billboard_cylinder(spr_status_descend, 0, x, y, z + UNIT_SIZE * 0.5);
-			}
-			if (object_index == obj_piano && state == "fall")
+				
+				var _char = collision_circle(x, y, 2, obj_char, false, false);
+				if (_char != noone && _char != undefined)
+					draw_sprite_billboard_cylinder(spr_x, 0, x, y, _char.z - 5);
 				continue;
+			}	
 				
 			event_perform(ev_draw, 0);
 		}

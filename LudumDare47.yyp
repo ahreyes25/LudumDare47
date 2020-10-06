@@ -96,6 +96,7 @@
     {"id":{"name":"global_game_data","path":"scripts/global_game_data/global_game_data.yy",},"order":0,},
     {"id":{"name":"obj_crosswalk","path":"objects/obj_crosswalk/obj_crosswalk.yy",},"order":5,},
     {"id":{"name":"spr_tree_top","path":"sprites/spr_tree_top/spr_tree_top.yy",},"order":13,},
+    {"id":{"name":"spr_x","path":"sprites/spr_x/spr_x.yy",},"order":20,},
     {"id":{"name":"spr_characters_dead_top","path":"sprites/spr_characters_dead_top/spr_characters_dead_top.yy",},"order":4,},
     {"id":{"name":"obj_particle","path":"objects/obj_particle/obj_particle.yy",},"order":13,},
     {"id":{"name":"controls","path":"notes/controls/controls.yy",},"order":2,},
