@@ -1,3 +1,8 @@
+if (!grid_in_bounds(GRID_ENVIRONMENT, u, v)) {
+	instance_destroy();
+	return;
+}
+
 // Update UVs and Store Into Grid
 var _coords = world_to_grid(x, y);
 u = _coords[0];
