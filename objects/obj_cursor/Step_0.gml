@@ -108,6 +108,17 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 					}
 				}
 			}
+			
+			ds_list_clear(_list);
+			var _char_count = collision_circle_list(_x, _y, 5, obj_char, false, false, _list, false);
+			for (var i = 0; i < _char_count; i++) {
+				var _char = _list[| i];
+				if (_char.image_index == 0) {
+					_pass = false;
+					break;
+				}
+			}
+			
 			ds_list_destroy(_list);
 			break;
 	}
@@ -144,6 +155,8 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 	else
 		audio_play_sound(sfx_fail, 0, 0);
 }
+else if (selected_object == undefined && keyboard_check_pressed(ord("F")))
+	obj_game.inventory_show = !obj_game.inventory_show;
 
 depth = obj_camera.depth - 1;
 

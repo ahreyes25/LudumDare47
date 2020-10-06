@@ -1,6 +1,10 @@
 if (alarm0 == -1 && !dead) {
-	var _car = collision_circle(x, y, 1, obj_car, false, false);
-	if (_car != noone && _car != undefined && _car != obj_cursor.selected_object) {
+	var _car	 = collision_circle(x, y, 1, obj_car, false, false);
+	var _car_hit = (_car != noone && _car != undefined && _car != obj_cursor.selected_object && _car.state != "ascend" && _car.state != "descend");
+	var _piano	 = collision_circle(x, y, 1, obj_piano, false, false);
+	var _piano_hit = (_piano != noone && _piano != undefined && _piano != obj_cursor.selected_object && _piano.state == "crash");
+	
+	if  (_car_hit || _piano_hit) {
 		alarm0 = 60;
 		dead = true;
 		music_set(1);
@@ -14,3 +18,5 @@ if (alarm0 == -1 && !dead) {
 
 if (dead && alarm0 != -1 && SLOW_FACTOR != 0)
 	blood_particle_create(x, y);
+if (!grid_in_bounds(GRID_CHARS, u, v))
+	instance_destroy();

@@ -12,14 +12,14 @@ if (obj_game.in_main_menu) {
 		draw_text_transformed_color(SW * 0.5, SH * 0.66, "Press Space", _s, _s, 0, _b, _b, _b, _b, 1); 
 	draw_text_transformed_color(SW * 0.5, SH * 0.66 + _text_height, cleared_game == false ? "Press R To Reset Loop" : "Loop Reset!", _s, _s, 0, _b, _b, _b, _b, 1); 
 
+	draw_set_halign(fa_left);
 	var _s = 1;
 	var _text_height = string_height("A") * _s;
-	draw_text_transformed_color(SW * 0.5, SH - _text_height * 4, "2D Art: Aerys @_AERYS_", _s, _s, 0, _b, _b, _b, _b, 1);
-	draw_text_transformed_color(SW * 0.5, SH - _text_height * 3, "3D Art: Anthony @nodesworth", _s, _s, 0, _b, _b, _b, _b, 1);
-	draw_text_transformed_color(SW * 0.5, SH - _text_height * 2, "Coding: Alex @GentooGames", _s, _s, 0, _b, _b, _b, _b, 1);
-	draw_text_transformed_color(SW * 0.5, SH - _text_height * 1, "Music: Mark Sparling @Markymark665", _s, _s, 0, _b, _b, _b, _b, 1);
+	draw_text_transformed_color(15, SH - _text_height * 4, "2D Art: Aerys @_AERYS_", _s, _s, 0, _b, _b, _b, _b, 1);
+	draw_text_transformed_color(15, SH - _text_height * 3, "3D Art: Anthony @nodesworth", _s, _s, 0, _b, _b, _b, _b, 1);
+	draw_text_transformed_color(15, SH - _text_height * 2, "Programming: Alex @GentooGames", _s, _s, 0, _b, _b, _b, _b, 1);
+	draw_text_transformed_color(15, SH - _text_height * 1, "Music: Mark Sparling @Markymark665", _s, _s, 0, _b, _b, _b, _b, 1);
 
-	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 }
 

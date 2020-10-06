@@ -5,3 +5,11 @@ switch (room) {
 		break;
 }
 music_set(0);
+
+if (game_won) {
+	ds_list_clear(player_actions);
+	round_counter = 0;
+	turn_counter = 0;
+	obj_game.in_main_menu = true;
+	objectives_index = 0;
+}

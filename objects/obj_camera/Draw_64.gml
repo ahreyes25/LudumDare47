@@ -1,3 +1,5 @@
+//if (live_call()) return live_result;
+
 if (!obj_game.in_main_menu) {
 	var _scale			= 4;
 	var _round_width	= sprite_get_width(spr_round) * _scale;
@@ -111,7 +113,44 @@ if (!obj_game.in_main_menu) {
 	draw_sprite_ext(spr_help_tab, 0, help_x, 200, 3, 3, 0, c_white, 1);
 	
 	// Space Prompt
-	var _acting = (obj_game.execute || obj_game.alarm[1] != -1 || obj_game.placed_item_this_round);
-	if (!_acting)
-		draw_text_transformed_color(SW * 0.75, SH - string_height("A") * 1.5 - 10, "Press Space For Next Turn", 1.5, 1.5, 0, c_black, c_black, c_black, c_black, 1);
+	//var _acting = (obj_game.execute || obj_game.alarm[1] != -1 || obj_game.placed_item_this_round);
+	//if (!_acting)
+	//	draw_text_transformed_color(SW * 0.75, SH - string_height("A") * 1.5 - 10, "Press Space For Next Turn", 1.5, 1.5, 0, c_black, c_black, c_black, c_black, 1);
+		
+	// Draw Objectives
+	if (!obj_menu.show_controls) {
+		var _scale   = 4;
+		var _stick_w = sprite_get_width(spr_stickies) * _scale;
+		var _stick_h = sprite_get_height(spr_stickies) * _scale;
+		var _stick_x = SW - _stick_w * 0.5;
+		var _stick_y = 20;
+		draw_sprite_ext(spr_stickies, 0, _stick_x, _stick_y, _scale, _scale, 0, c_white, 1);
+		
+		draw_set_color(c_black);
+		draw_set_halign(fa_center);
+		var _ts = 1.2;
+		draw_text_ext_transformed(_stick_x, _stick_y + 25, "- Save The Mailmen", 10, _stick_w / _ts, _ts, _ts, 4);
+		var _text = obj_game.objectives_index > 0 ? "- Kill The Robbers" : "- ?????????";
+		draw_text_ext_transformed(_stick_x - 5 * _scale, _stick_y + 25 + 25 * _scale, _text, 10, _stick_w / _ts, _ts, _ts, -4);
+		var _text = obj_game.objectives_index > 1 ? "- Dont Let Any Civilians Die" : "- ?????????";
+		draw_text_ext_transformed(_stick_x + 8 * _scale, _stick_y + 25 + 50 * _scale, _text, 10, _stick_w / _ts - 50, _ts, _ts, 8);
+		draw_set_halign(fa_left);
+		draw_set_color(c_white);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

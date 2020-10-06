@@ -88,7 +88,7 @@ if (!SHOW_2D) {
 			shader_set_uniform_f(u_xscale, xscale);
 			shader_set_uniform_f(u_yscale, yscale);
 			
-			if (object_index == obj_car && state != "crash") {
+			if (object_index == obj_car && state != "crash" && !off) {
 				image_angle = 0;
 				draw_sprite_billboard_cylinder(spr_numbers, momentum, x + UNIT_SIZE * 0.5, y, z - UNIT_SIZE * 0.5);
 			}

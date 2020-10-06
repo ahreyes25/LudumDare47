@@ -1,23 +1,23 @@
-// NEED TO DO
-- objectives
-
 // After
-- have car stop before building
-- visualize deaths and damage
-- land on downwards facing ramps
 - piano shadow as it fall
-- ghost floating away
+- land on downwards facing ramps
 - curse words floating on screen
+
+
+
+
+
+
+- have car stop before building
+- end game "summary"
+	- visualize deaths and damage
+- ghost floating away
 
 - human logic
 	- humans in road cause cars to swerve in opposite direction than theyre moving
 	- walking on sidewalks
 	- crossing streets
 	- arrow direction sprites
-
-- rotate cars on ramps/ascending/descending
-- remove GMLIVE
-- remove all extre debug keys
 
 
 

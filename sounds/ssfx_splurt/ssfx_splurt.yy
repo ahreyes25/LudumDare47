@@ -13,8 +13,8 @@
   "soundFile": "ssfx_splurt.wav",
   "duration": 0.103413,
   "parent": {
-    "name": "LudumDare47",
-    "path": "LudumDare47.yyp",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "ssfx_splurt",

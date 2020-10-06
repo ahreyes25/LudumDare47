@@ -30,4 +30,5 @@ if (keyboard_check_pressed(ord("R")) && obj_game.in_main_menu) {
 	obj_game.turn_counter = 0;
 	room_restart();
 	cleared_game = true;
+	obj_game.objectives_index = 0;
 }

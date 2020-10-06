@@ -1,7 +1,13 @@
 event_inherited();
 
 entity		= ENTITY.CHAR;
-image_index = irandom(image_number - 2);
+
+if (skin == "random")
+	image_index = irandom_range(2, image_number - 1);
+else if (skin == "cop")
+	image_index = 1;
+else if (skin == "robber")
+	image_index = 0;
 image_speed	= 0;
 z			= -1;
 depth		=  0;

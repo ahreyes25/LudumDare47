@@ -29,7 +29,7 @@ in_main_menu			= true;
 rounds_total			= 10000;
 round_counter			= 0;
 turn_counter			= 0;
-turns_total				= 10;
+turns_total				= 25;
 inventory				= [obj_car,	obj_piano, obj_ramp, obj_cone];
 inventory_show			= false;
 inventory_y_target		= SH;
@@ -88,3 +88,7 @@ audio_play_sound_on(MUSIC_EMITTER_INTENSE, music_intense_2, true, 0);
 water_inst_1 = undefined;
 water_inst_2 = undefined;
 water_inst_3 = undefined;
+
+game_won = false;
+objectives_index = 0;
+volume_index = 3;

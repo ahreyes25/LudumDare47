@@ -1,3 +1,21 @@
+// Toggle Fullscreen
+if (keyboard_check_pressed(vk_f11))
+	window_set_fullscreen(!window_get_fullscreen());
+if (keyboard_check_pressed(vk_f10)) {
+	if (volume_index == 3)
+		audio_master_gain(1);
+	else if (volume_index == 2)
+		audio_master_gain(0.5);
+	else if (volume_index == 1)
+		audio_master_gain(0.25);
+	else if (volume_index == 0)
+		audio_master_gain(0);
+		
+	volume_index--;
+	if (volume_index < 0)
+		volume_index = 3;
+}
+
 if (instance_exists(obj_grid) && !instance_exists(obj_camera))
 	instance_create_depth(x, y, depth, obj_camera);
 depth = obj_camera.depth + 1;	
@@ -17,18 +35,18 @@ if (new_round_flickering) {
 
 
 #region Space To Advance Game
-if (!obj_menu.show_controls && keyboard_check_pressed(vk_space) && turn_counter < turns_total && alarm[1] == -1 && !placed_item_this_round && alarm[5] == -1) {
-	obj_grid.act_on_entities();
-	turn_counter++;
-	recreate_actions();
-	execute = true;
-	alarm[0] = frames_per_turn;
-	alarm[1] = space_cooldown;
-}
-if (keyboard_check_released(vk_space)) {
-	execute = false;
-	alarm[0] = -1;
-}
+//if (!obj_menu.show_controls && keyboard_check_pressed(vk_space) && turn_counter < turns_total && alarm[1] == -1 && !placed_item_this_round && alarm[5] == -1) {
+//	obj_grid.act_on_entities();
+//	turn_counter++;
+//	recreate_actions();
+//	execute = true;
+//	alarm[0] = frames_per_turn;
+//	alarm[1] = space_cooldown;
+//}
+//if (keyboard_check_released(vk_space)) {
+//	execute = false;
+//	alarm[0] = -1;
+//}
 if (turn_counter >= turns_total) {
 	execute = false;
 	alarm[0] = -1;
@@ -83,10 +101,5 @@ inventory_y = lerp(inventory_y, inventory_y_target, 0.1);
 
 // Restart Round
 if (turn_counter >= turns_total && alarm[2] == -1)
-	alarm[2] = 60 * 3;
-
-// Toggle Fullscreen
-if (keyboard_check_pressed(vk_f11))
-	window_set_fullscreen(!window_get_fullscreen());
-
+	alarm[2] = 60 * 2;
 
