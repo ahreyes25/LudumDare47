@@ -91,4 +91,12 @@ water_inst_3 = undefined;
 
 game_won = false;
 objectives_index = 0;
-volume_index = 3;
+volume_index = 1;
+if (volume_index == 3)
+	audio_master_gain(1);
+else if (volume_index == 2)
+	audio_master_gain(0.5);
+else if (volume_index == 1)
+	audio_master_gain(0.25);
+else if (volume_index == 0)
+	audio_master_gain(0);

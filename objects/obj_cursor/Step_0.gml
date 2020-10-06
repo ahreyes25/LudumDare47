@@ -80,6 +80,11 @@ if (selected_object != undefined && keyboard_check_pressed(ord("F"))) {
 					}
 				}
 			}
+			
+			ds_list_clear(_list);
+			var _char_count = collision_circle_list(_x, _y, 5, obj_char, false, false, _list, false);
+			if (_char_count > 0)
+				_pass = false;
 			ds_list_destroy(_list);
 			break;
 			
