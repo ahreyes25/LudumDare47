@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"eccc62bb-bcbe-40e6-a648-cd6b37c21c3c","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":60.0,"displayName":"default","resourceVersion":"1.0","name":"eccc62bb-bcbe-40e6-a648-cd6b37c21c3c","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "UI",

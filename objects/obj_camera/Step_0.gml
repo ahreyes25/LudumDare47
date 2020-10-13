@@ -42,6 +42,7 @@ if (keyboard_check_pressed(ord("4"))) 	position_index = 3;
 if (keyboard_check_pressed(ord("5"))) 	position_index = 4;
 if (keyboard_check_pressed(ord("6"))) 	position_index = 5;
 if (keyboard_check_pressed(ord("7")))	position_index = 6;
+//if (keyboard_check_pressed(ord("8")))	position_index = 7;
 
 if (keyboard_check(vk_shift) && !panning) {
 	if (keyboard_check_pressed(ord("D"))) {

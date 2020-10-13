@@ -1,5 +1,5 @@
-var _cam_width  = window_get_width()  / 3;
-var _cam_height = window_get_height() / 3;
+var _cam_width  = 1080 / 3;
+var _cam_height = 640  / 3;//window_get_height() / 3;
 
 //draw_clear(c_black);
 
@@ -88,6 +88,11 @@ if (!SHOW_2D) {
 			shader_set_uniform_f(u_xscale, xscale);
 			shader_set_uniform_f(u_yscale, yscale);
 			
+			if (object_index == obj_car) {
+				var _char = collision_circle(x, y, 2, obj_char, false, false);
+				if (_char != noone && _char != undefined)
+					draw_sprite_billboard_cylinder(spr_x, 0, x, y, _char.z - 5);
+			}
 			if (object_index == obj_car && state != "crash" && !off) {
 				image_angle = 0;
 				draw_sprite_billboard_cylinder(spr_numbers, momentum, x + UNIT_SIZE * 0.5, y, z - UNIT_SIZE * 0.5);
@@ -98,9 +103,12 @@ if (!SHOW_2D) {
 			if (object_index == obj_piano && state == "fall") {
 				draw_sprite_billboard_cylinder(spr_fall_streaks, 0, x, y, z - UNIT_SIZE * 0.5);
 				draw_sprite_billboard_cylinder(spr_status_descend, 0, x, y, z + UNIT_SIZE * 0.5);
-			}
-			if (object_index == obj_piano && state == "fall")
+				
+				var _char = collision_circle(x, y, 2, obj_char, false, false);
+				if (_char != noone && _char != undefined)
+					draw_sprite_billboard_cylinder(spr_x, 0, x, y, _char.z - 5);
 				continue;
+			}	
 				
 			event_perform(ev_draw, 0);
 		}

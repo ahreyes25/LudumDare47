@@ -103,3 +103,5 @@ inventory_y = lerp(inventory_y, inventory_y_target, 0.1);
 if (turn_counter >= turns_total && alarm[2] == -1)
 	alarm[2] = 60 * 2;
 
+//if (keyboard_check(vk_control))
+//	SLOW_FACTOR = 0;
